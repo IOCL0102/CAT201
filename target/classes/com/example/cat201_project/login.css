@@ -1,0 +1,51 @@
+@font-face {
+    font-family:Righteous ;
+    src: url(fonts/Righteous-Regular.ttf);
+}
+
+@font-face {
+    font-family: SairaStencilOne ;
+    src: url(fonts/SairaStencilOne-Regular.ttf);
+}
+
+
+
+#loginLeftPage {
+    -fx-background-color : #041227 ;
+
+}
+
+Text{
+    -fx-font-family: Righteous;
+    -fx-font-weight: bold;
+    -fx-font-size: 21px;
+    -fx-fill: white;    /* font color */
+}
+
+#bannerText{
+    -fx-font-family: SairaStencilOne;
+    -fx-font-weight: bold;
+    -fx-font-size: 45px;
+    -fx-fill: white;    /* font color */
+}
+
+#bannerLogoNameText{
+    -fx-font-family: SairaStencilOne;
+    -fx-font-size: 65px;
+    -fx-fill: #FFCA00;    /* font color */
+}
+
+#loginButton{
+    -fx-font-family:Righteous;
+    -fx-background-radius: 100px;
+    -fx-background-color: FFCA00;
+    -fx-text-fill: #041227;
+}
+
+#forgotPwText{
+    -fx-font-size: 15px;
+}
+
+#signUpText{
+    -fx-font-size: 17px;
+}

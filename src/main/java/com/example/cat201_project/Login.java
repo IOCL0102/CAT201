@@ -24,7 +24,8 @@ public class Login extends Application {
     public void start(Stage stage) throws IOException {
         FXMLLoader fxmlLoader = new FXMLLoader(Login.class.getResource("login-view.fxml"));
         Scene scene = new Scene(fxmlLoader.load(), 1280, 720);
-        stage.setTitle("Hello!");
+        scene.getStylesheets().add(getClass().getResource("login.css").toExternalForm());
+        stage.setTitle("ROYAL CINEMA!");
         stage.setScene(scene);
         stage.show();
     }
@@ -36,9 +37,9 @@ public class Login extends Application {
         for(int i = 0; i < userData.size(); i++){
             String x = (((JSONObject)userData.get(i)).get("userID")).toString();
 
-            if( x.equals("test2")) {
+            if( x.equals("test3")) {
                 System.out.println("you have logined");
-                System.out.println("your index is "+ i);
+                System.out.println("your index is "+ (i+1));
                 userArrayIndex = i+1;
             }
         }
@@ -49,7 +50,7 @@ public class Login extends Application {
 
     public static JSONObject getJSONObject(String fileName) {
         try {
-            FileReader reader = new FileReader("././././JSON_File/" + fileName);
+            FileReader reader = new FileReader("src/main/resources/com/example/cat201_project/JSON_file/" + fileName);
             JSONParser jsonParser = new JSONParser();
             Object obj = jsonParser.parse(reader);
             return (JSONObject) obj;
@@ -59,3 +60,4 @@ public class Login extends Application {
         }
     }
 }
+

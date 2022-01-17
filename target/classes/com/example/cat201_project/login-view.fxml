@@ -1,16 +1,50 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.geometry.Insets?>
-<?import javafx.scene.control.Label?>
-<?import javafx.scene.layout.VBox?>
-
 <?import javafx.scene.control.Button?>
-<VBox alignment="CENTER" spacing="20.0" xmlns:fx="http://javafx.com/fxml"
-      fx:controller="com.example.cat201_project.LoginController">
-    <padding>
-        <Insets bottom="20.0" left="20.0" right="20.0" top="20.0"/>
-    </padding>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
 
-    <Label fx:id="welcomeText"/>
-    <Button text="Hello!" onAction="#onHelloButtonClick"/>
-</VBox>
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="720.0" prefWidth="1280.0" style="-fx-background-color: black;" stylesheets="@login.css" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1">
+   <children>
+      <ImageView fx:id="loginImage" fitHeight="720.0" fitWidth="1000.0" opacity="0.32" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@img/login_background.jpg" />
+         </image>
+      </ImageView>
+      <Text fx:id="bannerText" fill="WHITE" layoutX="60.0" layoutY="497.0" strokeType="OUTSIDE" strokeWidth="0.0" text="ENJOY THE      GREATEST EXPERIENCE FROM " wrappingWidth="509.5488281249999">
+         <font>
+            <Font size="59.0" />
+         </font>
+      </Text>
+      <AnchorPane fx:id="loginLeftPage" layoutX="893.0" prefHeight="720.0" prefWidth="398.0" stylesheets="@login.css">
+         <children>
+            <Text fx:id="userIDText" layoutX="47.0" layoutY="299.0" strokeType="OUTSIDE" strokeWidth="0.0" text="UserID" />
+            <Text layoutX="47.0" layoutY="395.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Password" />
+            <TextField fx:id="userIDTextField" layoutX="47.0" layoutY="320.0" prefHeight="36.0" prefWidth="299.0" style="-fx-background-radius: 100;">
+               <font>
+                  <Font size="16.0" />
+               </font></TextField>
+            <TextField fx:id="userPwTextField" layoutX="47.0" layoutY="413.0" prefHeight="36.0" prefWidth="299.0" style="-fx-background-radius: 100;">
+               <font>
+                  <Font size="16.0" />
+               </font></TextField>
+            <Text fx:id="forgotPwText" layoutX="49.0" layoutY="473.0" strokeType="OUTSIDE" strokeWidth="0.0" text="forgot password ?" underline="true" />
+            <Button fx:id="loginButton" layoutX="154.0" layoutY="524.0" mnemonicParsing="false" prefHeight="37.0" prefWidth="86.0" text="Login" textAlignment="JUSTIFY">
+               <font>
+                  <Font size="17.0" />
+               </font>
+            </Button>
+            <Text fx:id="signUpText" layoutX="170.0" layoutY="581.0" strokeType="OUTSIDE" strokeWidth="0.0" text="sign up" underline="true" />
+         </children></AnchorPane>
+      <ImageView fitHeight="391.0" fitWidth="502.0" layoutX="843.0" layoutY="-63.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@img/logo.png" />
+         </image>
+      </ImageView>
+      <Text fx:id="bannerLogoNameText" layoutX="215.0" layoutY="633.0" strokeType="OUTSIDE" strokeWidth="0.0" text="ROYAL CINEMA" />
+   </children>
+</AnchorPane>

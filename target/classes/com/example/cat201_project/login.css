@@ -42,15 +42,29 @@ Text{
     -fx-text-fill: #041227;
 }
 
-#forgotPwText{
+#forgotPwBttn{
+    -fx-font-family:Righteous;
     -fx-font-size: 15px;
+    -fx-background-color:transparent;
+    -fx-border-color:transparent;
+    -fx-text-fill:white;    
 }
 
-#signUpText{
+#signUpBttn{
+    -fx-font-family:Righteous;
     -fx-font-size: 17px;
+    -fx-background-color:transparent;
+    -fx-border-color:transparent;
+    -fx-text-fill:white;    
 }
 
 #errorInvalidAccMessage{
     -fx-font-size : 15px;
     -fx-fill: #ff3c3c;
+}
+
+#emptyTextFieldErrMsg{
+    -fx-font-family:Righteous;
+    -fx-font-size : 15px;
+    -fx-text-fill: #ff3c3c;
 }

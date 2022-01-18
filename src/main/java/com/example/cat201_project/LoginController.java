@@ -3,45 +3,41 @@ package com.example.cat201_project;
 import javafx.animation.FadeTransition;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.scene.Scene;
 import javafx.scene.control.Button;
+import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
-import javafx.scene.image.ImageView;
-import javafx.scene.layout.AnchorPane;
 import javafx.scene.text.Text;
+import javafx.stage.Stage;
 import javafx.util.Duration;
 import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
 import org.json.simple.parser.JSONParser;
 
 import java.io.FileReader;
+import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
 
 public class LoginController implements Initializable{
 
-    @FXML private Text bannerLogoNameText;
-    @FXML private Text bannerText;
-    @FXML private Text forgotPwText;
-    @FXML private Text signUpText;
-    @FXML private Text userIDText;
-    @FXML private Text errorInvalidAccMessage;
-
     @FXML private TextField userIDTextField;
     @FXML private TextField userPwTextField;
 
-    @FXML private Button loginButton;
-    @FXML private ImageView loginImage;
-    @FXML private AnchorPane loginLeftPage;
+    @FXML private Text errorInvalidAccMessage;
+    @FXML private Button signUpBttn;
+    @FXML private Label emptyTextFieldErrMsg;
 
     private JSONArray userData = null;
-    private int userArrayIndex ;
+    private static int userArrayIndex ;
 
     public LoginController() {
         userArrayIndex = -1;
     }
-    public  void setUserArrayIndex(int aryIndex){ userArrayIndex = aryIndex;}
-    public int getUserArrayIndex() {
+    public static void setUserArrayIndex(int aryIndex){ userArrayIndex = aryIndex;}
+    public static int getUserArrayIndex() {
         return userArrayIndex;
     }
 
@@ -50,7 +46,9 @@ public class LoginController implements Initializable{
     public void initialize(URL url, ResourceBundle resourceBundle) {
         JSONObject userInfo = getJSONObject("userInformation.json");
         userData = (JSONArray) userInfo.get("userInfo");
+        emptyTextFieldErrMsg.setVisible(false);
         errorInvalidAccMessage.setVisible(false);
+        System.out.println(userArrayIndex);
     }
 
     public void validateLogin(ActionEvent e){
@@ -66,24 +64,48 @@ public class LoginController implements Initializable{
             if( tempUserID.equals(userID) && tempUserPw.equals(userPw)) {
                 System.out.println("you have logined");
                 setUserArrayIndex(i);
-
                 System.out.println("your index is "+ getUserArrayIndex());
-
                 isValidAcc = true;
+                // LATER TO BE ADDED
+                // CHANGE SCENE TO MAIN PAGE AFTER LOGIN
             }
         }
 
         // if no account is found on userInformation.json , display error message
-        if(isValidAcc == false){
+        if(userID.isEmpty() || userPw.isEmpty()){
+
+            if(errorInvalidAccMessage.isVisible())
+                errorInvalidAccMessage.setVisible(false);
+
+            emptyTextFieldErrMsg.setText("UserID or Password cannot be emtpy");
+            emptyTextFieldErrMsg.setVisible(true);
+            FadeTransition fadeMessage = new FadeTransition(Duration.millis(4000), emptyTextFieldErrMsg);
+            fadeMessage.setFromValue(1);
+            fadeMessage.setToValue(0);
+            fadeMessage.play();
+        }
+        else if(isValidAcc == false){
+            if(emptyTextFieldErrMsg.isVisible())
+                emptyTextFieldErrMsg.setVisible(false);
+
             errorInvalidAccMessage.setVisible(true);
-            FadeTransition fadeMessage = new FadeTransition(Duration.millis(6000), errorInvalidAccMessage);
+            FadeTransition fadeMessage = new FadeTransition(Duration.millis(4000), errorInvalidAccMessage);
             fadeMessage.setFromValue(1);
             fadeMessage.setToValue(0);
             fadeMessage.play();
         }
     }
 
-    private static JSONObject getJSONObject(String fileName) {
+    public void changeToSignUpScene(ActionEvent e) throws IOException {
+
+        FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("registerAccount.fxml"));
+        Stage stage = (Stage) signUpBttn.getScene().getWindow();
+        stage.setScene(new Scene(fxmlLoader.load(), 1280, 720));
+        stage.show();
+    }
+
+
+    protected static JSONObject getJSONObject(String fileName) {
         try {
             FileReader reader = new FileReader("src/main/resources/com/example/cat201_project/JSON_file/" + fileName);
             JSONParser jsonParser = new JSONParser();

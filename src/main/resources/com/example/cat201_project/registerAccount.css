@@ -1,0 +1,62 @@
+@font-face {
+    font-family:Righteous ;
+    src: url(fonts/Righteous-Regular.ttf);
+}
+
+@font-face {
+    font-family: SairaStencilOne ;
+    src: url(fonts/SairaStencilOne-Regular.ttf);
+}
+
+
+
+#loginLeftPage {
+    -fx-background-color : #041227 ;
+}
+
+Text{
+    -fx-font-family: Righteous;
+    -fx-font-weight: bold;
+    -fx-font-size: 18px;
+    -fx-fill: white;    /* font color */
+}
+
+#signUpBttn{
+    -fx-font-family:Righteous;
+    -fx-font-size: 15px;
+    -fx-background-radius: 100px;
+    -fx-background-color: #FFCA00;
+    -fx-text-fill:black;    
+}
+
+#errorInvalidAccMessage{
+    -fx-font-size : 15px;
+    -fx-fill: #ff3c3c;
+}
+
+Label{
+    -fx-font-family: Righteous;
+    -fx-font-weight: bold;
+    -fx-text-fill: #ff3c3c;
+    -fx-font-size: 13px;
+}
+
+#signUpSuccessMsg{
+    -fx-text-fill: #FFCA00;
+    -fx-font-size: 14px;
+}
+
+
+#bannerText{
+    -fx-font-family: SairaStencilOne;
+    -fx-font-weight: bold;
+    -fx-font-size: 45px;
+    -fx-fill: white;    /* font color */
+}
+
+#bannerLogoNameText{
+    -fx-font-family: SairaStencilOne;
+    -fx-font-size: 65px;
+    -fx-fill: #FFCA00;    /* font color */
+}
+

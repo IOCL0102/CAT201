@@ -49,3 +49,8 @@ Text{
 #signUpText{
     -fx-font-size: 17px;
 }
+
+#errorInvalidAccMessage{
+    -fx-font-size : 15px;
+    -fx-fill: #ff3c3c;
+}

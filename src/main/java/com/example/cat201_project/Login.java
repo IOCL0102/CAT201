@@ -4,21 +4,9 @@ import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
-
-import java.io.FileNotFoundException;
-import java.io.FileReader;
 import java.io.IOException;
-import java.io.InputStream;
-import java.net.URL;
-
-import org.json.simple.JSONArray;
-import org.json.simple.JSONObject;
-import org.json.simple.parser.JSONParser;
-import org.json.simple.parser.ParseException;
 
 public class Login extends Application {
-
-    public static int userArrayIndex = -1;
 
     @Override
     public void start(Stage stage) throws IOException {
@@ -30,34 +18,6 @@ public class Login extends Application {
         stage.show();
     }
 
-    public static void main(String[] args) {
-        JSONObject userInfo = getJSONObject("userInformation.json");
-        JSONArray userData = (JSONArray) userInfo.get("userInfo");
-
-        for(int i = 0; i < userData.size(); i++){
-            String x = (((JSONObject)userData.get(i)).get("userID")).toString();
-
-            if( x.equals("test3")) {
-                System.out.println("you have logined");
-                System.out.println("your index is "+ (i+1));
-                userArrayIndex = i+1;
-            }
-        }
-
-        launch();
-    }
-
-
-    public static JSONObject getJSONObject(String fileName) {
-        try {
-            FileReader reader = new FileReader("src/main/resources/com/example/cat201_project/JSON_file/" + fileName);
-            JSONParser jsonParser = new JSONParser();
-            Object obj = jsonParser.parse(reader);
-            return (JSONObject) obj;
-        } catch (Exception e) {
-            e.printStackTrace();
-            return null;
-        }
-    }
+    public static void main(String[] args) { launch();}
 }
 

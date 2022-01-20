@@ -32,17 +32,19 @@ public class LoginController implements Initializable{
     @FXML private Label emptyTextFieldErrMsg;
 
 
-    private JsonEditor userInfo = null;
+    private JSONArray userData = null;
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) throws NullPointerException {
-        JsonEditor userInfo = new JsonEditor("userInformation.json");
+        JSONObject userInfo = JsonEditor.getJSONObject("userInformation.json");
+        userData = (JSONArray) userInfo.get("userInfo");
         emptyTextFieldErrMsg.setVisible(false);
         errorInvalidAccMessage.setVisible(false);
+        JsonEditor.setUserArrayIndex(-1);
+        System.out.println(JsonEditor.getUserArrayIndex());
     }
 
     public void validateLogin(ActionEvent e){
-        JSONArray userData = userInfo.getUserData();
         String userID = userIDTextField.getText();
         String userPw = userPwTextField.getText();
         boolean isValidAcc = false;

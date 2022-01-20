@@ -41,7 +41,7 @@ public class RegisterAccountController implements Initializable{
     public void initialize(URL url, ResourceBundle resourceBundle) {
         // set not visible to all the error message
         setErrLabelVisibility(false);
-
+        System.out.println(JsonEditor.getUserArrayIndex());
         // get all the data from userInformation.json
         JSONObject userInfo = JsonEditor.getJSONObject("userInformation.json");
         userData = (JSONArray) userInfo.get("userInfo");

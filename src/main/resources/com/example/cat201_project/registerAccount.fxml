@@ -31,7 +31,7 @@
                </image>
             </ImageView>
             <Text layoutX="63.0" layoutY="467.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Password" />
-            <Button fx:id="signUpBttn" layoutX="393.0" layoutY="647.0" mnemonicParsing="false" onAction="#validateSignUp" prefHeight="37.0" prefWidth="86.0" text="Sign Up" textAlignment="CENTER">
+            <Button fx:id="signUpBttn" layoutX="393.0" layoutY="647.0" mnemonicParsing="false" onAction="#signUp" prefHeight="37.0" prefWidth="86.0" text="Sign Up" textAlignment="CENTER">
                <font>
                   <Font size="17.0" />
                </font>

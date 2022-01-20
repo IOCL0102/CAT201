@@ -9,7 +9,6 @@ import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
-import javafx.scene.text.TextAlignment;
 import javafx.stage.Stage;
 import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
@@ -36,23 +35,45 @@ public class RegisterAccountController implements Initializable{
     @FXML private Button signUpBttn;
 
     private JSONArray userData = null;
+    private String userEmail,userID,userName,userPw,userReEnterPw;
+
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         // set not visible to all the error message
         setErrLabelVisibility(false);
 
         // get all the data from userInformation.json
-        JSONObject userInfo = LoginController.getJSONObject("userInformation.json");
+        JSONObject userInfo = JsonEditor.getJSONObject("userInformation.json");
         userData = (JSONArray) userInfo.get("userInfo");
     }
 
-    public void validateSignUp (ActionEvent e){
+    public void signUp(ActionEvent e){
+        validateSignUp();
+
+        // If all error message is NOT visible, then execute
+        // All error message not visible indicates all data is correct
+        if(!isAllLabelIsVisible()){
+            // add data into json file
+            JSONObject newUserAcc = new JSONObject();
+            newUserAcc.put("userID",userID);
+            newUserAcc.put("userName",userName);
+            newUserAcc.put("password",userPw);
+            newUserAcc.put("email",userEmail);
+
+            userData.add(newUserAcc);
+            System.out.println(userData.toString());
+            System.out.println("SUCCESSFULLY SIGN UP !!");
+        }
+    }
+
+    public void validateSignUp (){
         setErrLabelVisibility(false);
-        String userEmail = emailTextField.getText();
-        String userID = userIDTextField.getText();
-        String userName = userNameTextField.getText();
-        String userPw = pwTextField.getText();
-        String userReEnterPw = reEnterPwTextField.getText();
+        userEmail = emailTextField.getText();
+        userID = userIDTextField.getText();
+        userName = userNameTextField.getText();
+        userPw = pwTextField.getText();
+        userReEnterPw = reEnterPwTextField.getText();
+        boolean isValidInfoProvided = false;
 
         // print error message if text field is empty
         if(userEmail.isEmpty()){
@@ -95,7 +116,6 @@ public class RegisterAccountController implements Initializable{
                 userNameErrLabel.setVisible(true);
             }
         }
-
     }
 
     public void changeToLoginScene(ActionEvent e) throws IOException {
@@ -111,5 +131,9 @@ public class RegisterAccountController implements Initializable{
         userIDErrLabel.setVisible(isVisible);
         userNameErrLabel.setVisible(isVisible);
         signUpSuccessMsg.setVisible(isVisible);
+    }
+
+    private boolean isAllLabelIsVisible(){
+        return (emailErrLabel.isVisible() && pwNotSameErrLabel.isVisible() && userIDErrLabel.isVisible() && userNameErrLabel.isVisible());
     }
 }

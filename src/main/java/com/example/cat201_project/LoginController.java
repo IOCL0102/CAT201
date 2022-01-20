@@ -14,12 +14,13 @@ import javafx.stage.Stage;
 import javafx.util.Duration;
 import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
-import org.json.simple.parser.JSONParser;
 
 import java.io.FileReader;
 import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
+
+import static com.example.cat201_project.JsonEditor.getJSONObject;
 
 public class LoginController implements Initializable{
 
@@ -30,28 +31,18 @@ public class LoginController implements Initializable{
     @FXML private Button signUpBttn;
     @FXML private Label emptyTextFieldErrMsg;
 
-    private JSONArray userData = null;
-    private static int userArrayIndex ;
 
-    public LoginController() {
-        userArrayIndex = -1;
-    }
-    public static void setUserArrayIndex(int aryIndex){ userArrayIndex = aryIndex;}
-    public static int getUserArrayIndex() {
-        return userArrayIndex;
-    }
-
+    private JsonEditor userInfo = null;
 
     @Override
-    public void initialize(URL url, ResourceBundle resourceBundle) {
-        JSONObject userInfo = getJSONObject("userInformation.json");
-        userData = (JSONArray) userInfo.get("userInfo");
+    public void initialize(URL url, ResourceBundle resourceBundle) throws NullPointerException {
+        JsonEditor userInfo = new JsonEditor("userInformation.json");
         emptyTextFieldErrMsg.setVisible(false);
         errorInvalidAccMessage.setVisible(false);
-        System.out.println(userArrayIndex);
     }
 
     public void validateLogin(ActionEvent e){
+        JSONArray userData = userInfo.getUserData();
         String userID = userIDTextField.getText();
         String userPw = userPwTextField.getText();
         boolean isValidAcc = false;
@@ -59,12 +50,12 @@ public class LoginController implements Initializable{
         // get all the data from userInformation.json
         for(int i = 0; i < userData.size(); i++){
             String tempUserID = (((JSONObject)userData.get(i)).get("userID")).toString();
-            String tempUserPw = (((JSONObject)userData.get(i)).get("Password")).toString();
+            String tempUserPw = (((JSONObject)userData.get(i)).get("password")).toString();
 
             if( tempUserID.equals(userID) && tempUserPw.equals(userPw)) {
                 System.out.println("you have logined");
-                setUserArrayIndex(i);
-                System.out.println("your index is "+ getUserArrayIndex());
+                JsonEditor.setUserArrayIndex(i);
+                System.out.println("your index is "+ JsonEditor.getUserArrayIndex());
                 isValidAcc = true;
                 // LATER TO BE ADDED
                 // CHANGE SCENE TO MAIN PAGE AFTER LOGIN
@@ -102,18 +93,5 @@ public class LoginController implements Initializable{
         Stage stage = (Stage) signUpBttn.getScene().getWindow();
         stage.setScene(new Scene(fxmlLoader.load(), 1280, 720));
         stage.show();
-    }
-
-
-    protected static JSONObject getJSONObject(String fileName) {
-        try {
-            FileReader reader = new FileReader("src/main/resources/com/example/cat201_project/JSON_file/" + fileName);
-            JSONParser jsonParser = new JSONParser();
-            Object obj = jsonParser.parse(reader);
-            return (JSONObject) obj;
-        } catch (Exception e) {
-            e.printStackTrace();
-            return null;
-        }
     }
 }

@@ -22,7 +22,6 @@ public class JsonEditor {
     public JSONObject getUserInfo() {
         return userInfo;
     }
-
     public JSONArray getUserData() {
         return userData;
     }
@@ -37,7 +36,6 @@ public class JsonEditor {
         deleteLineInFile(lineToRemove,filepath, filename);
         writeIntoFile(filepath,filename, jsonObj);
     }
-
     public static void deleteLineInFile(int removeLine, String filepath, String filename) throws IOException {
         String path = filepath + filename;
         File inputFile = new File(path);
@@ -67,7 +65,6 @@ public class JsonEditor {
         else
             System.out.println("Unable to delete temporary file");
     }
-
     private static int findSymbolInFile(String filename) throws FileNotFoundException {
         int line = 1;
         Scanner scanner = new Scanner(new FileReader(filename));
@@ -78,13 +75,11 @@ public class JsonEditor {
         }
         return line;
     }
-
     private static void writeIntoFile(String filepath, String filename, JSONObject data) throws IOException {
         FileWriter writer = new FileWriter(filepath+filename,true);
         writer.write(",\n" + data.toString() + "\n]\n}");
         writer.close();
     }
-
     protected static JSONObject getJSONObject(String fileName) {
         try {
             FileReader reader = new FileReader("src/main/resources/com/example/cat201_project/JSON_file/" + fileName);

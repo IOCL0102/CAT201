@@ -13,9 +13,13 @@ import javafx.stage.Stage;
 import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
 
+import javax.mail.internet.AddressException;
+import javax.mail.internet.InternetAddress;
 import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 public class RegisterAccountController implements Initializable{
 
@@ -47,12 +51,13 @@ public class RegisterAccountController implements Initializable{
         userData = (JSONArray) userInfo.get("userInfo");
     }
 
-    public void signUp(ActionEvent e){
+    public void signUp(ActionEvent e) throws IOException {
         validateSignUp();
 
         // If all error message is NOT visible, then execute
         // All error message not visible indicates all data is correct
-        if(!isAllLabelIsVisible()){
+        // Add newly registered user information into userInformation.json
+        if(!isErrLabelVisible()){
             // add data into json file
             JSONObject newUserAcc = new JSONObject();
             newUserAcc.put("userID",userID);
@@ -60,8 +65,9 @@ public class RegisterAccountController implements Initializable{
             newUserAcc.put("password",userPw);
             newUserAcc.put("email",userEmail);
 
-            userData.add(newUserAcc);
+
             System.out.println(userData.toString());
+            JsonEditor.AddInfo("userInformation.json",newUserAcc);
             System.out.println("SUCCESSFULLY SIGN UP !!");
         }
     }
@@ -73,28 +79,8 @@ public class RegisterAccountController implements Initializable{
         userName = userNameTextField.getText();
         userPw = pwTextField.getText();
         userReEnterPw = reEnterPwTextField.getText();
-        boolean isValidInfoProvided = false;
+        String tempUserEmail, tempUserID, tempUserName; // these are data from the json file
 
-        // print error message if text field is empty
-        if(userEmail.isEmpty()){
-            emailErrLabel.setText("Email cannot be empty");
-            emailErrLabel.setVisible(true);
-        }
-        if(userPw.isEmpty() || userReEnterPw.isEmpty()){
-            pwNotSameErrLabel.setText("Password cannot be empty");
-            pwNotSameErrLabel.setVisible(true);
-        }
-        if(userID.isEmpty()){
-            userIDErrLabel.setText("UserID cannot be empty");
-            userIDErrLabel.setVisible(true);
-        }
-        if(userName.isEmpty()){
-            userNameErrLabel.setText("UserName cannot be empty");
-            userNameErrLabel.setVisible(true);
-        }
-
-
-        String tempUserEmail, tempUserID, tempUserName;
         // compare the text field value with data in userInformation.json
         // if is existed in userInformation.json, display error message
 
@@ -116,7 +102,41 @@ public class RegisterAccountController implements Initializable{
                 userNameErrLabel.setVisible(true);
             }
         }
+
+        // If password and Reentered password entered by user are not same
+        if(!userPw.equals(userReEnterPw)){
+            pwNotSameErrLabel.setText("Password value does not same, please type again");
+            pwNotSameErrLabel.setVisible(true);
+        }
+
+        // Check if the email input by user is in correct format
+        String emailRegex ="^[A-Z0-9._%+-]+@[A-Z0-9.-]+\\.[A-Z]{2,6}$";
+        Pattern pattern = Pattern.compile(emailRegex,Pattern.CASE_INSENSITIVE);
+        if(!(pattern.matcher(userEmail).matches())){
+            emailErrLabel.setText("Email format incorrect, please insert again");
+            emailErrLabel.setVisible(true);
+        }
+
+        // print error message if text field is empty
+        if(userEmail.isEmpty()){
+            emailErrLabel.setText("Email cannot be empty");
+            emailErrLabel.setVisible(true);
+        }
+        if(userPw.isEmpty() || userReEnterPw.isEmpty()){
+            pwNotSameErrLabel.setText("Password cannot be empty");
+            pwNotSameErrLabel.setVisible(true);
+        }
+        if(userID.isEmpty()){
+            userIDErrLabel.setText("UserID cannot be empty");
+            userIDErrLabel.setVisible(true);
+        }
+        if(userName.isEmpty()){
+            userNameErrLabel.setText("UserName cannot be empty");
+            userNameErrLabel.setVisible(true);
+        }
     }
+
+
 
     public void changeToLoginScene(ActionEvent e) throws IOException {
         FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("login-view.fxml"));
@@ -133,7 +153,7 @@ public class RegisterAccountController implements Initializable{
         signUpSuccessMsg.setVisible(isVisible);
     }
 
-    private boolean isAllLabelIsVisible(){
-        return (emailErrLabel.isVisible() && pwNotSameErrLabel.isVisible() && userIDErrLabel.isVisible() && userNameErrLabel.isVisible());
+    private boolean isErrLabelVisible(){
+        return (emailErrLabel.isVisible() || pwNotSameErrLabel.isVisible() || userIDErrLabel.isVisible() || userNameErrLabel.isVisible());
     }
 }

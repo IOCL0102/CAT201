@@ -12,6 +12,7 @@ import javafx.scene.control.TextField;
 import javafx.stage.Stage;
 import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
+import org.json.simple.parser.ParseException;
 
 import javax.mail.internet.AddressException;
 import javax.mail.internet.InternetAddress;
@@ -51,7 +52,7 @@ public class RegisterAccountController implements Initializable{
         userData = (JSONArray) userInfo.get("userInfo");
     }
 
-    public void signUp(ActionEvent e) throws IOException {
+    public void signUp(ActionEvent e) throws IOException, ParseException {
         validateSignUp();
 
         // If all error message is NOT visible, then execute
@@ -65,8 +66,6 @@ public class RegisterAccountController implements Initializable{
             newUserAcc.put("password",userPw);
             newUserAcc.put("email",userEmail);
 
-
-            System.out.println(userData.toString());
             JsonEditor.AddInfo("userInformation.json",newUserAcc);
             System.out.println("SUCCESSFULLY SIGN UP !!");
         }
@@ -110,13 +109,13 @@ public class RegisterAccountController implements Initializable{
         }
 
         // Check if the email input by user is in correct format
-        String emailRegex ="^[A-Z0-9._%+-]+@[A-Z0-9.-]+\\.[A-Z]{2,6}$";
+   /*     String emailRegex ="^[A-Z0-9._%+-]+@[A-Z0-9.-]+\\.[A-Z]{2,6}$";
         Pattern pattern = Pattern.compile(emailRegex,Pattern.CASE_INSENSITIVE);
         if(!(pattern.matcher(userEmail).matches())){
             emailErrLabel.setText("Email format incorrect, please insert again");
             emailErrLabel.setVisible(true);
         }
-
+*/
         // print error message if text field is empty
         if(userEmail.isEmpty()){
             emailErrLabel.setText("Email cannot be empty");

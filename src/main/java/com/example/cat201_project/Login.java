@@ -6,8 +6,10 @@ import javafx.scene.Scene;
 import javafx.stage.Stage;
 import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
+import org.json.simple.parser.JSONParser;
+import org.json.simple.parser.ParseException;
 
-import java.io.IOException;
+import java.io.*;
 
 public class Login extends Application {
 
@@ -21,8 +23,9 @@ public class Login extends Application {
         stage.show();
     }
 
-    public static void main(String[] args) throws IOException {
-        launch();
+    public static void main(String[] args) throws IOException, ParseException {
+
+      launch();
     }
 }
 

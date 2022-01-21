@@ -66,7 +66,7 @@ public class RegisterAccountController implements Initializable{
             newUserAcc.put("password",userPw);
             newUserAcc.put("email",userEmail);
 
-            JsonEditor.AddInfo("userInformation.json",newUserAcc);
+            JsonEditor.addInfo("userInformation.json",newUserAcc);
             System.out.println("SUCCESSFULLY SIGN UP !!");
         }
     }
@@ -109,13 +109,13 @@ public class RegisterAccountController implements Initializable{
         }
 
         // Check if the email input by user is in correct format
-   /*     String emailRegex ="^[A-Z0-9._%+-]+@[A-Z0-9.-]+\\.[A-Z]{2,6}$";
+        String emailRegex ="^[A-Z0-9._%+-]+@[A-Z0-9.-]+\\.[A-Z]{2,6}$";
         Pattern pattern = Pattern.compile(emailRegex,Pattern.CASE_INSENSITIVE);
         if(!(pattern.matcher(userEmail).matches())){
             emailErrLabel.setText("Email format incorrect, please insert again");
             emailErrLabel.setVisible(true);
         }
-*/
+
         // print error message if text field is empty
         if(userEmail.isEmpty()){
             emailErrLabel.setText("Email cannot be empty");

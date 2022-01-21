@@ -3,11 +3,10 @@ package com.example.cat201_project;
 import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
 import org.json.simple.parser.JSONParser;
-import org.apache.commons.io.FileUtils;
 import org.json.simple.parser.ParseException;
 
+
 import java.io.*;
-import java.util.Scanner;
 
 public class JsonEditor {
     private static int userArrayIndex = -1 ;
@@ -16,10 +15,10 @@ public class JsonEditor {
         return userArrayIndex;
     }
 
-    public static void AddInfo(String filename, JSONObject jsonObj) throws IOException, ParseException {
+    public static void addInfo(String filename, JSONObject jsonObj) throws IOException, ParseException {
         String path = "src/main/resources/com/example/cat201_project/JSON_file/";
-        String targetFilepath = "userInformation.json";
-        File inputFile = new File(path + targetFilepath);
+        String targetFilepath = path + filename;
+        File inputFile = new File(targetFilepath);
 
 
         JSONParser parser = new JSONParser();
@@ -27,10 +26,32 @@ public class JsonEditor {
         JSONArray userInfoArray = (JSONArray) userInfo.get("userInfo");
         userInfoArray.add(jsonObj);
 
-        FileWriter writer = new FileWriter(path+targetFilepath);
+        FileWriter writer = new FileWriter(targetFilepath);
         writer.write(userInfo.toString());
         writer.close();
+    }
 
+    public static void updatePassword(String filename, String userID, String password) throws IOException, ParseException {
+        String path = "src/main/resources/com/example/cat201_project/JSON_file/";
+        String targetFilepath = path + filename;
+        File inputFile = new File(targetFilepath);
+
+        JSONParser parser = new JSONParser();
+        JSONObject userInfo = (JSONObject) parser.parse(new FileReader(inputFile));
+        JSONArray userInfoArray = (JSONArray) userInfo.get("userInfo");
+
+        // userInfoArray.size() return 2 if got 2 object
+        for(int i = 0 ; i <userInfoArray.size() ; i++) {
+            JSONObject tempObj = (JSONObject) userInfoArray.get(i);
+            if (tempObj.get("userID") == userID){
+                tempObj.put("password",password);
+                System.out.println("PASSWORD CHANGED");
+            }
+        }
+
+        FileWriter writer = new FileWriter(targetFilepath);
+        writer.write(userInfo.toString());
+        writer.close();
     }
 
     protected static JSONObject getJSONObject(String fileName) {

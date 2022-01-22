@@ -42,7 +42,7 @@
             </PasswordField>
             <Text fx:id="errorInvalidAccMessage" fill="#ff3c3c" layoutX="92.0" layoutY="687.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Incorrect UserID or Password !" textAlignment="CENTER" />
             <Button fx:id="signUpBttn" layoutX="158.0" layoutY="570.0" mnemonicParsing="false" onAction="#changeToSignUpScene" text="sign up" />
-            <Button fx:id="forgotPwBttn" layoutX="47.0" layoutY="457.0" mnemonicParsing="false" text="forgot password ?" />
+            <Button fx:id="forgotPwBttn" layoutX="47.0" layoutY="457.0" mnemonicParsing="false" onAction="#changeToForgotPwScene" text="forgot password ?" />
             <Label fx:id="emptyTextFieldErrMsg" layoutX="66.0" layoutY="672.0" text="UserID or Password cannot be emtpy" textFill="WHITE" />
          </children></AnchorPane>
       <ImageView fitHeight="391.0" fitWidth="502.0" layoutX="843.0" layoutY="-63.0" pickOnBounds="true" preserveRatio="true">

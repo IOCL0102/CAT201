@@ -10,16 +10,16 @@ import java.io.*;
 
 public class JsonEditor {
     private static int userArrayIndex = -1 ;
+    private  static final String path = "src/main/resources/com/example/cat201_project/JSON_file/";
+
     public static void setUserArrayIndex(int aryIndex){ userArrayIndex = aryIndex;}
     public static int getUserArrayIndex() {
         return userArrayIndex;
     }
 
     public static void addInfo(String filename, JSONObject jsonObj) throws IOException, ParseException {
-        String path = "src/main/resources/com/example/cat201_project/JSON_file/";
         String targetFilepath = path + filename;
         File inputFile = new File(targetFilepath);
-
 
         JSONParser parser = new JSONParser();
         JSONObject userInfo = (JSONObject) parser.parse(new FileReader(inputFile));
@@ -32,7 +32,7 @@ public class JsonEditor {
     }
 
     public static void updatePassword(String filename, String userID, String password) throws IOException, ParseException {
-        String path = "src/main/resources/com/example/cat201_project/JSON_file/";
+
         String targetFilepath = path + filename;
         File inputFile = new File(targetFilepath);
 
@@ -43,7 +43,7 @@ public class JsonEditor {
         // userInfoArray.size() return 2 if got 2 object
         for(int i = 0 ; i <userInfoArray.size() ; i++) {
             JSONObject tempObj = (JSONObject) userInfoArray.get(i);
-            if (tempObj.get("userID") == userID){
+            if (tempObj.get("userID").equals(userID)){
                 tempObj.put("password",password);
                 System.out.println("PASSWORD CHANGED");
             }
@@ -52,6 +52,44 @@ public class JsonEditor {
         FileWriter writer = new FileWriter(targetFilepath);
         writer.write(userInfo.toString());
         writer.close();
+    }
+
+    public static boolean isExistInFile(String filename, String key, String value) throws IOException, ParseException {
+        String targetFilepath = path + filename;
+        File inputFile = new File(targetFilepath);
+
+        JSONParser parser = new JSONParser();
+        JSONObject userInfo = (JSONObject) parser.parse(new FileReader(inputFile));
+        JSONArray userInfoArray = (JSONArray) userInfo.get("userInfo");
+
+        for(int i = 0 ; i <userInfoArray.size() ; i++) {
+            JSONObject tempObj = (JSONObject) userInfoArray.get(i);
+            if (tempObj.get(key).equals(value)){
+                System.out.println("KEY : " + key );
+                System.out.println("VALUE : " + value);
+                System.out.println("FOUND IN INDEX " + i );
+                return true;
+            }
+        }
+        return false;
+    }
+
+    public static String getEmailBasedOnUserID(String filename, String userID) throws IOException, ParseException {
+        String targetFilepath = path + filename;
+        File inputFile = new File(targetFilepath);
+
+        JSONParser parser = new JSONParser();
+        JSONObject userInfo = (JSONObject) parser.parse(new FileReader(inputFile));
+        JSONArray userInfoArray = (JSONArray) userInfo.get("userInfo");
+
+        for(int i = 0 ; i <userInfoArray.size() ; i++) {
+            JSONObject tempObj = (JSONObject) userInfoArray.get(i);
+            if (tempObj.get("userID").equals(userID)){
+                return (String) tempObj.get("email");
+            }
+        }
+
+        return null;
     }
 
     protected static JSONObject getJSONObject(String fileName) {
@@ -66,4 +104,6 @@ public class JsonEditor {
             return null;
         }
     }
+
+
 }

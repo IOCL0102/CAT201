@@ -6,6 +6,7 @@ module com.example.cat201_project {
     requires json.simple;
     requires commons.io;
     requires javax.mail.api;
+    requires activation;
 
 
     opens com.example.cat201_project to javafx.fxml;

@@ -131,12 +131,12 @@ public class RegisterAccountController implements Initializable{
         }
 
         // Check if the email input by user is in correct format
- /*       String emailRegex ="^[A-Z0-9._%+-]+@[A-Z0-9.-]+\\.[A-Z]{2,6}$";
+        String emailRegex ="^[A-Z0-9._%+-]+@[A-Z0-9.-]+\\.[A-Z]{2,6}$";
         Pattern pattern = Pattern.compile(emailRegex,Pattern.CASE_INSENSITIVE);
         if(!(pattern.matcher(userEmail).matches())){
             emailErrLabel.setText("Email format incorrect, please insert again");
             emailErrLabel.setVisible(true);
-        }*/
+        }
 
         // print error message if text field is empty
         if(userEmail.isEmpty()){
@@ -156,9 +156,6 @@ public class RegisterAccountController implements Initializable{
             userNameErrLabel.setVisible(true);
         }
     }
-
-
-
     public void changeToLoginScene(ActionEvent e) throws IOException {
         FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("login-view.fxml"));
         Stage stage = (Stage) returnToLoginBttn.getScene().getWindow();

@@ -96,4 +96,12 @@ public class LoginController implements Initializable{
         stage.setScene(new Scene(fxmlLoader.load(), 1280, 720));
         stage.show();
     }
+
+    public void changeToForgotPwScene(ActionEvent e) throws IOException {
+
+        FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("forgotPw.fxml"));
+        Stage stage = (Stage) signUpBttn.getScene().getWindow();
+        stage.setScene(new Scene(fxmlLoader.load(), 1280, 720));
+        stage.show();
+    }
 }

@@ -1,6 +1,11 @@
 package com.example.cat201_project;
 
+import javafx.animation.FadeTransition;
+import javafx.animation.KeyFrame;
+import javafx.animation.PauseTransition;
+import javafx.animation.Timeline;
 import javafx.event.ActionEvent;
+import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
@@ -10,6 +15,7 @@ import javafx.scene.control.Label;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
+import javafx.util.Duration;
 import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
 import org.json.simple.parser.ParseException;
@@ -19,6 +25,7 @@ import javax.mail.internet.InternetAddress;
 import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
+import java.util.concurrent.TimeUnit;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
@@ -52,12 +59,13 @@ public class RegisterAccountController implements Initializable{
         userData = (JSONArray) userInfo.get("userInfo");
     }
 
-    public void signUp(ActionEvent e) throws IOException, ParseException {
+    public void signUp(ActionEvent e) throws IOException, ParseException, InterruptedException {
         validateSignUp();
 
         // If all error message is NOT visible, then execute
         // All error message not visible indicates all data is correct
         // Add newly registered user information into userInformation.json
+
         if(!isErrLabelVisible()){
             // add data into json file
             JSONObject newUserAcc = new JSONObject();
@@ -67,10 +75,24 @@ public class RegisterAccountController implements Initializable{
             newUserAcc.put("email",userEmail);
 
             JsonEditor.addInfo("userInformation.json",newUserAcc);
+
             System.out.println("SUCCESSFULLY SIGN UP !!");
+            setAllTextFieldEmpty();
+            signUpSuccessMsg.setVisible(true);
+            FadeTransition fadeMessage = new FadeTransition(Duration.millis(8000), signUpSuccessMsg);
+            fadeMessage.setFromValue(1);
+            fadeMessage.setToValue(0);
+            fadeMessage.play();
         }
     }
 
+    public void setAllTextFieldEmpty(){
+        userIDTextField.clear();
+        userNameTextField.clear();
+        emailTextField.clear();
+        pwTextField.clear();
+        reEnterPwTextField.clear();
+    }
     public void validateSignUp (){
         setErrLabelVisibility(false);
         userEmail = emailTextField.getText();
@@ -109,12 +131,12 @@ public class RegisterAccountController implements Initializable{
         }
 
         // Check if the email input by user is in correct format
-        String emailRegex ="^[A-Z0-9._%+-]+@[A-Z0-9.-]+\\.[A-Z]{2,6}$";
+ /*       String emailRegex ="^[A-Z0-9._%+-]+@[A-Z0-9.-]+\\.[A-Z]{2,6}$";
         Pattern pattern = Pattern.compile(emailRegex,Pattern.CASE_INSENSITIVE);
         if(!(pattern.matcher(userEmail).matches())){
             emailErrLabel.setText("Email format incorrect, please insert again");
             emailErrLabel.setVisible(true);
-        }
+        }*/
 
         // print error message if text field is empty
         if(userEmail.isEmpty()){

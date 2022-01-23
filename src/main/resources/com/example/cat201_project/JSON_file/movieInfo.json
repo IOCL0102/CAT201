@@ -1,0 +1,123 @@
+{
+  "movieInfo":
+  [
+    {
+      "movieID" : "0",
+      "movieName" : "Demon Slayer",
+      "movieDescription" : "A boy raised by boars, who wears a boar's head, boards the Infinity Train on a new mission with the Flame Pillar along with another boy who reveals his true power when he sleeps. Their mission is to defeat a demon who has been tormenting people and killing the demon slayers who oppose it.",
+      "movieCast" : "-",
+      "movieDirector" : "Haruo Sotozaki",
+      "moviePhoto" : "src/main/resources/com/example/cat201_project/img/DemonSlayer.jpg",
+      "moviePoster" : "src/main/resources/com/example/cat201_project/img/DemonSlayerPoster.jpg"
+    },
+    {
+      "movieID" : "1",
+      "movieName" : "Black Widow",
+      "movieDescription" : "In Marvel Studios’ action-packed spy thriller “Black Widow,” Natasha Romanoff aka Black Widow confronts the darker parts of her ledger when a dangerous conspiracy with ties to her past arises. Pursued by a force that will stop at nothing to bring her down, Natasha must deal with her history as a spy and the broken relationships left in her wake long before she became an Avenger.",
+      "movieCast" : "Scarlett Johansson, David Harbour, Florence Pugh, O-T Fagbenle, and Rachel Weisz",
+      "movieDirector" : "Cate Shortland",
+      "moviePhoto" : "src/main/resources/com/example/cat201_project/img/BlackWidow.jpg",
+      "moviePoster" : "src/main/resources/com/example/cat201_project/img/BlackWidowPoster.jpg"
+    },
+    {
+      "movieID" : "2",
+      "movieName" : "Mulan",
+      "movieDescription" : "To keep her ailing father from serving in the Imperial Army, a fearless young woman disguises herself as a man and battles northern invaders in China.",
+      "movieCast" : "Yifei Liu, Donnie Yen, Tzi Ma, Jason Scott Lee",
+      "movieDirector" : "Niki Caro",
+      "moviePhoto" : "src/main/resources/com/example/cat201_project/img/mulan.jpg",
+      "moviePoster" : "src/main/resources/com/example/cat201_project/img/mulanPoster.jpg"
+    },
+    {
+      "movieID" : "3",
+      "movieName" : "Guardians of the Galaxy",
+      "movieDescription" : "Brash space adventurer Peter Quill (Chris Pratt) finds himself the quarry of relentless bounty hunters after he steals an orb coveted by Ronan, a powerful villain. To evade Ronan, Quill is forced into an uneasy truce with four disparate misfits: gun-toting Rocket Raccoon, treelike-humanoid Groot, enigmatic Gamora, and vengeance-driven Drax the Destroyer. But when he discovers the orb's true power and the cosmic threat it poses, Quill must rally his ragtag group to save the universe.",
+      "movieCast" : "Chris Pratt, Zoe Saldaña, Dave Bautista, Vin Diesel, Bradley Cooper, Lee Pace",
+      "movieDirector" : "James Gunn",
+      "moviePhoto" : "src/main/resources/com/example/cat201_project/img/Guardians.jpg",
+      "moviePoster" : "src/main/resources/com/example/cat201_project/img/GuardiansPoster.jpg"
+    },
+    {
+      "movieID" : "4",
+      "movieName" : "Cruella",
+      "movieDescription" : "Estella is a young and clever grifter who's determined to make a name for herself in the fashion world. She soon meets a pair of thieves who appreciate her appetite for mischief, and together they build a life for themselves on the streets of London. However, when Estella befriends fashion legend Baroness von Hellman, she embraces her wicked side to become the raucous and revenge-bent Cruella.",
+      "movieCast" : "Emma Stone, Emma Thompson, Joel Fry, Paul Walter Hauser",
+      "movieDirector" : "Craig Gillespie",
+      "moviePhoto" : "src/main/resources/com/example/cat201_project/img/cruella.jpg",
+      "moviePoster" : "src/main/resources/com/example/cat201_project/img/cruellaPoster.jpg"
+    },
+    {
+      "movieID" : "5",
+      "movieName" : "The Matrix",
+      "movieDescription" : "Neo (Keanu Reeves) believes that Morpheus (Laurence Fishburne), an elusive figure considered to be the most dangerous man alive, can answer his question -- What is the Matrix? Neo is contacted by Trinity (Carrie-Anne Moss), a beautiful stranger who leads him into an underworld where he meets Morpheus. They fight a brutal battle for their lives against a cadre of viciously intelligent secret agents. It is a truth that could cost Neo something more precious than his life.",
+      "movieCast" : "Keanu Reeves, Laurence Fishburne, Carrie-Anne Moss, Hugo Weaving, Joe Pantoliano",
+      "movieDirector" : "Lana Wachowski, Lilly Wachowski",
+      "moviePhoto" : "src/main/resources/com/example/cat201_project/img/Matrix.jpg",
+      "moviePoster" : "src/main/resources/com/example/cat201_project/img/MatrixPoster.jpg"
+    },
+    {
+      "movieID" : "6",
+      "movieName" : "Aquaman",
+      "movieDescription" : "Once home to the most advanced civilization on Earth, the city of Atlantis is now an underwater kingdom ruled by the power-hungry King Orm. With a vast army at his disposal, Orm plans to conquer the remaining oceanic people -- and then the surface world. Standing in his way is Aquaman, Orm's half-human, half-Atlantean brother and true heir to the throne. With help from royal counselor Vulko, Aquaman must retrieve the legendary Trident of Atlan and embrace his destiny as protector of the deep.",
+      "movieCast" : "Jason Momoa, Amber Heard, Willem Dafoe, Patrick Wilson",
+      "movieDirector" : "James Wan",
+      "moviePhoto" : "src/main/resources/com/example/cat201_project/img/aquaman.jpg",
+      "moviePoster" : "src/main/resources/com/example/cat201_project/img/aquamanPoster.jpg"
+    },
+    {
+      "movieID" : "7",
+      "movieName" : "Pirates of the Caribbean: Salazar's Revenge",
+      "movieDescription" : "Thrust into an all-new adventure, a down-on-his-luck Capt. Jack Sparrow feels the winds of ill-fortune blowing even more strongly when deadly ghost sailors led by his old nemesis, the evil Capt. Salazar, escape from the Devil's Triangle. Jack's only hope of survival lies in seeking out the legendary Trident of Poseidon, but to find it, he must forge an uneasy alliance with a brilliant and beautiful astronomer and a headstrong young man in the British navy.",
+      "movieCast" : "Johnny Depp, Javier Bardem, Geoffrey Rush",
+      "movieDirector" : "Joachim Rønning, Espen Sandberg",
+      "moviePhoto" : "src/main/resources/com/example/cat201_project/img/pirates.jpg",
+      "moviePoster" : "src/main/resources/com/example/cat201_project/img/piratesPoster.jpg"
+    },
+    {
+      "movieID" : "8",
+      "movieName" : "The Theory of Everything",
+      "movieDescription" : "In the 1960s, Cambridge University student and future physicist Stephen Hawking (Eddie Redmayne) falls in love with fellow collegian Jane Wilde (Felicity Jones). At 21, Hawking learns that he has motor neuron disease. Despite this -- and with Jane at his side -- he begins an ambitious study of time, of which he has very little left, according to his doctor. He and Jane defy terrible odds and break new ground in the fields of medicine and science, achieving more than either could hope to imagine.",
+      "movieCast" : "Eddie Redmayne, Felicity Jones, Charlie Cox, Emily Watson",
+      "movieDirector" : "James Marsh",
+      "moviePhoto" : "src/main/resources/com/example/cat201_project/img/theoryofeverything.jpg",
+      "moviePoster" : "src/main/resources/com/example/cat201_project/img/theoryofeverythingPoster.jpg"
+    },
+    {
+      "movieID" : "9",
+      "movieName" : "Your Name",
+      "movieDescription" : "Two teenagers share a profound, magical connection upon discovering they are swapping bodies. Things manage to become even more complicated when the boy and girl decide to meet in person.",
+      "movieCast" : "Ryunosuke Kamiki, Mone Kamishiraishi",
+      "movieDirector" : "Makoto Shinkai",
+      "moviePhoto" : "src/main/resources/com/example/cat201_project/img/KiminoNawa.jpg",
+      "moviePoster" : "src/main/resources/com/example/cat201_project/img/KiminoNawaPoster.jpg"
+    },
+    {
+      "movieID" : "10",
+      "movieName" : "Harry Potter and the Order of the Phoenix",
+      "movieDescription" : "Now in his fifth year at Hogwarts, Harry (Daniel Radcliffe) learns that many in the wizarding community do not know the truth of his encounter with Lord Voldemort. Cornelius Fudge, minister of Magic, appoints his toady, Dolores Umbridge, as Defense Against the Dark Arts teacher, for he fears that professor Dumbledore will take his job. But her teaching is deficient and her methods, cruel, so Harry prepares a group of students to defend the school against a rising tide of evil.",
+      "movieCast" : "Daniel Radcliffe, Rupert Grint, Emma Watson",
+      "movieDirector" : "David Yates",
+      "moviePhoto" : "src/main/resources/com/example/cat201_project/img/HarryPotter.jpg",
+      "moviePoster" : "src/main/resources/com/example/cat201_project/img/HarryPotterPoster.jpg"
+    },
+    {
+      "movieID" : "11",
+      "movieName" : "Doctor Strange in the Multiverse of Madness",
+      "movieDescription" : "Release date: April 6, 2022 ",
+      "movieCast" : "-",
+      "movieDirector" : "Sam Raimi",
+      "moviePhoto" : "src/main/resources/com/example/cat201_project/img/doctorStrange.jpg",
+      "moviePoster" : "src/main/resources/com/example/cat201_project/img/doctorStrange.jpg"
+    }
+  ,
+    {
+      "movieID" : "12",
+      "movieName" : "Thor: Love and Thunder",
+      "movieDescription" : "Release date: March 15, 2022 ",
+      "movieCast" : "-",
+      "movieDirector" : "Taika Waititi",
+      "moviePhoto" : "src/main/resources/com/example/cat201_project/img/thor.jpg",
+      "moviePoster" : "src/main/resources/com/example/cat201_project/img/thor.jpg"
+    }
+  ]
+}

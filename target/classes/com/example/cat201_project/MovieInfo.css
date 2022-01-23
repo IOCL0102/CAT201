@@ -1,0 +1,37 @@
+@font-face {
+    font-family:Righteous ;
+    src: url(fonts/Righteous-Regular.ttf);
+}
+
+@font-face {
+    font-family: SairaStencilOne ;
+    src: url(fonts/SairaStencilOne-Regular.ttf);
+}
+
+.background {
+    -fx-background-color: #041227;
+}
+
+.backbutton{
+    -fx-font-family: Righteous;
+    -fx-font-weight: normal;
+    -fx-font-size: 10 px;
+    -fx-background-radius: 10px;
+    -fx-background-color: #C4C4C4;
+}
+
+.normalbutton{
+       -fx-font-family: Righteous;
+       -fx-font-weight: normal;
+       -fx-font-size: 20 px;
+       -fx-background-radius: 10px;
+       -fx-background-color: #FFFFFF;
+}
+
+.fontdisplay{
+       -fx-font-family: Righteous;
+       -fx-font-weight: normal;
+       -fx-font-size: 32 px;
+       -fx-background-radius: 10px;
+       -fx-background-color: #FFFFFF;
+}

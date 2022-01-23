@@ -49,6 +49,9 @@ public class MyProfileController implements Initializable {
     }
 
     public void returnToMainPage(ActionEvent e) throws IOException {
+        //**********************************************
+        // THIS WILL HAVE TO CHANGE LATER ON
+        //**********************************************
         FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("login-view.fxml"));
         Stage stage = (Stage) returnToMainPageBttn.getScene().getWindow();
         stage.setScene(new Scene(fxmlLoader.load(), 1280, 720));
@@ -70,6 +73,9 @@ public class MyProfileController implements Initializable {
     }
 
     public void returnToViewTicketPage(ActionEvent e) throws IOException {
+        //**********************************************
+        // THIS WILL HAVE TO CHANGE LATER ON
+        //**********************************************
         FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("login-view.fxml"));
         Stage stage = (Stage) viewBookedTicketBttn.getScene().getWindow();
         stage.setScene(new Scene(fxmlLoader.load(), 1280, 720));

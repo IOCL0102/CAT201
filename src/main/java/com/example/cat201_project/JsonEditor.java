@@ -16,6 +16,16 @@ public class JsonEditor {
     public static int getUserArrayIndex() {
         return userArrayIndex;
     }
+    public static JSONObject getCurrentUserInfo() throws IOException, ParseException {
+        String targetFilePath = path + "userInformation.txt";
+        File inputFile = new File(targetFilePath);
+
+        JSONParser parser = new JSONParser();
+        JSONObject userInfo = (JSONObject) parser.parse(new FileReader(inputFile));
+        JSONArray userInfoArray = (JSONArray) userInfo.get("userInfo");
+        JSONObject data = (JSONObject) userInfoArray.get(userArrayIndex);
+        return data;
+    }
 
     public static void addInfo(String filename, JSONObject jsonObj) throws IOException, ParseException {
         String targetFilepath = path + filename;

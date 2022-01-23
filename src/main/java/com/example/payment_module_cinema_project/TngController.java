@@ -45,6 +45,10 @@ public class TngController {
     private Text Experience;
     @FXML
     private Text Total;
+    @FXML
+    private Text PhoneNumErrMessage;
+    @FXML
+    private Text OTPErrMessage;
 
     @FXML
     private Image MoviePoster;
@@ -58,30 +62,28 @@ public class TngController {
     //cancel function (direct back to ticket scene)
 
     public void initialise(){
-        pay.setDisable(true);
+        PhoneNumErrMessage.setVisible(false);
+        OTPErrMessage.setVisible(false);
     }
 
-    public void enablePayButton(ActionEvent e) throws IOException{
+    public void changeToReceiptScene(ActionEvent e) throws IOException{
         String phoneNum = PhoneNumber.getText();
         int OTP = Integer.parseInt(OneTimePassword.getText());
 
         if(phoneNum == ""){
-            //error message
+            PhoneNumErrMessage.setVisible(true);
+            OTPErrMessage.setVisible(false);
         }
         else if (OTP < 0 || OTP > 999999){
-            //error message
+            PhoneNumErrMessage.setVisible(false);
+            OTPErrMessage.setVisible(true);
         }
-
         else{
-            pay.setDisable(false);
+            FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("receipt.fxml"));
+            Stage stage = (Stage) pay.getScene().getWindow();//not sure correct syntax anot
+            stage.setScene(new Scene(fxmlLoader.load(), 1280, 720));
+            stage.show();
         }
-    }
-
-    public void changeToReceiptScene(ActionEvent e) throws IOException{
-        FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("receipt.fxml"));
-        Stage stage = (Stage) pay.getScene().getWindow();
-        stage.setScene(new Scene(fxmlLoader.load(), 1280, 720));
-        stage.show();
     }
 
 }

@@ -47,6 +47,14 @@ public class CardController {
     private Text Experience;
     @FXML
     private Text Total;
+    @FXML
+    private Text CardNumErrMessage;
+    @FXML
+    private Text CardMonthErrMessage;
+    @FXML
+    private Text CardYearErrMessage;
+    @FXML
+    private Text CVVErrMessage;
 
     @FXML
     private Image MoviePoster;
@@ -60,37 +68,49 @@ public class CardController {
     //cancel function (direct back to ticket scene)
 
     public void initialise(){
-        pay.setDisable(true);
+        CardNumErrMessage.setVisible(false);
+        CardMonthErrMessage.setVisible(false);
+        CardYearErrMessage.setVisible(false);
+        CVVErrMessage.setVisible(false);
     }
 
-    public void enablePayButton(ActionEvent e) throws IOException{
+    public void changeToReceiptScene(ActionEvent e) throws IOException{
         long cardNum = Long.parseLong(CardNumber.getText());
         int month = Integer.parseInt(ExpiryMonth.getText());
         int year = Integer.parseInt(ExpiryYear.getText());
         int cvv = Integer.parseInt(CVV.getText());
 
         if(cardNum < 0){
-            //error message
+            CardNumErrMessage.setVisible(true);
+            CardMonthErrMessage.setVisible(false);
+            CardYearErrMessage.setVisible(false);
+            CVVErrMessage.setVisible(false);
         }
         else if (month < 1 || month > 12){
-            //error message
+            CardMonthErrMessage.setVisible(true);
+            CardNumErrMessage.setVisible(false);
+            CardYearErrMessage.setVisible(false);
+            CVVErrMessage.setVisible(false);
         }
         else if(year < 2022){
-            //error message
+            CardYearErrMessage.setVisible(true);
+            CardNumErrMessage.setVisible(false);
+            CardMonthErrMessage.setVisible(false);
+            CVVErrMessage.setVisible(false);
         }
         else if(cvv < 0 || cvv > 999){
-            //error message
+            CVVErrMessage.setVisible(true);
+            CardNumErrMessage.setVisible(false);
+            CardMonthErrMessage.setVisible(false);
+            CardYearErrMessage.setVisible(false);
         }
         else{
-            pay.setDisable(false);
+            FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("receipt.fxml"));
+            Stage stage = (Stage) pay.getScene().getWindow(); //not sure correct anot
+            stage.setScene(new Scene(fxmlLoader.load(), 1280, 720));
+            stage.show();
         }
-    }
 
-    public void changeToReceiptScene(ActionEvent e) throws IOException{
-        FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("receipt.fxml"));
-        Stage stage = (Stage) pay.getScene().getWindow();
-        stage.setScene(new Scene(fxmlLoader.load(), 1280, 720));
-        stage.show();
     }
 
 

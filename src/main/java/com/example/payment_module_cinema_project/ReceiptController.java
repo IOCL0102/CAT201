@@ -17,10 +17,6 @@ public class ReceiptController {
     @FXML
     private Button back;
     @FXML
-    private Button pay;
-    @FXML
-    private Button cancel;
-    @FXML
     private Button BookedTicket;
     @FXML
     private Button Profile;
@@ -32,10 +28,6 @@ public class ReceiptController {
 
     @FXML
     private TextField SearchField;
-    @FXML
-    private TextField PhoneNumber;
-    @FXML
-    private TextField OneTimePassword;
 
 
     @FXML
@@ -66,4 +58,5 @@ public class ReceiptController {
     //logout function
     //search function
     //show order details function
+    //show QR function
 }

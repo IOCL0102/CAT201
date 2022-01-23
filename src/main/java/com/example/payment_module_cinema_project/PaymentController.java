@@ -41,6 +41,8 @@ public class PaymentController {
     private Text Experience;
     @FXML
     private Text Total;
+    @FXML
+    private Text ErrorMessage;
 
     @FXML
     private Image MoviePoster;
@@ -52,12 +54,12 @@ public class PaymentController {
     //search function
     //show order details function
 
-    public void setPaymentOption() {
+    public void initialise(){
+        ErrorMessage.setVisible(false);
         paymentOption = new ChoiceBox<>();
         paymentOption.getItems().addAll("Select Payment Option", "Credit/Debit Card", "TouchnGo");
         paymentOption.setValue("Select Payment Option");
     }
-
 
     public void changeToPaymentScene(ActionEvent e, ChoiceBox<String> paymentOption) throws IOException{
         if(paymentOption.getValue() == "Credit/Debit Card"){
@@ -73,7 +75,7 @@ public class PaymentController {
             stage.show();
         }
         else{
-            // show error message
+            ErrorMessage.setVisible(true);
         }
     }
 }

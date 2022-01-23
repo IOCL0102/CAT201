@@ -12,7 +12,7 @@ import javafx.scene.control.TextField;
 import javafx.event.ActionEvent;
 import java.io.IOException;
 
-public class selectPaymentController {
+public class PaymentController {
 
     @FXML
     private Button back;

@@ -10,6 +10,8 @@ import javafx.scene.image.Image;
 import javafx.scene.control.TextField;
 import javafx.event.ActionEvent;
 import java.io.IOException;
+import javafx.fxml.Initializable;
+import com.example.payment_module_cinema_project.PaymentController;
 
 public class CardController {
 
@@ -25,11 +27,8 @@ public class CardController {
     private Button Profile;
     @FXML
     private Button logout;
-    @FXML
-    private Button Search;
 
-    @FXML
-    private TextField SearchField;
+
     @FXML
     private TextField CardNumber;
     @FXML
@@ -63,7 +62,6 @@ public class CardController {
     //Booked Ticket function
     //Profile function
     //logout function
-    //search function
     //show order details function
     //cancel function (direct back to ticket scene)
 
@@ -72,6 +70,10 @@ public class CardController {
         CardMonthErrMessage.setVisible(false);
         CardYearErrMessage.setVisible(false);
         CVVErrMessage.setVisible(false);
+    }
+
+    public void handleBackBttn(ActionEvent e){
+       //back button function
     }
 
     public void changeToReceiptScene(ActionEvent e) throws IOException{

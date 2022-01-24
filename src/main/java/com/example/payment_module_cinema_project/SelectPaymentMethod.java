@@ -13,13 +13,13 @@ public class SelectPaymentMethod extends Application {
     public void start(Stage stage) throws IOException {
         FXMLLoader fxmlLoader = new FXMLLoader(SelectPaymentMethod.class.getResource("selectpayment.fxml"));
         Scene scene = new Scene(fxmlLoader.load(), 1280, 720);
-        scene.getStylesheets().add(getClass().getResource("login.css").toExternalForm());
+        scene.getStylesheets().add(getClass().getResource("selectpayment.css").toExternalForm());
         stage.setTitle("ROYAL CINEMA!");
         stage.setScene(scene);
         stage.show();
     }
 
-    public static void main(String[] args) throws IOException{
+    public static void main(String[] args){
 
         launch();
     }

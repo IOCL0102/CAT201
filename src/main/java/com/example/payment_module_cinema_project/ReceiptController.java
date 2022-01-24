@@ -7,7 +7,6 @@ import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.text.Text;
 import javafx.scene.image.Image;
-import javafx.scene.control.TextField;
 import javafx.event.ActionEvent;
 import java.io.IOException;
 
@@ -15,19 +14,11 @@ import java.io.IOException;
 public class ReceiptController {
 
     @FXML
-    private Button back;
-    @FXML
     private Button BookedTicket;
     @FXML
     private Button Profile;
     @FXML
     private Button logout;
-    @FXML
-    private Button Search;
-
-
-    @FXML
-    private TextField SearchField;
 
 
     @FXML
@@ -52,11 +43,9 @@ public class ReceiptController {
     @FXML
     private Image ReceiptQR;
 
-    //back button function
     //Booked Ticket function
     //Profile function
     //logout function
-    //search function
     //show order details function
     //show QR function
 }

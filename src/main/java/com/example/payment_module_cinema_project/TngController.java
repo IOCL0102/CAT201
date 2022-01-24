@@ -25,12 +25,7 @@ public class TngController {
     private Button Profile;
     @FXML
     private Button logout;
-    @FXML
-    private Button Search;
 
-
-    @FXML
-    private TextField SearchField;
     @FXML
     private TextField PhoneNumber;
     @FXML
@@ -57,7 +52,6 @@ public class TngController {
     //Booked Ticket function
     //Profile function
     //logout function
-    //search function
     //show order details function
     //cancel function (direct back to ticket scene)
 
@@ -80,7 +74,7 @@ public class TngController {
         }
         else{
             FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("receipt.fxml"));
-            Stage stage = (Stage) pay.getScene().getWindow();//not sure correct syntax anot
+            Stage stage = (Stage) pay.getScene().getWindow();
             stage.setScene(new Scene(fxmlLoader.load(), 1280, 720));
             stage.show();
         }

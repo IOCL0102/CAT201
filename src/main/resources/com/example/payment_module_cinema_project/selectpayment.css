@@ -1,0 +1,52 @@
+@font-face {
+    font-family:'Righteous' ;
+    src: url(fonts/Righteous-Regular.ttf);
+}
+
+@font-face {
+    font-family: 'SairaStencilOne' ;
+    src: url(fonts/SairaStencilOne-Regular.ttf);
+}
+
+.background {
+    -fx-background-color: #041227;
+}
+
+.Search{
+    -fx-font-family: Righteous;
+    -fx-font-weight: normal;
+    -fx-font-size: 18 px;
+    -fx-background-radius: 100px;
+    -fx-background-color: #FFFFFF;
+}
+
+.button{
+    -fx-font-family:Righteous;
+    -fx-font-size: 18 px;
+    -fx-background-radius: 100px;
+    -fx-background-color: #FFCA00;
+    -fx-text-fill:black;
+}
+
+.normalbutton{
+    -fx-background-color: #041227;
+    -fx-background-radius: 0px;
+}
+
+.fontdisplay{
+    -fx-font-family:Righteous;
+    -fx-font-size: 18 px;
+    -fx-font-color: #FFFFFF;
+}
+.normalText{
+    -fx-font-family: Righteous;
+    -fx-font-weight: bold;
+    -fx-font-size: 21px;
+    -fx-fill: white;    /* font color */
+}
+
+.ErrMessageText{
+    -fx-font-family:Righteous;
+    -fx-font-size : 20px;
+    -fx-text-fill: #ff3c3c;
+}

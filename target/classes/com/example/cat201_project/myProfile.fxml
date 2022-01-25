@@ -24,7 +24,7 @@
                 </ImageView>
                 <Pane prefHeight="116.0" prefWidth="452.0">
                <children>
-                  <Line endX="952.13330078125" layoutX="190.0" layoutY="116.0" startX="-172.13333129882812" stroke="WHITE" strokeWidth="2.0" />
+                  <Line endX="987.39990234375" layoutX="115.0" layoutY="90.0" startX="-100.0" stroke="WHITE" strokeWidth="2.0" />
                </children></Pane>
                 <Pane prefHeight="116.0" prefWidth="654.0">
                     <children>
@@ -60,7 +60,7 @@
                   <Insets />
                </HBox.margin>
                <children>
-                  <Button fx:id="returnToMainPageBttn" layoutX="26.0" layoutY="33.0" mnemonicParsing="false" onAction="#returnToMainPage" prefHeight="61.0" prefWidth="66.0" style="-fx-background-radius: 15; -fx-background-color: #FFCA00;">
+                  <Button fx:id="returnToMainPageBttn" layoutX="26.0" layoutY="33.0" mnemonicParsing="false" onAction="#returnToHomeMovieScene" prefHeight="61.0" prefWidth="66.0" style="-fx-background-radius: 15; -fx-background-color: #FFCA00;">
                      <graphic>
                         <FontAwesomeIconView fill="#041227" glyphName="ANGLE_LEFT" size="50" text="" textAlignment="CENTER" wrappingWidth="17.85714340209961" />
                      </graphic>

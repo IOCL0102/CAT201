@@ -21,7 +21,7 @@
                <children>
                   <ButtonBar layoutX="828.0" layoutY="281.0" prefHeight="40.0" prefWidth="274.0">
                     <buttons>
-                      <Button fx:id="bookNowButton" mnemonicParsing="false" prefHeight="40.0" text="Book Now" />
+                      <Button fx:id="bookNowButton" mnemonicParsing="false" onAction="#bookNowButtonClicked" prefHeight="40.0" text="Book Now" />
                         <Button fx:id="movieInfoButton" mnemonicParsing="false" onMouseClicked="#ChangetoMovieInfoScene0" prefHeight="40.0" prefWidth="179.0" text="Movie Info" />
                     </buttons>
                   </ButtonBar>

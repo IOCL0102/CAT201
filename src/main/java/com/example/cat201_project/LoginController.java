@@ -87,6 +87,8 @@ public class LoginController implements Initializable{
             fadeMessage.setToValue(0);
             fadeMessage.play();
         }
+        else
+            changeToHomeMovieScene();
     }
 
     public void changeToSignUpScene(ActionEvent e) throws IOException {
@@ -100,6 +102,14 @@ public class LoginController implements Initializable{
     public void changeToForgotPwScene(ActionEvent e) throws IOException {
 
         FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("forgotPw.fxml"));
+        Stage stage = (Stage) signUpBttn.getScene().getWindow();
+        stage.setScene(new Scene(fxmlLoader.load(), 1280, 720));
+        stage.show();
+    }
+    
+        public void changeToHomeMovieScene() throws IOException {
+
+        FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("home-movie.fxml"));
         Stage stage = (Stage) signUpBttn.getScene().getWindow();
         stage.setScene(new Scene(fxmlLoader.load(), 1280, 720));
         stage.show();

@@ -76,7 +76,7 @@
                         <id>default-cli</id>
                         <configuration>
                             <mainClass>
-                                com.example.payment_module_cinema_project/com.example.payment_module_cinema_project.HelloApplication
+                                com.example.payment_module_cinema_project/com.example.cat201_project.HelloApplication
                             </mainClass>
                         </configuration>
                     </execution>

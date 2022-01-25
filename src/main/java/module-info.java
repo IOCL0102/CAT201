@@ -6,6 +6,6 @@ module com.example.payment_module_cinema_project {
     requires javase;
 
 
-    opens com.example.payment_module_cinema_project to javafx.fxml;
-    exports com.example.payment_module_cinema_project;
+    opens com.example.cat201_project to javafx.fxml;
+    exports com.example.cat201_project;
 }

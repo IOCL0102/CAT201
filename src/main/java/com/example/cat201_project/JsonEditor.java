@@ -17,7 +17,7 @@ public class JsonEditor {
         return userArrayIndex;
     }
     public static JSONObject getCurrentUserInfo() throws IOException, ParseException {
-        String targetFilePath = path + "userInformation.txt";
+        String targetFilePath = path + "userInformation.json";
         File inputFile = new File(targetFilePath);
 
         JSONParser parser = new JSONParser();

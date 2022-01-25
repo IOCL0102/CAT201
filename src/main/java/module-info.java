@@ -4,9 +4,7 @@ module com.example.cat201_project {
     requires json.simple;
     requires core;
     requires javase;
-
     requires org.kordamp.ikonli.javafx;
-    requires json.simple;
     requires commons.io;
     requires javax.mail.api;
     requires activation;

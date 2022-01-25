@@ -14,9 +14,7 @@ import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 
 import java.io.*;
-import java.net.URISyntaxException;
 import java.net.URL;
-import java.util.Objects;
 import java.util.ResourceBundle;
 
 import javafx.scene.text.Text;
@@ -76,17 +74,12 @@ public class HomeMovieController implements Initializable
     public void initialize(URL url, ResourceBundle resourceBundle)
     {
         JSONObject movieInfo = getJSONObject("movieInfo.json");
-        movieData = (JSONArray) movieInfo.get("movieInfo");
+        movieData = (JSONArray)movieInfo.get("movieInfo");
 
         noMovieErrorMsg.setVisible(false);
         ComingSoonPane.setVisible(false);
 
-        for(int i = 1; i < movieData.size(); i++){
-            String movieID = (((JSONObject)movieData.get(i)).get("movieName")).toString();
-            //System.out.println(movieID);
-        }
-
-        //Load image from resources and display it out
+        //Load 10 images from resources and display it out
         for(int i = 0; i < movieData.size(); i++)
         {
             Image image = null;
@@ -98,46 +91,37 @@ public class HomeMovieController implements Initializable
             {
                 e.printStackTrace();
             }
-
-            switch (i){
-                case 0: popularMovieImage.setImage(image);
-                break;
-                case 1: movieImage1.setImage(image);
-                break;
-                case 2: movieImage2.setImage(image);
-                break;
-                case 3: movieImage3.setImage(image);
-                break;
-                case 4: movieImage4.setImage(image);
-                break;
-                case 5: movieImage5.setImage(image);
-                break;
-                case 6: movieImage6.setImage(image);
-                break;
-                case 7: movieImage7.setImage(image);
-                break;
-                case 8: movieImage8.setImage(image);
-                break;
-                case 9: movieImage9.setImage(image);
-                break;
-                case 10: movieImage10.setImage(image);
-                break;
+            switch (i)
+            {
+                case 0 -> popularMovieImage.setImage(image);
+                case 1 -> movieImage1.setImage(image);
+                case 2 -> movieImage2.setImage(image);
+                case 3 -> movieImage3.setImage(image);
+                case 4 -> movieImage4.setImage(image);
+                case 5 -> movieImage5.setImage(image);
+                case 6 -> movieImage6.setImage(image);
+                case 7 -> movieImage7.setImage(image);
+                case 8 -> movieImage8.setImage(image);
+                case 9 -> movieImage9.setImage(image);
+                case 10 -> movieImage10.setImage(image);
             }
         }
-
     }
 
+    //When the search button is clicked
     public void searchFunction (MouseEvent event) throws IOException
     {
-
         for(int i = 0; i < movieData.size(); i++){
+            //Get the input and its lower case input from user
             String userInputSearch = searchTextField.getText();
-            String userInputSearchLower=userInputSearch.toLowerCase();
+            String userInputSearchLower = userInputSearch.toLowerCase();
+            //search the array to get the movie name
             String movieName = (((JSONObject)movieData.get(i)).get("movieName")).toString();
             String movieNameLower = movieName.toLowerCase();
 
+            //if the user input movie name is same as the movie name in array
+            //Change scene to display the movie info
             if(userInputSearch.equals(movieName) || userInputSearchLower.equals(movieNameLower)){
-                //later need to navigate to movie info scene
                 FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("movie-info.fxml"));
                 Stage stage = (Stage) searchButton.getScene().getWindow();
                 stage.setScene(new Scene(fxmlLoader.load(), 1280, 720));
@@ -147,6 +131,8 @@ public class HomeMovieController implements Initializable
                 break;
             }
 
+            //if the input of movie name is not found
+            //display error message
             else {
                 noMovieErrorMsg.setVisible(true);
                 FadeTransition fadeMessage = new FadeTransition(Duration.millis(6000), noMovieErrorMsg);
@@ -173,7 +159,7 @@ public class HomeMovieController implements Initializable
         }
     }
 
-
+    //When the coming soon button is clicked
     public void ComingSoonButton(ActionEvent event) {
         ComingSoonPane.setVisible(true);
         for(int i = 11; i < movieData.size(); i++)
@@ -188,29 +174,27 @@ public class HomeMovieController implements Initializable
                 e.printStackTrace();
             }
 
-            switch (i){
-                case 11: comingSoonMovieImg1.setImage(image);
-                    break;
-                case 12: comingSoonMovieImg2.setImage(image);
-                    break;
-
+            switch (i)
+            {
+                case 11 -> comingSoonMovieImg1.setImage(image);
+                case 12 -> comingSoonMovieImg2.setImage(image);
             }
-
         }
 
         for(int i = 11; i < movieData.size(); i++){
             String movieTittle = (((JSONObject)movieData.get(i)).get("movieName")).toString();
             String movieReleaseDate = (((JSONObject)movieData.get(i)).get("movieDescription")).toString();
 
-            switch (i){
-                case 11:
+            switch (i)
+            {
+                case 11 -> {
                     comingSoonMovieText1.setText(movieTittle);
                     comingSoonMovieDate1.setText(movieReleaseDate);
-                break;
-                case 12:
+                }
+                case 12 -> {
                     comingSoonMovieText2.setText(movieTittle);
                     comingSoonMovieDate2.setText(movieReleaseDate);
-                break;
+                }
             }
         }
 
@@ -219,10 +203,12 @@ public class HomeMovieController implements Initializable
 
     }
 
+    //when the now showing button is clicked
     public void nowShowingButton(ActionEvent event) {
         ComingSoonPane.setVisible(false);
     }
 
+    //When the popular movie movie info button is clicked
     public void ChangetoMovieInfoScene0(MouseEvent event) throws IOException {
         FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("movie-info.fxml"));
         Stage stage = (Stage) movieInfoButton.getScene().getWindow();
@@ -232,6 +218,7 @@ public class HomeMovieController implements Initializable
         stage.show();
     }
 
+    //When the first row 1st movie image is clicked
     public void ChangetoMovieInfoScene1(MouseEvent event) throws IOException {
         FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("movie-info.fxml"));
         Stage stage = (Stage) movieButton1.getScene().getWindow();
@@ -241,6 +228,7 @@ public class HomeMovieController implements Initializable
         stage.show();
     }
 
+    //When the first row 2nd movie image is clicked
     public void ChangetoMovieInfoScene2(MouseEvent event) throws IOException {
         FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("movie-info.fxml"));
         Stage stage = (Stage) movieButton2.getScene().getWindow();
@@ -250,6 +238,7 @@ public class HomeMovieController implements Initializable
         stage.show();
     }
 
+    //When the first row 3rd movie image is clicked
     public void ChangetoMovieInfoScene3(MouseEvent event) throws IOException{
         FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("movie-info.fxml"));
         Stage stage = (Stage) movieButton3.getScene().getWindow();
@@ -259,6 +248,7 @@ public class HomeMovieController implements Initializable
         stage.show();
     }
 
+    //When the first row 4th movie image is clicked
     public void ChangetoMovieInfoScene4(MouseEvent event) throws IOException{
         FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("movie-info.fxml"));
         Stage stage = (Stage) movieButton4.getScene().getWindow();
@@ -268,6 +258,7 @@ public class HomeMovieController implements Initializable
         stage.show();
     }
 
+    //When the first row 5th movie image is clicked
     public void ChangetoMovieInfoScene5(MouseEvent event) throws IOException{
         FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("movie-info.fxml"));
         Stage stage = (Stage) movieButton5.getScene().getWindow();
@@ -277,6 +268,7 @@ public class HomeMovieController implements Initializable
         stage.show();
     }
 
+    //When the second row 1st movie image is clicked
     public void ChangetoMovieInfoScene6(MouseEvent event) throws IOException {
         FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("movie-info.fxml"));
         Stage stage = (Stage) movieButton6.getScene().getWindow();
@@ -286,6 +278,7 @@ public class HomeMovieController implements Initializable
         stage.show();
     }
 
+    //When the second row 2nd movie image is clicked
     public void ChangetoMovieInfoScene7(MouseEvent event) throws IOException{
         FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("movie-info.fxml"));
         Stage stage = (Stage) movieButton7.getScene().getWindow();
@@ -295,6 +288,7 @@ public class HomeMovieController implements Initializable
         stage.show();
     }
 
+    //When the second row 3rd movie image is clicked
     public void ChangetoMovieInfoScene8(MouseEvent event) throws IOException{
         FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("movie-info.fxml"));
         Stage stage = (Stage) movieButton8.getScene().getWindow();
@@ -304,6 +298,7 @@ public class HomeMovieController implements Initializable
         stage.show();
     }
 
+    //When the second row 4th movie image is clicked
     public void ChangetoMovieInfoScene9(MouseEvent event) throws IOException{
         FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("movie-info.fxml"));
         Stage stage = (Stage) movieButton9.getScene().getWindow();
@@ -313,6 +308,7 @@ public class HomeMovieController implements Initializable
         stage.show();
     }
 
+    //When the second row 5th movie image is clicked
     public void ChangetoMovieInfoScene10(MouseEvent event) throws IOException{
         FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("movie-info.fxml"));
         Stage stage = (Stage) movieButton10.getScene().getWindow();

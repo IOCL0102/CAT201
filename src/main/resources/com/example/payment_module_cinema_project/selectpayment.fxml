@@ -14,11 +14,11 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="720.0" prefWidth="1280.0" styleClass="background" stylesheets="@HomeMovie.css" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.payment_module_cinema_project.PaymentController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="720.0" prefWidth="1280.0" styleClass="background" stylesheets="@selectpayment.css" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.payment_module_cinema_project.PaymentController">
    <children>
       <ScrollPane layoutY="116.0" prefHeight="590.0" prefWidth="1280.0" styleClass="background" stylesheets="@selectpayment.css">
          <content>
-            <AnchorPane prefHeight="1015.0" prefWidth="1270.0" styleClass="background" stylesheets="@HomeMovie.css">
+            <AnchorPane prefHeight="1015.0" prefWidth="1270.0" styleClass="background">
                <children>
                   <SplitPane dividerPositions="0.29797979797979796" layoutY="-1.0" prefHeight="552.0" prefWidth="1263.0">
                     <items>
@@ -110,7 +110,7 @@
                <children>
                   <ButtonBar layoutX="515.0" layoutY="38.0" prefHeight="40.0" prefWidth="591.0">
                     <buttons>
-                      <Button fx:id="BookedTicket" mnemonicParsing="false" prefHeight="40.0" prefWidth="179.0" text="Booked Ticket">
+                      <Button fx:id="BookedTicket" mnemonicParsing="false" onAction="#handleBookedTicketBttn" prefHeight="40.0" prefWidth="179.0" text="Booked Ticket">
                            <graphic>
                               <ImageView fitHeight="26.0" fitWidth="33.0">
                                  <image>
@@ -119,7 +119,7 @@
                               </ImageView>
                            </graphic>
                         </Button>
-                        <Button fx:id="Profile" mnemonicParsing="false" prefHeight="40.0" text="Profile">
+                        <Button fx:id="Profile" mnemonicParsing="false" onAction="#handleProfileBttn" prefHeight="40.0" text="Profile">
                            <graphic>
                               <ImageView fitHeight="28.0" fitWidth="30.0">
                                  <image>
@@ -128,7 +128,7 @@
                               </ImageView>
                            </graphic>
                         </Button>
-                        <Button fx:id="logout" mnemonicParsing="false" text="Log Out" />
+                        <Button fx:id="logout" mnemonicParsing="false" onAction="#handleLogoutBttn" text="Log Out" />
                     </buttons>
                   </ButtonBar>
                </children>

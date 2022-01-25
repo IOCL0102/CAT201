@@ -2,17 +2,26 @@ package com.example.payment_module_cinema_project;
 
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
+import javafx.fxml.Initializable;
 import javafx.stage.Stage;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.ChoiceBox;
 import javafx.scene.text.Text;
 import javafx.scene.image.Image;
-import javafx.scene.control.TextField;
-import javafx.event.ActionEvent;
+import javafx.scene.image.ImageView;
+//import javafx.event.ActionEvent;
 import java.io.IOException;
+import org.json.simple.JSONArray;
+import org.json.simple.JSONObject;
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+//import java.io.FileReader;
+import java.net.URL;
+import java.util.ResourceBundle;
 
-public class PaymentController {
+
+public class PaymentController implements Initializable {
 
     @FXML
     private Button back;
@@ -40,19 +49,43 @@ public class PaymentController {
     private Text ErrorMessage;
 
     @FXML
-    private Image MoviePoster;
+    private ImageView MoviePoster;
 
 
-    public void initialise(Image poster, Text adult, Text child, Text exp, Text tot){
+
+    @Override
+    public void initialize(URL url, ResourceBundle resourceBundle) throws NullPointerException{
         ErrorMessage.setVisible(false);
         paymentOption = new ChoiceBox<>();
         paymentOption.getItems().addAll("Select Payment Option", "Credit/Debit Card", "TouchnGo");
         paymentOption.setValue("Select Payment Option");
-        AdultTicket = adult;
-        ChildrenTicket = child;
-        Experience = exp;
-        Total = tot;
-        MoviePoster = poster; //check whether shown in scene builder
+
+        JSONArray orderData;
+
+        JSONObject orderInfo = JsonEditor.getJSONObject("orderInfo.json");
+        orderData = (JSONArray)orderInfo.get("orderInfo");
+
+        String AT = (((JSONObject)orderData.get(orderData.size() - 1)).get("AdultTicket")).toString();
+        String CT = (((JSONObject)orderData.get(orderData.size() - 1)).get("ChildrenTicket")).toString();
+        String EXP = (((JSONObject)orderData.get(orderData.size() - 1)).get("Experience")).toString();
+        String TOT = (((JSONObject)orderData.get(orderData.size() - 1)).get("Total")).toString();
+
+        AdultTicket.setText(AT);
+        ChildrenTicket.setText(CT);
+        Experience.setText(EXP);
+        Total.setText(TOT);
+
+        Image image;
+        try
+        {
+            String moviePosterSource = (((JSONObject) orderData.get(orderData.size() - 1)).get("Poster")).toString();
+            image = new Image(new FileInputStream(moviePosterSource));
+            MoviePoster.setImage(image);
+
+        } catch (FileNotFoundException e)
+        {
+            e.printStackTrace();
+        }
     }
 
     public void handleBackBttn() throws IOException{
@@ -75,16 +108,14 @@ public class PaymentController {
     }
 
 
-    public void changeToPaymentScene(ActionEvent e, ChoiceBox<String> paymentOption) throws IOException{
-        if(paymentOption.getValue() == "Credit/Debit Card"){
+    public void changeToPaymentScene(ChoiceBox<String> paymentOption) throws IOException{ //not sure whether need to add ActionEvent to paramater
+        if(paymentOption.getValue().equals("Credit/Debit Card")){
             FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("cardpayment.fxml"));
             Stage stage = (Stage) next.getScene().getWindow();
             stage.setScene(new Scene(fxmlLoader.load(), 1280, 720));
-            CardController controller = fxmlLoader.getController();
-            //controller.initialise(jfdklf,dsfaf, dfsaf);
             stage.show();
         }
-        else if(paymentOption.getValue() == "TouchnGo"){
+        else if(paymentOption.getValue().equals("TouchnGo")){
             FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("tngpayment.fxml"));
             Stage stage = (Stage) next.getScene().getWindow();
             stage.setScene(new Scene(fxmlLoader.load(), 1280, 720));

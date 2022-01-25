@@ -6,11 +6,12 @@ import javafx.scene.Scene;
 import javafx.stage.Stage;
 
 import java.io.*;
+//import java.lang.reflect.InvocationTargetException;
 
 public class SelectPaymentMethod extends Application {
 
     @Override
-    public void start(Stage stage) throws IOException {
+    public void start(Stage stage) throws IOException{
         FXMLLoader fxmlLoader = new FXMLLoader(SelectPaymentMethod.class.getResource("selectpayment.fxml"));
         Scene scene = new Scene(fxmlLoader.load(), 1280, 720);
         scene.getStylesheets().add(getClass().getResource("selectpayment.css").toExternalForm());

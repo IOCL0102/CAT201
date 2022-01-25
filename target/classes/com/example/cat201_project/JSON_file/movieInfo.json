@@ -106,8 +106,8 @@
       "movieDescription" : "On the run in the year 1987, Bumblebee the Autobot seeks refuge in a junkyard in a small California beach town. Charlie, on the brink of turning 18 years old and trying to find her place in the world, soon discovers the battle-scarred and broken Bumblebee. When Charlie revives him, she quickly learns that this is no ordinary yellow Volkswagen.",
       "movieCast" : "Hailee Steinfeld, Jorge Lendeborg , John Cena",
       "movieDirector" : "Travis Knight",
-      "moviePhoto" : "-",
-      "moviePoster" : "src/main/resources/com/example/cat201_project/img/bumblebee.jpg"
+      "moviePhoto" : "src/main/resources/com/example/cat201_project/img/bumblebee.jpg",
+      "moviePoster" : "src/main/resources/com/example/cat201_project/img/bumblebeePoster.jpg"
     },
     {
       "movieID" : "12",
@@ -115,8 +115,8 @@
       "movieDescription" : "After her father unexpectedly dies, young Ella (Lily James) finds herself at the mercy of her cruel stepmother (Cate Blanchett) and stepsisters, who reduce her to scullery maid. Despite her circumstances, she refuses to despair. An invitation to a palace ball gives Ella hope that she might reunite with the dashing stranger (Richard Madden) she met in the woods, but her stepmother prevents her from going. Help arrives in the form of a kindly beggar woman who has a magic touch for ordinary things.",
       "movieCast" : "Lily James, Cate Blanchett , Richard Madden",
       "movieDirector" : "Kenneth Branagh",
-      "moviePhoto" : "-",
-      "moviePoster" : "src/main/resources/com/example/cat201_project/img/cinderella.jpg"
+      "moviePhoto" : "src/main/resources/com/example/cat201_project/img/cinderella.jpg",
+      "moviePoster" : "src/main/resources/com/example/cat201_project/img/cinderellaPoster.jpg"
     },
     {
       "movieID" : "13",
@@ -124,8 +124,8 @@
       "movieDescription" : "As a beautiful young woman of pure heart, Maleficent (Angelina Jolie) has an idyllic life in a forest kingdom. When an invading army threatens the land, Maleficent rises up to become its fiercest protector. However, a terrible betrayal hardens her heart and twists her into a creature bent on revenge. She engages in an epic battle with the invading king's successor, then curses his newborn daughter, Aurora -- realizing only later that the child holds the key to peace in the kingdom.",
       "movieCast" : "Angelina Jolie, Elle Fanning, Sharlto Copley",
       "movieDirector" : "Robert Stromberg",
-      "moviePhoto" : "-",
-      "moviePoster" : "src/main/resources/com/example/cat201_project/img/maleficent.jpg"
+      "moviePhoto" : "src/main/resources/com/example/cat201_project/img/maleficent.png",
+      "moviePoster" : "src/main/resources/com/example/cat201_project/img/maleficentPoster.jpg"
     },
     {
       "movieID" : "14",

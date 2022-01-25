@@ -93,19 +93,26 @@ public class ForgotPwController implements Initializable {
         }
 
         // if pin number does not match
-        if(this.pin != null)
-            if(!(this.pin.equals(pinNum))){
+        if(this.pin != null) {
+            if (!(this.pin.equals(pinNum))) {
                 pinNumErrLabel.setText("Pin number does not match");
                 pinNumErrLabel.setVisible(true);
             }
-
+        }
+        else
+        {
+            pinNumErrLabel.setText("Please request the pin ");
+            pinNumErrLabel.setVisible(true);
+         }
         checkIDExist(new ActionEvent());
 
-        if((userIDErrLabel.getText().equals(("User exists"))
-                || !(userIDErrLabel.isVisible()))
+        if(this.pin != null)
+        if((userIDErrLabel.getText().equals(("User exists")) || !(userIDErrLabel.isVisible()))
                 && !pinNumErrLabel.isVisible()
-                && !newPwErrLabel.isVisible())
+                && !newPwErrLabel.isVisible()
+                && this.pin.equals(pinNumTextField.getText()))
         {
+            System.out.println(!pinNumErrLabel.isVisible());
             userIDErrLabel.setVisible(false);
             setAllTextFieldEmpty();
             JsonEditor.updatePassword("userInformation.json", userID,newPw);

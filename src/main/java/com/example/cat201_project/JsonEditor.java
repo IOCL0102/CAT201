@@ -75,9 +75,6 @@ public class JsonEditor {
         for(int i = 0 ; i <userInfoArray.size() ; i++) {
             JSONObject tempObj = (JSONObject) userInfoArray.get(i);
             if (tempObj.get(key).equals(value)){
-                System.out.println("KEY : " + key );
-                System.out.println("VALUE : " + value);
-                System.out.println("FOUND IN INDEX " + i );
                 return true;
             }
         }

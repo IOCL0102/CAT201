@@ -162,7 +162,8 @@ public class HomeMovieController implements Initializable
     //When the coming soon button is clicked
     public void ComingSoonButton(ActionEvent event) {
         ComingSoonPane.setVisible(true);
-        for(int i = 11; i < movieData.size(); i++)
+
+        for(int i = 14; i < movieData.size(); i++)
         {
             Image image = null;
             try
@@ -176,22 +177,22 @@ public class HomeMovieController implements Initializable
 
             switch (i)
             {
-                case 11 -> comingSoonMovieImg1.setImage(image);
-                case 12 -> comingSoonMovieImg2.setImage(image);
+                case 14 -> comingSoonMovieImg1.setImage(image);
+                case 15 -> comingSoonMovieImg2.setImage(image);
             }
         }
 
-        for(int i = 11; i < movieData.size(); i++){
+        for(int i = 14; i < movieData.size(); i++){
             String movieTittle = (((JSONObject)movieData.get(i)).get("movieName")).toString();
             String movieReleaseDate = (((JSONObject)movieData.get(i)).get("movieDescription")).toString();
 
             switch (i)
             {
-                case 11 -> {
+                case 14 -> {
                     comingSoonMovieText1.setText(movieTittle);
                     comingSoonMovieDate1.setText(movieReleaseDate);
                 }
-                case 12 -> {
+                case 15 -> {
                     comingSoonMovieText2.setText(movieTittle);
                     comingSoonMovieDate2.setText(movieReleaseDate);
                 }
@@ -318,6 +319,17 @@ public class HomeMovieController implements Initializable
         stage.show();
     }
 
+    //When book now button is clicked
+    public void bookNowButtonClicked(ActionEvent event) throws IOException
+    {
+        /*
+        FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource(""));
+        Stage stage = (Stage) bookNowButton.getScene().getWindow();
+        stage.setScene(new Scene(fxmlLoader.load(), 1280, 720));
+        stage.show();
+
+         */
+    }
 }
 
 

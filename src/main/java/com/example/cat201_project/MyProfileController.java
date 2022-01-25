@@ -66,7 +66,7 @@ public class MyProfileController implements Initializable {
     }
 
     public void returnToProfilePage(ActionEvent e) throws IOException {
-        FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("login-view.fxml"));
+        FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("myProfile.fxml"));
         Stage stage = (Stage) viewProfileBttn.getScene().getWindow();
         stage.setScene(new Scene(fxmlLoader.load(), 1280, 720));
         stage.show();
@@ -81,6 +81,15 @@ public class MyProfileController implements Initializable {
         stage.setScene(new Scene(fxmlLoader.load(), 1280, 720));
         stage.show();
     }
+
+    public void returnToHomeMovieScene(ActionEvent e) throws IOException {
+
+        FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("home-movie.fxml"));
+        Stage stage = (Stage) returnToMainPageBttn.getScene().getWindow();
+        stage.setScene(new Scene(fxmlLoader.load(), 1280, 720));
+        stage.show();
+    }
+
 
 
 }

@@ -1,6 +1,9 @@
 module com.example.cat201_project {
     requires javafx.controls;
     requires javafx.fxml;
+    requires json.simple;
+    requires core;
+    requires javase;
 
     requires org.kordamp.ikonli.javafx;
     requires json.simple;

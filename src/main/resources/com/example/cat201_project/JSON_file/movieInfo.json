@@ -89,7 +89,7 @@
       "movieCast" : "Ryunosuke Kamiki, Mone Kamishiraishi",
       "movieDirector" : "Makoto Shinkai",
       "moviePhoto" : "src/main/resources/com/example/cat201_project/img/KiminoNawa.jpg",
-      "moviePoster" : "src/main/resources/com/example/cat201_project/img/KiminoNawaPoster.jpg"
+      "moviePoster" : "src/main/resources/com/example/cat201_project/img/KiminoNawaPoster.png"
     },
     {
       "movieID" : "10",
@@ -102,19 +102,45 @@
     },
     {
       "movieID" : "11",
+      "movieName" : "Bumblebee",
+      "movieDescription" : "On the run in the year 1987, Bumblebee the Autobot seeks refuge in a junkyard in a small California beach town. Charlie, on the brink of turning 18 years old and trying to find her place in the world, soon discovers the battle-scarred and broken Bumblebee. When Charlie revives him, she quickly learns that this is no ordinary yellow Volkswagen.",
+      "movieCast" : "Hailee Steinfeld, Jorge Lendeborg , John Cena",
+      "movieDirector" : "Travis Knight",
+      "moviePhoto" : "-",
+      "moviePoster" : "src/main/resources/com/example/cat201_project/img/bumblebee.jpg"
+    },
+    {
+      "movieID" : "12",
+      "movieName" : "Cinderella",
+      "movieDescription" : "After her father unexpectedly dies, young Ella (Lily James) finds herself at the mercy of her cruel stepmother (Cate Blanchett) and stepsisters, who reduce her to scullery maid. Despite her circumstances, she refuses to despair. An invitation to a palace ball gives Ella hope that she might reunite with the dashing stranger (Richard Madden) she met in the woods, but her stepmother prevents her from going. Help arrives in the form of a kindly beggar woman who has a magic touch for ordinary things.",
+      "movieCast" : "Lily James, Cate Blanchett , Richard Madden",
+      "movieDirector" : "Kenneth Branagh",
+      "moviePhoto" : "-",
+      "moviePoster" : "src/main/resources/com/example/cat201_project/img/cinderella.jpg"
+    },
+    {
+      "movieID" : "13",
+      "movieName" : "Maleficent",
+      "movieDescription" : "As a beautiful young woman of pure heart, Maleficent (Angelina Jolie) has an idyllic life in a forest kingdom. When an invading army threatens the land, Maleficent rises up to become its fiercest protector. However, a terrible betrayal hardens her heart and twists her into a creature bent on revenge. She engages in an epic battle with the invading king's successor, then curses his newborn daughter, Aurora -- realizing only later that the child holds the key to peace in the kingdom.",
+      "movieCast" : "Angelina Jolie, Elle Fanning, Sharlto Copley",
+      "movieDirector" : "Robert Stromberg",
+      "moviePhoto" : "-",
+      "moviePoster" : "src/main/resources/com/example/cat201_project/img/maleficent.jpg"
+    },
+    {
+      "movieID" : "14",
       "movieName" : "Doctor Strange in the Multiverse of Madness",
       "movieDescription" : "Release date: April 6, 2022 ",
-      "movieCast" : "-",
+      "movieCast" : "Benedict Cumberbatch, Elizabeth Olsen, Rachel McAdams, Michael Stuhlbarg",
       "movieDirector" : "Sam Raimi",
       "moviePhoto" : "src/main/resources/com/example/cat201_project/img/doctorStrange.jpg",
       "moviePoster" : "src/main/resources/com/example/cat201_project/img/doctorStrange.jpg"
-    }
-  ,
+    },
     {
-      "movieID" : "12",
+      "movieID" : "15",
       "movieName" : "Thor: Love and Thunder",
       "movieDescription" : "Release date: March 15, 2022 ",
-      "movieCast" : "-",
+      "movieCast" : "Chris Hemsworth, Chris Pratt, Karen Gillan, Christian Bale, Melissa McCarthy ",
       "movieDirector" : "Taika Waititi",
       "moviePhoto" : "src/main/resources/com/example/cat201_project/img/thor.jpg",
       "moviePoster" : "src/main/resources/com/example/cat201_project/img/thor.jpg"

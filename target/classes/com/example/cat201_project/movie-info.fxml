@@ -2,7 +2,6 @@
 
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.ButtonBar?>
-<?import javafx.scene.control.ChoiceBox?>
 <?import javafx.scene.control.ScrollPane?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
@@ -56,7 +55,7 @@
         </HBox>
       <ScrollPane layoutX="1.0" layoutY="102.0" prefHeight="720.0" prefWidth="1280.0" styleClass="background" stylesheets="@MovieInfo.css" AnchorPane.bottomAnchor="-102.0" AnchorPane.leftAnchor="1.0" AnchorPane.rightAnchor="-1.0" AnchorPane.topAnchor="102.0">
          <content>
-          <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="1365.0" prefWidth="1258.0" styleClass="background" stylesheets="@MovieInfo.css">
+          <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="838.0" prefWidth="1258.0" styleClass="background" stylesheets="@MovieInfo.css">
                <children>
                   <Button fx:id="backButton" layoutX="62.0" layoutY="44.0" mnemonicParsing="false" onAction="#BacktoMovieHomeScene" prefHeight="50.0" prefWidth="46.0" styleClass="backbutton" stylesheets="@MovieInfo.css">
                      <graphic>
@@ -88,49 +87,8 @@
                         <Font name="HP Simplified Hans Regular" size="18.0" />
                      </font>
                   </Text>
-                  <Text fill="WHITE" layoutX="240.0" layoutY="725.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Royal Cinema Showtimes" wrappingWidth="399.037841796875">
-                     <font>
-                        <Font name="HP Simplified Hans Regular" size="34.0" />
-                     </font>
-                  </Text>
-                  <Button layoutX="1033.0" layoutY="433.0" mnemonicParsing="false" prefHeight="50.0" prefWidth="138.0" text="Book Now" />
-                  <Line endX="1018.2000732421875" layoutX="175.0" layoutY="735.0" startX="-43.13334655761719" stroke="WHITE" />
-                  <ChoiceBox layoutX="400.0" layoutY="775.0" prefHeight="38.0" prefWidth="156.0" style="-fx-background-color: FFFFFF;" />
-                  <Text fill="WHITE" layoutX="241.0" layoutY="800.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Select Date: ">
-                     <font>
-                        <Font name="HP Simplified Hans Regular" size="27.0" />
-                     </font>
-                  </Text>
-                  <Text fill="WHITE" layoutX="240.0" layoutY="880.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Classic Experience">
-                     <font>
-                        <Font name="HP Simplified Hans Regular" size="27.0" />
-                     </font>
-                  </Text>
-                  <Text fill="WHITE" layoutX="240.0" layoutY="1020.0" strokeType="OUTSIDE" strokeWidth="0.0" text="IMAX Experience">
-                     <font>
-                        <Font name="HP Simplified Hans Regular" size="27.0" />
-                     </font>
-                  </Text>
-                  <ButtonBar layoutX="240.0" layoutY="880.0" prefHeight="95.0" prefWidth="832.0">
-                    <buttons>
-                      <Button mnemonicParsing="false" prefHeight="50.0" prefWidth="130.0" styleClass="normalbutton" stylesheets="@MovieInfo.css" text="08.00 am" />
-                        <Button mnemonicParsing="false" prefHeight="50.0" prefWidth="130.0" styleClass="normalbutton" stylesheets="@MovieInfo.css" text="10.30 am" />
-                        <Button mnemonicParsing="false" prefHeight="50.0" prefWidth="130.0" styleClass="normalbutton" stylesheets="@MovieInfo.css" text="12.00 pm" />
-                        <Button mnemonicParsing="false" prefHeight="50.0" prefWidth="130.0" styleClass="normalbutton" stylesheets="@MovieInfo.css" text="3.00 pm" />
-                        <Button mnemonicParsing="false" prefHeight="50.0" prefWidth="130.0" styleClass="normalbutton" stylesheets="@MovieInfo.css" text="8.30 pm" />
-                        <Button mnemonicParsing="false" prefHeight="50.0" prefWidth="130.0" styleClass="normalbutton" stylesheets="@MovieInfo.css" text="10:00 pm" />
-                    </buttons>
-                  </ButtonBar>
-                  <ButtonBar layoutX="240.0" layoutY="1014.0" prefHeight="95.0" prefWidth="832.0">
-                     <buttons>
-                        <Button mnemonicParsing="false" prefHeight="50.0" prefWidth="130.0" styleClass="normalbutton" stylesheets="@MovieInfo.css" text="08.00 am" />
-                        <Button mnemonicParsing="false" prefHeight="50.0" prefWidth="130.0" styleClass="normalbutton" stylesheets="@MovieInfo.css" text="10.30 am" />
-                        <Button mnemonicParsing="false" prefHeight="50.0" prefWidth="130.0" styleClass="normalbutton" stylesheets="@MovieInfo.css" text="12.00 pm" />
-                        <Button mnemonicParsing="false" prefHeight="50.0" prefWidth="130.0" styleClass="normalbutton" stylesheets="@MovieInfo.css" text="3.00 pm" />
-                        <Button mnemonicParsing="false" prefHeight="50.0" prefWidth="130.0" styleClass="normalbutton" stylesheets="@MovieInfo.css" text="8.30 pm" />
-                        <Button mnemonicParsing="false" prefHeight="50.0" prefWidth="130.0" styleClass="normalbutton" stylesheets="@MovieInfo.css" text="09:30pm" />
-                     </buttons>
-                  </ButtonBar>
+                  <Button fx:id="bookNowButton" layoutX="1033.0" layoutY="433.0" mnemonicParsing="false" onAction="#bookNowButtonclicked" prefHeight="50.0" prefWidth="138.0" text="Book Now" />
+                  <Text fill="WHITE" layoutX="383.0" layoutY="723.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Copyright Reserved © 2022 Royal Cinema Sdn Bhd. All Rights Reserved." wrappingWidth="411.611328125" />
                </children>
             </AnchorPane>
          </content>

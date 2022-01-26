@@ -57,7 +57,7 @@ public class TngController implements Initializable {
     private ImageView MoviePoster;
 
 
-    public void initialize(URL url, ResourceBundle resourceBundle){
+    public void initialize(URL url, ResourceBundle resourceBundle) throws NullPointerException{
         PhoneNumErrMessage.setVisible(false);
         OTPErrMessage.setVisible(false);
 

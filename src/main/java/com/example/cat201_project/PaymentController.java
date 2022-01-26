@@ -88,7 +88,7 @@ public class PaymentController implements Initializable {
         }
     }
 
-    public void handleBackBttn() throws IOException{
+    public void handleBackBttn(){
         //insert back to ticket scene function
     }
 
@@ -105,7 +105,7 @@ public class PaymentController implements Initializable {
     }
 
 
-    public void changeToPaymentScene(ChoiceBox<String> paymentOption) throws IOException{ //not sure whether need to add ActionEvent to paramater
+    public void changeToPaymentScene() throws IOException{ //not sure whether need to add ActionEvent to paramater
         if(paymentOption.getValue().equals("Credit/Debit Card")){
             FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("cardpayment.fxml"));
             Stage stage = (Stage) next.getScene().getWindow();

@@ -67,7 +67,7 @@ public class CardController implements  Initializable{
     private ImageView MoviePoster;
 
     @Override
-    public void initialize(URL url, ResourceBundle resourceBundle){
+    public void initialize(URL url, ResourceBundle resourceBundle) throws NullPointerException{
         CardNumErrMessage.setVisible(false);
         CardMonthErrMessage.setVisible(false);
         CardYearErrMessage.setVisible(false);
@@ -101,7 +101,7 @@ public class CardController implements  Initializable{
         }
     }
 
-    public void handleBackBttn(){
+    public void handleBackBttn() throws IOException {
         FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("selectpayment.fxml"));
         Stage stage = (Stage) back.getScene().getWindow();
         stage.setScene(new Scene(fxmlLoader.load(), 1280, 720));

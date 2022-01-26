@@ -63,7 +63,7 @@ public class ReceiptController implements Initializable {
     private JSONArray orderData = null;
 
     @Override
-    public void initialize(URL url, ResourceBundle resourceBundle){
+    public void initialize(URL url, ResourceBundle resourceBundle) throws NullPointerException{
         JSONObject orderInfo = JsonEditor.getJSONObject("orderInfo.json");
         orderData = (JSONArray) orderInfo.get("orderInfo");
 
@@ -101,7 +101,7 @@ public class ReceiptController implements Initializable {
 
         String str= movie+date+time+seats;//concatenate strings of data into one string
 
-        String path = "src/main/resources/com/example/cat201_project/img";
+        String path = "src/main/resources/com/example/cat201_project/img/QR"+ toString(((JSONObject)orderData.get(orderData.size() - 1))) + ".png";
 
         String charset = "UTF-8";
         Map<EncodeHintType, ErrorCorrectionLevel> hashMap = new HashMap<>();
@@ -112,8 +112,8 @@ public class ReceiptController implements Initializable {
             generateQR(str, path, charset, hashMap, 200, 200);
         } catch (WriterException e) {
             e.printStackTrace();
-        } catch (IOException e) {
-            e.printStackTrace();
+        } catch (IOException i) {
+            i.printStackTrace();
         }
 
         System.out.println("QR Code created successfully.");

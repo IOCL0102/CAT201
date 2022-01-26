@@ -44,7 +44,7 @@ public class LoginController implements Initializable{
         System.out.println(JsonEditor.getUserArrayIndex());
     }
 
-    public void validateLogin(ActionEvent e){
+    public void validateLogin(ActionEvent e) throws IOException {
         String userID = userIDTextField.getText();
         String userPw = userPwTextField.getText();
         boolean isValidAcc = false;
@@ -59,8 +59,7 @@ public class LoginController implements Initializable{
                 JsonEditor.setUserArrayIndex(i);
                 System.out.println("your index is "+ JsonEditor.getUserArrayIndex());
                 isValidAcc = true;
-                // LATER TO BE ADDED
-                // CHANGE SCENE TO MAIN PAGE AFTER LOGIN
+                changeToHomeMovieScene();
             }
         }
 
@@ -77,7 +76,7 @@ public class LoginController implements Initializable{
             fadeMessage.setToValue(0);
             fadeMessage.play();
         }
-        else if(isValidAcc == false){
+        else {
             if(emptyTextFieldErrMsg.isVisible())
                 emptyTextFieldErrMsg.setVisible(false);
 
@@ -87,8 +86,7 @@ public class LoginController implements Initializable{
             fadeMessage.setToValue(0);
             fadeMessage.play();
         }
-        else
-            changeToHomeMovieScene();
+
     }
 
     public void changeToSignUpScene(ActionEvent e) throws IOException {

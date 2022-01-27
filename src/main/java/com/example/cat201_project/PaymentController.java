@@ -56,7 +56,7 @@ public class PaymentController implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) throws NullPointerException{
         ErrorMessage.setVisible(false);
-        paymentOption = new ChoiceBox<>();
+        //paymentOption = new ChoiceBox<>();
         paymentOption.getItems().addAll("Select Payment Option", "Credit/Debit Card", "TouchnGo");
         paymentOption.setValue("Select Payment Option");
 

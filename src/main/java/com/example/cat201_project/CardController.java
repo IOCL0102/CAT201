@@ -2,6 +2,7 @@ package com.example.cat201_project;
 
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
+import javafx.fxml.LoadException;
 import javafx.scene.image.ImageView;
 import javafx.stage.Stage;
 import javafx.scene.Scene;
@@ -101,7 +102,7 @@ public class CardController implements  Initializable{
         }
     }
 
-    public void handleBackBttn() throws IOException {
+    public void handleBackBttn() throws IOException, RuntimeException{
         FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("selectpayment.fxml"));
         Stage stage = (Stage) back.getScene().getWindow();
         stage.setScene(new Scene(fxmlLoader.load(), 1280, 720));
@@ -156,7 +157,7 @@ public class CardController implements  Initializable{
         }
         else{
             FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("receipt.fxml"));
-            Stage stage = (Stage) pay.getScene().getWindow(); //not sure correct anot
+            Stage stage = (Stage) pay.getScene().getWindow();
             stage.setScene(new Scene(fxmlLoader.load(), 1280, 720));
             stage.show();
         }

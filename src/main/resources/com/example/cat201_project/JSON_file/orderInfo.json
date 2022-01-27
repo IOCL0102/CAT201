@@ -34,7 +34,7 @@
       "Date": "01/01/2022",
       "Time": "09:30am",
       "Seats": [ "C01", "C02", "C03"],
-      "QR": null
+      "QR": "src/main/resources/com/example/cat201_project/img/DemonSlayerPoster.jpg"
     }
   ]
 }

@@ -6,7 +6,7 @@ import javafx.scene.Scene;
 import javafx.stage.Stage;
 
 import java.io.*;
-//import java.lang.reflect.InvocationTargetException;
+
 
 public class SelectPaymentMethod extends Application {
 

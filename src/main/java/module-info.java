@@ -3,7 +3,7 @@ module com.example.payment_module_cinema_project {
     requires javafx.fxml;
     requires json.simple;
     requires core;
-    requires javase;
+    //requires javase;
 
 
     opens com.example.cat201_project to javafx.fxml;

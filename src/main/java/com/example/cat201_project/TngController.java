@@ -1,5 +1,6 @@
 package com.example.cat201_project;
 
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
@@ -112,24 +113,23 @@ public class TngController implements Initializable {
         //insert cancel function
     }
 
-    public void changeToReceiptScene() throws IOException{//not sure need to include ActionEvent in the parameter
+    public void changeToReceiptScene() throws IOException, NumberFormatException{//not sure need to include ActionEvent in the parameter
         String phoneNum = PhoneNumber.getText();
         int OTP = Integer.parseInt(OneTimePassword.getText());
 
-        if(phoneNum.equals("")){
-            PhoneNumErrMessage.setVisible(true);
-            OTPErrMessage.setVisible(false);
+        while("".equals(phoneNum)|| (OTP < 0 || OTP > 999999)) {
+            if (phoneNum.equals("")) {
+                PhoneNumErrMessage.setVisible(true);
+                OTPErrMessage.setVisible(false);
+            } else if (OTP < 0 || OTP > 999999) {
+                PhoneNumErrMessage.setVisible(false);
+                OTPErrMessage.setVisible(true);
+            }
         }
-        else if (OTP < 0 || OTP > 999999){
-            PhoneNumErrMessage.setVisible(false);
-            OTPErrMessage.setVisible(true);
-        }
-        else{
-            FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("receipt.fxml"));
-            Stage stage = (Stage) pay.getScene().getWindow();
-            stage.setScene(new Scene(fxmlLoader.load(), 1280, 720));
-            stage.show();
-        }
+        FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("receipt.fxml"));
+        Stage stage = (Stage) pay.getScene().getWindow();
+        stage.setScene(new Scene(fxmlLoader.load(), 1280, 720));
+        stage.show();
     }
 
 }

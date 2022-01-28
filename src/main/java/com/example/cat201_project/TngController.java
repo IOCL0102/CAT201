@@ -1,6 +1,5 @@
 package com.example.cat201_project;
 
-import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
@@ -11,7 +10,6 @@ import javafx.scene.control.Button;
 import javafx.scene.text.Text;
 import javafx.scene.image.Image;
 import javafx.scene.control.TextField;
-//import javafx.event.ActionEvent;
 import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
 
@@ -105,12 +103,18 @@ public class TngController implements Initializable {
         //insert function from booked ticket
     }
 
-    public void handleProfileBttn(){
-        //insert function from profile
+    public void handleProfileBttn() throws IOException{
+        FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("myProfile.fxml"));
+        Stage stage = (Stage) Profile.getScene().getWindow();
+        stage.setScene(new Scene(fxmlLoader.load(), 1280, 720));
+        stage.show();
     }
 
-    public void handleLogoutBttn(){
-        //insert logout function
+    public void handleLogoutBttn()throws IOException{
+        FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("login-view.fxml"));
+        Stage stage = (Stage) logout.getScene().getWindow();
+        stage.setScene(new Scene(fxmlLoader.load(), 1280, 720));
+        stage.show();
     }
 
     public void handleCancelBttn(){

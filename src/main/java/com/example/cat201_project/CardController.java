@@ -115,12 +115,18 @@ public class CardController implements  Initializable{
         //insert function from booked ticket
     }
 
-    public void handleProfileBttn(){
-        //insert function from profile
+    public void handleProfileBttn() throws IOException{
+        FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("myProfile.fxml"));
+        Stage stage = (Stage) Profile.getScene().getWindow();
+        stage.setScene(new Scene(fxmlLoader.load(), 1280, 720));
+        stage.show();
     }
 
-    public void handleLogoutBttn(){
-        //insert logout function
+    public void handleLogoutBttn() throws IOException{
+        FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("login-view.fxml"));
+        Stage stage = (Stage) logout.getScene().getWindow();
+        stage.setScene(new Scene(fxmlLoader.load(), 1280, 720));
+        stage.show();
     }
 
     public void handleCancelBttn(){

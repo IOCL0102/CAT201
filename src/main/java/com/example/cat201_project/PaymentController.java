@@ -10,13 +10,11 @@ import javafx.scene.control.ChoiceBox;
 import javafx.scene.text.Text;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
-//import javafx.event.ActionEvent;
 import java.io.IOException;
 import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
-//import java.io.FileReader;
 import java.net.URL;
 import java.util.ResourceBundle;
 
@@ -99,12 +97,18 @@ public class PaymentController implements Initializable {
         //insert function from booked ticket
     }
 
-    public void handleProfileBttn(){
-        //insert function from profile
+    public void handleProfileBttn() throws IOException{
+        FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("myProfile.fxml"));
+        Stage stage = (Stage) Profile.getScene().getWindow();
+        stage.setScene(new Scene(fxmlLoader.load(), 1280, 720));
+        stage.show();
     }
 
-    public void handleLogoutBttn(){
-        //insert logout function
+    public void handleLogoutBttn() throws IOException{
+        FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("login-view.fxml"));
+        Stage stage = (Stage) logout.getScene().getWindow();
+        stage.setScene(new Scene(fxmlLoader.load(), 1280, 720));
+        stage.show();
     }
 
     //Change to next scene after user click "Next"

@@ -1,6 +1,9 @@
 package com.example.cat201_project;
 
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
+import javafx.stage.Stage;
+import javafx.scene.Scene;
 import javafx.fxml.Initializable;
 import javafx.scene.image.ImageView;
 import javafx.scene.control.Button;
@@ -116,16 +119,25 @@ public class ReceiptController implements Initializable {
         //insert function from booked ticket
     }
 
-    public void handleProfileBttn(){
-        //insert function from profile
+    public void handleProfileBttn() throws IOException{
+        FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("myProfile.fxml"));
+        Stage stage = (Stage) Profile.getScene().getWindow();
+        stage.setScene(new Scene(fxmlLoader.load(), 1280, 720));
+        stage.show();
     }
 
-    public void handleLogoutBttn(){
-        //insert logout function
+    public void handleLogoutBttn() throws IOException{
+        FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("login-view.fxml"));
+        Stage stage = (Stage) logout.getScene().getWindow();
+        stage.setScene(new Scene(fxmlLoader.load(), 1280, 720));
+        stage.show();
     }
 
-    public void handleHomeBttn(){
-        //insert logout function
+    public void handleHomeBttn() throws IOException{
+        FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("home-movie.fxml"));
+        Stage stage = (Stage) home.getScene().getWindow();
+        stage.setScene(new Scene(fxmlLoader.load(), 1280, 720));
+        stage.show();
     }
 
     public void generateQR(String str, String path){

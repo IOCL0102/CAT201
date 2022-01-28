@@ -3,7 +3,7 @@ module com.example.cat201_project {
     requires javafx.fxml;
     requires json.simple;
     requires core;
-    requires javase;
+    requires qrgen;
     requires org.kordamp.ikonli.javafx;
     requires commons.io;
     requires javax.mail.api;

@@ -17,14 +17,17 @@
    <children>
       <ScrollPane layoutY="116.0" prefHeight="590.0" prefWidth="1280.0" styleClass="background" stylesheets="@receipt.css">
          <content>
-            <AnchorPane prefHeight="1015.0" prefWidth="1270.0" styleClass="background" stylesheets="@receipt.css">
+            <AnchorPane prefHeight="589.0" prefWidth="1270.0" styleClass="background" stylesheets="@receipt.css">
                <children>
                   <SplitPane dividerPositions="0.29797979797979796" layoutY="-1.0" prefHeight="552.0" prefWidth="1263.0">
                     <items>
                       <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="160.0" prefWidth="100.0" styleClass="background" stylesheets="@receipt.css">
                            <children>
-                              <ImageView fx:id="MoviePoster" fitHeight="362.0" fitWidth="373.0" layoutY="40.0" pickOnBounds="true" preserveRatio="true" />
-                              <Pane layoutX="-1.0" prefHeight="40.0" prefWidth="220.0" />
+                              <ImageView fx:id="MoviePoster" fitHeight="362.0" fitWidth="348.0" layoutX="25.0" layoutY="40.0" pickOnBounds="true" preserveRatio="true" />
+                              <Pane layoutX="-1.0" prefHeight="40.0" prefWidth="220.0">
+                                 <children>
+                                    <Button fx:id="home" layoutX="3.0" layoutY="1.0" mnemonicParsing="false" onAction="#handleHomeBttn" text="Home" />
+                                 </children></Pane>
                               <Text layoutX="22.0" layoutY="427.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="normalText" text="Adult Ticket:">
                                  <font>
                                     <Font size="20.0" />
@@ -114,13 +117,13 @@
                                     <Font size="20.0" />
                                  </font>
                               </Text>
-                              <ImageView fx:id="ReceiptQR" fitHeight="193.0" fitWidth="221.0" layoutX="330.0" layoutY="142.0" pickOnBounds="true" preserveRatio="true" />
-                              <Text layoutX="180.0" layoutY="65.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="normalText" text="Kindly print the QR Code before going to the theater.">
+                              <ImageView fx:id="ReceiptQR" fitHeight="193.0" fitWidth="221.0" layoutX="331.0" layoutY="161.0" pickOnBounds="true" preserveRatio="true" />
+                              <Text layoutX="180.0" layoutY="85.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="normalText" text="Kindly print the QR Code before going to the theater.">
                                  <font>
                                     <Font size="30.0" />
                                  </font>
                               </Text>
-                              <Text layoutX="210.0" layoutY="116.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="normalText" text="Scan the QR Code using the counter’s scanner.">
+                              <Text layoutX="210.0" layoutY="124.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="normalText" text="Scan the QR Code using the counter’s scanner.">
                                  <font>
                                     <Font size="30.0" />
                                  </font>

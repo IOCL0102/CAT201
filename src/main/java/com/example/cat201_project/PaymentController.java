@@ -55,8 +55,9 @@ public class PaymentController implements Initializable {
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) throws NullPointerException{
-        ErrorMessage.setVisible(false);
-        //paymentOption = new ChoiceBox<>();
+        ErrorMessage.setVisible(false); //Disable error message
+
+        //Initialse ChoiceBox choices
         paymentOption.getItems().addAll("Select Payment Option", "Credit/Debit Card", "TouchnGo");
         paymentOption.setValue("Select Payment Option");
 
@@ -70,11 +71,13 @@ public class PaymentController implements Initializable {
         String EXP = (((JSONObject)orderData.get(orderData.size() - 1)).get("Experience")).toString();
         String TOT = (((JSONObject)orderData.get(orderData.size() - 1)).get("Total")).toString();
 
+        //Initialise movie details from JSON file
         AdultTicket.setText(AT);
         ChildrenTicket.setText(CT);
         Experience.setText(EXP);
         Total.setText(TOT);
 
+        //Initialise image poster using path from JSON file
         Image image;
         try
         {
@@ -104,8 +107,8 @@ public class PaymentController implements Initializable {
         //insert logout function
     }
 
-
-    public void changeToPaymentScene() throws IOException{ //not sure whether need to add ActionEvent to paramater
+    //Change to next scene after user click "Next"
+    public void changeToPaymentScene() throws IOException{
         if(paymentOption.getValue().equals("Credit/Debit Card")){
             FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("cardpayment.fxml"));
             Stage stage = (Stage) next.getScene().getWindow();

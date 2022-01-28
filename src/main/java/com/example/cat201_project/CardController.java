@@ -2,7 +2,6 @@ package com.example.cat201_project;
 
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
-import javafx.fxml.LoadException;
 import javafx.scene.image.ImageView;
 import javafx.stage.Stage;
 import javafx.scene.Scene;
@@ -10,7 +9,6 @@ import javafx.scene.control.Button;
 import javafx.scene.text.Text;
 import javafx.scene.image.Image;
 import javafx.scene.control.TextField;
-//import javafx.event.ActionEvent;
 
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
@@ -69,6 +67,7 @@ public class CardController implements  Initializable{
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) throws NullPointerException{
+        //Disable all error messages
         CardNumErrMessage.setVisible(false);
         CardMonthErrMessage.setVisible(false);
         CardYearErrMessage.setVisible(false);
@@ -84,11 +83,13 @@ public class CardController implements  Initializable{
         String EXP = (((JSONObject)orderData.get(orderData.size() - 1)).get("Experience")).toString();
         String TOT = (((JSONObject)orderData.get(orderData.size() - 1)).get("Total")).toString();
 
+        //Initialise movie details from JSON file
         AdultTicket.setText(AT);
         ChildrenTicket.setText(CT);
         Experience.setText(EXP);
         Total.setText(TOT);
 
+        //Initialise movie poster using path from JSON file
         Image image;
         try
         {
@@ -102,6 +103,7 @@ public class CardController implements  Initializable{
         }
     }
 
+    //Change back to Select Payment scene when user click Back button
     public void handleBackBttn() throws IOException, RuntimeException{
         FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("selectpayment.fxml"));
         Stage stage = (Stage) back.getScene().getWindow();
@@ -125,12 +127,32 @@ public class CardController implements  Initializable{
         //insert cancel function
     }
 
-    public void changeToReceiptScene() throws IOException{//not sure need to include ActionEvent in the parameter
-        long cardNum = Long.parseLong(CardNumber.getText());
-        int month = Integer.parseInt(ExpiryMonth.getText());
-        int year = Integer.parseInt(ExpiryYear.getText());
-        int cvv = Integer.parseInt(CVV.getText());
+    public void changeToReceiptScene() throws IOException{
+        String CN = CardNumber.getText();
+        String EM = ExpiryMonth.getText();
+        String EY = ExpiryYear.getText();
+        String CV = CVV.getText();
 
+        long cardNum = -1;
+        int month = -1;
+        int year = -1;
+        int cvv = -1;
+
+        //Parse the texts from text fields into numbers if text fields are not empty
+        if(!CN.isEmpty()){
+            cardNum = Long.parseLong(CN);
+        }
+        if(!EM.isEmpty()){
+            month = Integer.parseInt(EM);
+        }
+        if(!EY.isEmpty()){
+            year = Integer.parseInt(EY);
+        }
+        if(!CV.isEmpty()){
+            cvv = Integer.parseInt(CV);
+        }
+
+        //Show error messages whenever user enters an invalid number or leave text field empty
         if(cardNum < 0){
             CardNumErrMessage.setVisible(true);
             CardMonthErrMessage.setVisible(false);
@@ -155,15 +177,11 @@ public class CardController implements  Initializable{
             CardMonthErrMessage.setVisible(false);
             CardYearErrMessage.setVisible(false);
         }
-        else{
+        else{ //Change to Receipt scene when user clicks Pay button
             FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("receipt.fxml"));
             Stage stage = (Stage) pay.getScene().getWindow();
             stage.setScene(new Scene(fxmlLoader.load(), 1280, 720));
             stage.show();
         }
-
     }
-
-
-
 }

@@ -59,6 +59,7 @@ public class TngController implements Initializable {
 
 
     public void initialize(URL url, ResourceBundle resourceBundle) throws NullPointerException{
+        //Disable all error messages
         PhoneNumErrMessage.setVisible(false);
         OTPErrMessage.setVisible(false);
 
@@ -72,11 +73,13 @@ public class TngController implements Initializable {
         String EXP = (((JSONObject)orderData.get(orderData.size() - 1)).get("Experience")).toString();
         String TOT = (((JSONObject)orderData.get(orderData.size() - 1)).get("Total")).toString();
 
+        //Initialise the movie details from JSON file
         AdultTicket.setText(AT);
         ChildrenTicket.setText(CT);
         Experience.setText(EXP);
         Total.setText(TOT);
 
+        //Initialise the movie poster using path from JSON file
         Image image;
         try
         {
@@ -90,7 +93,8 @@ public class TngController implements Initializable {
         }
     }
 
-    public void handleBackBttn() throws IOException{//not sure need to include ActionEvent in the parameter
+    //Direct user back to Select Payment Scene when they click the Back button
+    public void handleBackBttn() throws IOException{
         FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("selectpayment.fxml"));
         Stage stage = (Stage) back.getScene().getWindow();
         stage.setScene(new Scene(fxmlLoader.load(), 1280, 720));
@@ -113,23 +117,28 @@ public class TngController implements Initializable {
         //insert cancel function
     }
 
-    public void changeToReceiptScene() throws IOException, NumberFormatException{//not sure need to include ActionEvent in the parameter
+    //Direct user to Receipt scene when they click Pay button
+    public void changeToReceiptScene() throws IOException, NumberFormatException{
         String phoneNum = PhoneNumber.getText();
-        int OTP = Integer.parseInt(OneTimePassword.getText());
+        String otpstr = OneTimePassword.getText();
 
-        while("".equals(phoneNum)|| (OTP < 0 || OTP > 999999)) {
-            if (phoneNum.equals("")) {
-                PhoneNumErrMessage.setVisible(true);
-                OTPErrMessage.setVisible(false);
-            } else if (OTP < 0 || OTP > 999999) {
-                PhoneNumErrMessage.setVisible(false);
-                OTPErrMessage.setVisible(true);
-            }
+        int OTP = -1;
+        if(!otpstr.isEmpty()){
+            OTP = Integer.parseInt(otpstr);
         }
-        FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("receipt.fxml"));
-        Stage stage = (Stage) pay.getScene().getWindow();
-        stage.setScene(new Scene(fxmlLoader.load(), 1280, 720));
-        stage.show();
-    }
 
+        //Display error message if users enter invalid numbers or if users leave text field empty
+        if (phoneNum.isEmpty()) {
+            PhoneNumErrMessage.setVisible(true);
+            OTPErrMessage.setVisible(false);
+        } else if (OTP < 0 || OTP > 999999) {
+            PhoneNumErrMessage.setVisible(false);
+            OTPErrMessage.setVisible(true);
+        }else {//Change to Receipt scene if all text field are filled with valid numbers
+            FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("receipt.fxml"));
+            Stage stage = (Stage) pay.getScene().getWindow();
+            stage.setScene(new Scene(fxmlLoader.load(), 1280, 720));
+            stage.show();
+        }
+    }
 }

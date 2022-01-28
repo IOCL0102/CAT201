@@ -18,17 +18,23 @@
    <children>
       <ScrollPane layoutY="116.0" prefHeight="590.0" prefWidth="1280.0" styleClass="background" stylesheets="@cardpayment.css">
          <content>
-            <AnchorPane prefHeight="1015.0" prefWidth="1270.0" styleClass="background">
+            <AnchorPane prefHeight="588.0" prefWidth="1270.0" styleClass="background">
                <children>
                   <SplitPane dividerPositions="0.29797979797979796" layoutY="-1.0" prefHeight="552.0" prefWidth="1263.0">
                     <items>
                       <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="160.0" prefWidth="100.0" styleClass="background" stylesheets="@cardpayment.css">
                            <children>
-                              <ImageView fx:id="MoviePoster" fitHeight="362.0" fitWidth="373.0" layoutY="40.0" pickOnBounds="true" preserveRatio="true" />
+                              <ImageView fx:id="MoviePoster" fitHeight="362.0" fitWidth="348.0" layoutX="25.0" layoutY="40.0" pickOnBounds="true" preserveRatio="true" />
                               <Pane layoutX="-1.0" prefHeight="40.0" prefWidth="220.0">
                                  <children>
-                                    <Button fx:id="back" layoutY="5.0" mnemonicParsing="false" onAction="#handleBackBttn" prefHeight="26.0" prefWidth="46.0" text="&lt;" />
-                                    <Text layoutX="60.0" layoutY="28.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="normalText" text="Back" />
+                                    <Button fx:id="back" layoutX="18.0" layoutY="5.0" mnemonicParsing="false" onAction="#handleBackBttn" prefHeight="31.0" prefWidth="37.0">
+                                       <graphic>
+                                          <ImageView fitHeight="23.0" fitWidth="25.0" pickOnBounds="true" preserveRatio="true" rotate="180.0">
+                                             <image>
+                                                <Image url="@img/backIcon.png" />
+                                             </image>
+                                          </ImageView>
+                                       </graphic></Button>
                                  </children>
                               </Pane>
                               <Text layoutX="22.0" layoutY="427.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="normalText" text="Adult Ticket:">
@@ -75,52 +81,52 @@
                         </AnchorPane>
                       <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="160.0" prefWidth="100.0" styleClass="background" stylesheets="@cardpayment.css">
                            <children>
-                              <Text layoutX="23.0" layoutY="54.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="normalText" text="Card Number: " wrappingWidth="333.00001525878906">
+                              <Text layoutX="136.0" layoutY="53.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="normalText" text="Card Number: " wrappingWidth="191.00001525878906">
                                  <font>
                                     <Font size="30.0" />
                                  </font>
                               </Text>
-                              <Text layoutX="23.0" layoutY="108.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="normalText" text="Card Expiry Date: " wrappingWidth="333.00001525878906">
+                              <Text layoutX="110.0" layoutY="129.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="normalText" text="Card Expiry Date: " wrappingWidth="178.9999771118164">
                                  <font>
                                     <Font size="30.0" />
                                  </font>
                               </Text>
-                              <Text layoutX="23.0" layoutY="166.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="normalText" text="CVV: " wrappingWidth="333.00001525878906">
+                              <Text layoutX="232.0" layoutY="212.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="normalText" text="CVV: " wrappingWidth="56.00001525878906">
                                  <font>
                                     <Font size="30.0" />
                                  </font>
                               </Text>
-                              <TextField fx:id="CardNumber" layoutX="375.0" layoutY="31.0" />
-                              <TextField fx:id="ExpiryMonth" layoutX="375.0" layoutY="85.0" />
-                              <TextField fx:id="ExpiryYear" layoutX="615.0" layoutY="85.0" />
-                              <Text layoutX="582.0" layoutY="108.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="normalText" text="/">
+                              <TextField fx:id="CardNumber" layoutX="375.0" layoutY="31.0" prefHeight="31.0" prefWidth="427.0" />
+                              <TextField fx:id="ExpiryMonth" layoutX="375.0" layoutY="111.0" />
+                              <TextField fx:id="ExpiryYear" layoutX="615.0" layoutY="111.0" />
+                              <Text layoutX="569.0" layoutY="130.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="normalText" text="/">
                                  <font>
                                     <Font size="30.0" />
                                  </font>
                               </Text>
-                              <TextField fx:id="CVV" layoutX="375.0" layoutY="143.0" />
+                              <TextField fx:id="CVV" layoutX="375.0" layoutY="194.0" />
                               <ButtonBar layoutX="242.0" layoutY="433.0" prefHeight="40.0" prefWidth="362.0">
                                 <buttons>
                                   <Button fx:id="pay" mnemonicParsing="false" onAction="#changeToReceiptScene" prefHeight="52.0" text="Pay" />
                                     <Button fx:id="cancel" mnemonicParsing="false" onAction="#handleCancelBttn" prefHeight="55.0" prefWidth="158.0" styleClass="normalbutton" text="Cancel" />
                                 </buttons>
                               </ButtonBar>
-                              <Text fx:id="CardNumErrMessage" fill="#f80505" layoutX="294.0" layoutY="238.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="ErrMessageText" text="Please enter a valid card number!">
+                              <Text fx:id="CardNumErrMessage" fill="#f80505" layoutX="375.0" layoutY="96.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="ErrMessageText" text="Please enter a valid card number!">
                                  <font>
                                     <Font size="20.0" />
                                  </font>
                               </Text>
-                              <Text fx:id="CardMonthErrMessage" fill="#f80303" layoutX="294.0" layoutY="282.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="ErrMessageText" text="Please enter a valid month!">
+                              <Text fx:id="CardMonthErrMessage" fill="#f80303" layoutX="375.0" layoutY="167.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="ErrMessageText" text="Please enter a valid month!">
                                  <font>
                                     <Font size="20.0" />
                                  </font>
                               </Text>
-                              <Text fx:id="CardYearErrMessage" fill="#fc0101" layoutX="294.0" layoutY="324.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="ErrMessageText" text="Please enter a valid year!">
+                              <Text fx:id="CardYearErrMessage" fill="#fc0101" layoutX="615.0" layoutY="168.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="ErrMessageText" text="Please enter a valid year!">
                                  <font>
                                     <Font size="20.0" />
                                  </font>
                               </Text>
-                              <Text fx:id="CVVErrMessage" fill="#fc0101" layoutX="294.0" layoutY="365.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="ErrMessageText" text="Please enter a valid CVV!">
+                              <Text fx:id="CVVErrMessage" fill="#fc0101" layoutX="375.0" layoutY="254.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="ErrMessageText" text="Please enter a valid CVV!">
                                  <font>
                                     <Font size="20.0" />
                                  </font>
@@ -135,7 +141,7 @@
       </ScrollPane>
       <HBox prefHeight="116.0" prefWidth="1280.0" AnchorPane.bottomAnchor="604.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
          <children>
-            <ImageView fitHeight="116.0" fitWidth="107.0">
+            <ImageView fitHeight="116.0" fitWidth="102.0">
                <image>
                   <Image url="@img/logoenlarge.png" />
                </image>

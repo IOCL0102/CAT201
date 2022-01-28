@@ -9,24 +9,14 @@ import javafx.scene.image.Image;
 
 import java.io.*;
 import java.io.IOException;
-import java.util.HashMap;
-import java.util.Map;
-import com.google.zxing.BarcodeFormat;
-import com.google.zxing.EncodeHintType;
-import com.google.zxing.MultiFormatWriter;
-//import com.google.zxing.NotFoundException;
-import com.google.zxing.WriterException;
-import com.google.zxing.client.j2se.MatrixToImageWriter;
-import com.google.zxing.common.BitMatrix;
-import com.google.zxing.qrcode.decoder.ErrorCorrectionLevel;
-//import java.nio.file.Path;
-import java.nio.file.Paths;
 import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
-//import org.json.simple.parser.ParseException;
+import org.json.simple.parser.JSONParser;
+import org.json.simple.parser.ParseException;
 import java.net.URL;
 import java.util.ResourceBundle;
-
+import net.glxn.qrgen.QRCode;
+import net.glxn.qrgen.image.ImageType;
 
 public class ReceiptController implements Initializable {
 
@@ -36,6 +26,8 @@ public class ReceiptController implements Initializable {
     private Button Profile;
     @FXML
     private Button logout;
+    @FXML
+    private Button home;
 
 
     @FXML
@@ -72,11 +64,13 @@ public class ReceiptController implements Initializable {
         String EXP = (((JSONObject)orderData.get(orderData.size() - 1)).get("Experience")).toString();
         String TOT = (((JSONObject)orderData.get(orderData.size() - 1)).get("Total")).toString();
 
+        //Initialise movie details from JSON file
         AdultTicket.setText(AT);
         ChildrenTicket.setText(CT);
         Experience.setText(EXP);
         Total.setText(TOT);
 
+        //Initialise movie poster using path from JSON file
         Image image;
         try
         {
@@ -89,35 +83,22 @@ public class ReceiptController implements Initializable {
             e.printStackTrace();
         }
 
+        //Get order details from JSON file to be embedded on receipt
         String movie = (((JSONObject)orderData.get(orderData.size() - 1)).get("Movie")).toString();
         String date = (((JSONObject)orderData.get(orderData.size() - 1)).get("Date")).toString();
         String time = (((JSONObject)orderData.get(orderData.size() - 1)).get("Time")).toString();
         String seats = (((JSONObject)orderData.get(orderData.size() - 1)).get("Seats")).toString();
-
         Movie.setText(movie);
         Date.setText(date);
         Time.setText(time);
         Seats.setText(seats);
 
+        //Generate a QR code to be embedded on the receipt
         String str= movie+date+time+seats;//concatenate strings of data into one string
+        String path = "src/main/resources/com/example/cat201_project/img/QR"+ orderData.size() + ".png";
+        generateQR(str, path);
 
-        String path = "src/main/resources/com/example/cat201_project/img/QR"+ toString(((JSONObject)orderData.get(orderData.size() - 1))) + ".png";
-
-        String charset = "UTF-8";
-        Map<EncodeHintType, ErrorCorrectionLevel> hashMap = new HashMap<>();
-
-        hashMap.put(EncodeHintType.ERROR_CORRECTION, ErrorCorrectionLevel.L);
-
-        try {
-            generateQR(str, path, charset, hashMap, 200, 200);
-        } catch (WriterException e) {
-            e.printStackTrace();
-        } catch (IOException i) {
-            i.printStackTrace();
-        }
-
-        System.out.println("QR Code created successfully.");
-
+        //Display QR code onto receipt
         Image image2;
         try
         {
@@ -143,12 +124,61 @@ public class ReceiptController implements Initializable {
         //insert logout function
     }
 
-    public void generateQR(String data, String filepath, String charset, Map m, int h, int w) throws WriterException, IOException
-    {
-        BitMatrix BM = new MultiFormatWriter().encode(new String(data.getBytes(charset), charset), BarcodeFormat.QR_CODE, w, h);
-        MatrixToImageWriter.writeToPath(BM, filepath.substring(filepath.lastIndexOf('.') + 1), Paths.get(filepath));
+    public void handleHomeBttn(){
+        //insert logout function
+    }
 
-        JSONObject orderInfo = (JSONObject)orderData.get(orderData.size() - 1);
-        orderInfo.put("QR", filepath); //Update QR file path in JSON file
+    public void generateQR(String str, String path){
+        ByteArrayOutputStream out = QRCode.from(str).to(ImageType.JPG).stream();
+        File f = new File(path);
+        FileOutputStream fos = null;
+        try {
+            fos = new FileOutputStream(f);
+        } catch (FileNotFoundException e) {
+            e.printStackTrace();
+        }
+        try {
+            fos.write(out.toByteArray());
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        try {
+            fos.flush();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+
+        //insert updated qr path to JSON file
+        JSONParser parser = new JSONParser();
+        JSONObject ordInf = null;
+        File inputFile = new File("src/main/resources/com/example/cat201_project/JSON_file/orderInfo.json");
+        try{
+            ordInf = (JSONObject) parser.parse(new FileReader(inputFile));
+            JSONObject obj = (JSONObject)((JSONArray)ordInf.get("orderInfo")).get(orderData.size() - 1);
+            obj.put("QR", path);
+        } catch (FileNotFoundException e){
+            e.printStackTrace();
+        } catch(IOException e){
+            e.printStackTrace();
+        } catch(ParseException e){
+            e.printStackTrace();
+        }
+        FileWriter writer = null;
+        try {
+            writer = new FileWriter("src/main/resources/com/example/cat201_project/JSON_file/orderInfo.json");
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        try {
+            writer.write(ordInf.toString());
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        try {
+            writer.close();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        System.out.println("QR Code created successfully.");
     }
 }

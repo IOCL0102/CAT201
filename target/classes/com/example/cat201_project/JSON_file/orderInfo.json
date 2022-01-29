@@ -1,0 +1,15 @@
+{"orderInfo":
+[
+  {"AdultTicket":3,
+    "ChildrenTicket":2,
+    "Experience":"IMAX",
+    "Total":"RM49.90",
+    "Poster":"src\/main\/resources\/com\/example\/cat201_project\/img\/DemonSlayerPoster.jpg",
+
+    "Movie":"Aquaman",
+    "QR":null,
+    "Time":"09:30am",
+    "Date":"01\/01\/2022",
+    "Seats":["A01","A02","A03","A04","A05"]},
+
+  {"AdultTicket":2,"Movie":"Aquaman","QR":null,"ChildrenTicket":2,"Experience":"Classic","Total":"RM39.90","Poster":"src\/main\/resources\/com\/example\/cat201_project\/img\/DemonSlayerPoster.jpg","Time":"09:30am","Date":"01\/01\/2022","Seats":["B01","B02","B03","B04"]},{"AdultTicket":3,"Movie":"Aquaman","QR":"src\/main\/resources\/com\/example\/cat201_project\/img\/QR3.png","ChildrenTicket":0,"Experience":"Classic","Total":"RM30.00","Poster":"src\/main\/resources\/com\/example\/cat201_project\/img\/DemonSlayerPoster.jpg","Time":"09:30am","Date":"01\/01\/2022","Seats":["C01","C02","C03"]}]}

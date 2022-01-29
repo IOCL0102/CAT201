@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import de.jensd.fx.glyphs.fontawesome.FontAwesomeIconView?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ButtonBar?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.shape.Line?>
+<?import javafx.scene.text.Text?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="720.0" prefWidth="1280.0" style="-fx-background-color: #071630;" styleClass="background" stylesheets="@bookedTicket.css" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.cat201_project.BookedTicketController">
+    <children>
+        <HBox prefHeight="116.0" prefWidth="1280.0" style="-fx-background-color: #071630;" AnchorPane.bottomAnchor="604.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+            <children>
+                <ImageView fitHeight="120.0" fitWidth="185.0" pickOnBounds="true" preserveRatio="true">
+                    <image>
+                        <Image url="@img/logoenlarge.png" />
+                    </image>
+                </ImageView>
+                <Pane prefHeight="116.0" prefWidth="452.0">
+                    <children>
+                        <Line endX="987.39990234375" layoutX="115.0" layoutY="90.0" startX="-100.0" stroke="WHITE" strokeWidth="2.0" />
+                    </children></Pane>
+                <Pane prefHeight="116.0" prefWidth="654.0">
+                    <children>
+                        <ButtonBar layoutX="58.0" layoutY="33.0" prefHeight="40.0" prefWidth="591.0">
+                            <buttons>
+                                <Button fx:id="viewBookedTicketBttn" mnemonicParsing="false" onAction="#returnToViewTicketPage" prefHeight="40.0" prefWidth="179.0" style="-fx-background-radius: 100;" text="Booked Ticket">
+                                    <graphic>
+                                        <ImageView fitHeight="25.0" fitWidth="26.0" pickOnBounds="true" preserveRatio="true">
+                                            <image>
+                                                <Image url="@img/tickIcon.png" />
+                                            </image>
+                                        </ImageView>
+                                    </graphic></Button>
+                                <Button fx:id="viewProfileBttn" mnemonicParsing="false" onAction="#returnToProfilePage" prefHeight="40.0" style="-fx-background-radius: 100;" text="Profile">
+                                    <graphic>
+                                        <ImageView fitHeight="25.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true">
+                                            <image>
+                                                <Image url="@img/profileIcon.png" />
+                                            </image>
+                                        </ImageView>
+                                    </graphic></Button>
+                                <Button fx:id="logOutBttn" mnemonicParsing="false" onAction="#returnToLogOutPage" prefHeight="49.0" style="-fx-background-radius: 100;" text="Log Out" />
+                            </buttons>
+                        </ButtonBar>
+                    </children>
+                </Pane>
+            </children>
+        </HBox>
+      <ScrollPane layoutY="131.0" prefHeight="589.0" prefWidth="1280.0" style="-fx-background-image: #071630;">
+         <content>
+            <VBox fx:id="ticketLayout" prefHeight="594.0" prefWidth="1280.0" style="-fx-background-color: #071630;">
+               <children>
+                  <AnchorPane prefHeight="100.0" prefWidth="1280.0" style="-fx-background-color: #071630;">
+                     <children>
+                              <Button fx:id="returnToMainPageBttn" layoutX="25.0" layoutY="17.0" mnemonicParsing="false" onAction="#returnToHomeMovieScene" prefHeight="61.0" prefWidth="66.0" style="-fx-background-radius: 15; -fx-background-color: #FFCA00;">
+                                  <graphic>
+                                      <FontAwesomeIconView fill="#041227" glyphName="ANGLE_LEFT" size="50" text="" textAlignment="CENTER" wrappingWidth="17.85714340209961" />
+                                  </graphic>
+                              </Button>
+                              <Text fx:id="backToMainPageText" layoutX="117.0" layoutY="56.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Back to Main Page" wrappingWidth="184.7958984375" />
+                     </children>
+                  </AnchorPane>
+                  <HBox prefHeight="80.0" prefWidth="1280.0" style="-fx-background-color: #051023;">
+                     <children>
+                        <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="80.0" prefWidth="508.0" text="Movie Name" />
+                        <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="80.0" prefWidth="147.0" text="Date" />
+                        <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="80.0" prefWidth="147.0" text="Time" />
+                        <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="80.0" prefWidth="307.0" text="Seat" />
+                        <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="80.0" prefWidth="182.0" text="Action" />
+                     </children>
+                  </HBox>
+               </children>
+            </VBox>
+         </content>
+      </ScrollPane>
+    </children>
+</AnchorPane>

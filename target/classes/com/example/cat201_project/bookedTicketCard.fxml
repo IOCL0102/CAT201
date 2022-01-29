@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.HBox?>
+
+<HBox prefHeight="80.0" prefWidth="1280.0" style="-fx-background-color: #051023;" stylesheets="@bookedTicket.css" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.cat201_project.BookedTicketCardController">
+   <children>
+      <Label fx:id="movieName" alignment="CENTER" contentDisplay="CENTER" prefHeight="80.0" prefWidth="508.0" text="Movie Name" />
+      <Label fx:id="date" alignment="CENTER" contentDisplay="CENTER" prefHeight="80.0" prefWidth="147.0" text="Date" />
+      <Label fx:id="time" alignment="CENTER" contentDisplay="CENTER" prefHeight="80.0" prefWidth="147.0" text="Time" />
+      <Label fx:id="seat" alignment="CENTER" contentDisplay="CENTER" prefHeight="80.0" prefWidth="307.0" text="Seat" />
+      <Button fx:id="getQRCode" alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" onAction="#sendQRCode" prefHeight="73.0" prefWidth="172.0" text="Get QR Code" />
+   </children>
+</HBox>

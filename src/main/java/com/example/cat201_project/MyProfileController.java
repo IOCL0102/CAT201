@@ -64,10 +64,8 @@ public class MyProfileController implements Initializable {
     }
 
     public void returnToViewTicketPage(ActionEvent e) throws IOException {
-        //**********************************************
-        // THIS WILL HAVE TO CHANGE LATER ON
-        //**********************************************
-        FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("login-view.fxml"));
+
+        FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("bookedTicket.fxml"));
         Stage stage = (Stage) viewBookedTicketBttn.getScene().getWindow();
         stage.setScene(new Scene(fxmlLoader.load(), 1280, 720));
         stage.show();

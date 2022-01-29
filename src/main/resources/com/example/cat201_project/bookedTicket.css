@@ -1,0 +1,28 @@
+@font-face {
+    font-family:Righteous ;
+    src: url(fonts/Righteous-Regular.ttf);
+}
+
+
+
+Text{
+    -fx-font-family: Righteous;
+    -fx-font-weight: bold;
+    -fx-font-size: 21px;
+    -fx-fill: white;    /* font color */
+}
+
+Label{
+    -fx-font-family: Righteous;
+    -fx-font-weight: bold;
+    -fx-font-size: 21px;
+    -fx-text-fill: white;    /* font color */
+}
+
+Button{
+    -fx-background-color: #FFCA00;
+    -fx-font-family: Righteous;
+    -fx-font-weight: bold;
+    -fx-font-size: 18px;
+}
+

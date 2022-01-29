@@ -55,15 +55,10 @@ public class PaymentController implements Initializable {
         paymentOption.getItems().addAll("Select Payment Option", "Credit/Debit Card", "TouchnGo");
         paymentOption.setValue("Select Payment Option");
 
-        JSONArray orderData;
+        String T = BuyTicketController.OrderedTicket;
+        String TOT = BuyTicketController.OrderedTotal;
 
-        JSONObject orderInfo = JsonEditor.getJSONObject("orderInfo.json");
-        orderData = (JSONArray)orderInfo.get("orderInfo");
-
-        String T = (((JSONObject)orderData.get(orderData.size() - 1)).get("Ticket")).toString();
-        String TOT = (((JSONObject)orderData.get(orderData.size() - 1)).get("Total")).toString();
-
-        //Initialise movie details from JSON file
+        //Initialise movie details
         Ticket.setText(T);
         Total.setText(TOT);
 
@@ -71,7 +66,7 @@ public class PaymentController implements Initializable {
         Image image;
         try
         {
-            String moviePosterSource = (((JSONObject) orderData.get(orderData.size() - 1)).get("Poster")).toString();
+            String moviePosterSource = BuyTicketController.OrderedPoster;
             image = new Image(new FileInputStream(moviePosterSource));
             MoviePoster.setImage(image);
 

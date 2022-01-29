@@ -107,8 +107,11 @@ public class ReceiptController implements Initializable {
         }
     }
 
-    public void handleBookedTicketBttn(){
-        //insert function from booked ticket
+    public void handleBookedTicketBttn() throws IOException{
+        FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("Booked_Ticket.fxml"));
+        Stage stage = (Stage) BookedTicket.getScene().getWindow();
+        stage.setScene(new Scene(fxmlLoader.load(), 1280, 720));
+        stage.show();
     }
 
     public void handleProfileBttn() throws IOException{

@@ -103,8 +103,11 @@ public class CardController implements  Initializable{
         stage.show();
     }
 
-    public void handleBookedTicketBttn(){
-        //insert function from booked ticket
+    public void handleBookedTicketBttn() throws IOException{
+        FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("Booked_Ticket.fxml"));
+        Stage stage = (Stage) BookedTicket.getScene().getWindow();
+        stage.setScene(new Scene(fxmlLoader.load(), 1280, 720));
+        stage.show();
     }
 
     public void handleProfileBttn() throws IOException{
@@ -121,8 +124,11 @@ public class CardController implements  Initializable{
         stage.show();
     }
 
-    public void handleCancelBttn(){
-        //insert cancel function
+    public void handleCancelBttn() throws IOException{
+        FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("Confirm_Ticket.fxml"));
+        Stage stage = (Stage) cancel.getScene().getWindow();
+        stage.setScene(new Scene(fxmlLoader.load(), 1280, 720));
+        stage.show();
     }
 
     public void changeToReceiptScene() throws IOException{
@@ -180,6 +186,17 @@ public class CardController implements  Initializable{
             Stage stage = (Stage) pay.getScene().getWindow();
             stage.setScene(new Scene(fxmlLoader.load(), 1280, 720));
             stage.show();
+
+            updateMovieFile();
+            updateOrderInfoFile();
         }
+    }
+
+    public void updateMovieFile(){
+
+    }
+
+    public void updateOrderInfoFile(){
+
     }
 }

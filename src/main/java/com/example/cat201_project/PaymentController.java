@@ -81,12 +81,18 @@ public class PaymentController implements Initializable {
         }
     }
 
-    public void handleBackBttn(){
-        //insert back to ticket scene function
+    public void handleBackBttn() throws IOException{
+        FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("Confirm_Ticket.fxml"));
+        Stage stage = (Stage) back.getScene().getWindow();
+        stage.setScene(new Scene(fxmlLoader.load(), 1280, 720));
+        stage.show();
     }
 
-    public void handleBookedTicketBttn(){
-        //insert function from booked ticket
+    public void handleBookedTicketBttn() throws IOException{
+        FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("Booked_Ticket.fxml"));
+        Stage stage = (Stage) BookedTicket.getScene().getWindow();
+        stage.setScene(new Scene(fxmlLoader.load(), 1280, 720));
+        stage.show();
     }
 
     public void handleProfileBttn() throws IOException{

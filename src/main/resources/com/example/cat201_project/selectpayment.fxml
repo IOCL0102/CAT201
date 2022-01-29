@@ -47,7 +47,7 @@
                                     <Font size="20.0" />
                                  </font>
                               </Text>
-                              <Text fx:id="AdultTicket" layoutX="200.0" layoutY="479.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="normalText" text="Text">
+                              <Text fx:id="Ticket" layoutX="200.0" layoutY="479.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="normalText" text="Text">
                                  <font>
                                     <Font size="20.0" />
                                  </font>

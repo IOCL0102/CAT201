@@ -46,11 +46,7 @@ public class CardController implements  Initializable{
     private TextField CVV;
 
     @FXML
-    private Text AdultTicket;
-    @FXML
-    private Text ChildrenTicket;
-    @FXML
-    private Text Experience;
+    private Text Ticket;
     @FXML
     private Text Total;
     @FXML
@@ -78,15 +74,11 @@ public class CardController implements  Initializable{
         JSONObject orderInfo = JsonEditor.getJSONObject("orderInfo.json");
         orderData = (JSONArray)orderInfo.get("orderInfo");
 
-        String AT = (((JSONObject)orderData.get(orderData.size() - 1)).get("AdultTicket")).toString();
-        String CT = (((JSONObject)orderData.get(orderData.size() - 1)).get("ChildrenTicket")).toString();
-        String EXP = (((JSONObject)orderData.get(orderData.size() - 1)).get("Experience")).toString();
+        String T = (((JSONObject)orderData.get(orderData.size() - 1)).get("Ticket")).toString();
         String TOT = (((JSONObject)orderData.get(orderData.size() - 1)).get("Total")).toString();
 
         //Initialise movie details from JSON file
-        AdultTicket.setText(AT);
-        ChildrenTicket.setText(CT);
-        Experience.setText(EXP);
+        Ticket.setText(T);
         Total.setText(TOT);
 
         //Initialise movie poster using path from JSON file

@@ -10,15 +10,15 @@ import javafx.scene.text.Text;
 import javafx.scene.image.Image;
 import javafx.scene.control.TextField;
 
-import java.io.FileInputStream;
-import java.io.FileNotFoundException;
-import java.io.IOException;
+import java.io.*;
 import java.net.URL;
 import java.util.ResourceBundle;
 
 import javafx.fxml.Initializable;
 import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
+import org.json.simple.parser.JSONParser;
+import org.json.simple.parser.ParseException;
 
 public class CardController implements  Initializable{
 
@@ -69,23 +69,18 @@ public class CardController implements  Initializable{
         CardYearErrMessage.setVisible(false);
         CVVErrMessage.setVisible(false);
 
-        JSONArray orderData;
+        String T = BuyTicketController.OrderedTicket;
+        String TOT = BuyTicketController.OrderedTotal;
 
-        JSONObject orderInfo = JsonEditor.getJSONObject("orderInfo.json");
-        orderData = (JSONArray)orderInfo.get("orderInfo");
-
-        String T = (((JSONObject)orderData.get(orderData.size() - 1)).get("Ticket")).toString();
-        String TOT = (((JSONObject)orderData.get(orderData.size() - 1)).get("Total")).toString();
-
-        //Initialise movie details from JSON file
+        //Initialise movie details
         Ticket.setText(T);
         Total.setText(TOT);
 
-        //Initialise movie poster using path from JSON file
+        //Initialise movie poster
         Image image;
         try
         {
-            String moviePosterSource = (((JSONObject) orderData.get(orderData.size() - 1)).get("Poster")).toString();
+            String moviePosterSource = BuyTicketController.OrderedPoster;
             image = new Image(new FileInputStream(moviePosterSource));
             MoviePoster.setImage(image);
 
@@ -131,7 +126,7 @@ public class CardController implements  Initializable{
         stage.show();
     }
 
-    public void changeToReceiptScene() throws IOException{
+    public void changeToReceiptScene() throws IOException, ParseException {
         String CN = CardNumber.getText();
         String EM = ExpiryMonth.getText();
         String EY = ExpiryYear.getText();
@@ -193,10 +188,90 @@ public class CardController implements  Initializable{
     }
 
     public void updateMovieFile(){
+        JSONParser parser = new JSONParser();
+        JSONObject movieInfo = null;
+        File inputFile = new File("src/main/resources/com/example/cat201_project/JSON_file/movieTimeSeat"+BuyTicketController.OrderedMovieCode+".json");
 
+        int numShow = -1;
+        JSONObject movInf = JsonEditor.getJSONObject("movieTimeSeat"+BuyTicketController.OrderedMovieCode+".json");
+        JSONArray movData = (JSONArray) movInf.get("movieTimeSeat"+(BuyTicketController.OrderedMovieCode));
+
+        for(int i = 0; i < movData.size(); i++){
+            if((((((JSONObject)movData.get(i)).get("movieTimeSlot")).toString()).equals(BuyTicketController.OrderedTime))){
+                numShow = i;
+            }
+        }
+
+        try{
+            movieInfo = (JSONObject) parser.parse(new FileReader(inputFile));
+            JSONObject obj = (JSONObject)((JSONArray)movieInfo.get("movieTimeSeat"+(BuyTicketController.OrderedMovieCode))).get(numShow);
+            for(int i = 1; i <= 8; i++){//each row has 8 seats
+                for(int j = 0; j < BuyTicketController.OrderedSeats.length; j++){
+                    if(("A0"+i).equals(BuyTicketController.OrderedSeats[j])){
+                        String movieseat = "movieSeatA0"+i;
+                        obj.put(movieseat, false);
+                    }
+                }
+            }
+            for(int i = 1; i <= 8; i++){//each row has 8 seats
+                for(int j = 0; j < BuyTicketController.OrderedSeats.length; j++){
+                    if(("B0"+i).equals(BuyTicketController.OrderedSeats[j])){
+                        String movieseat = "movieSeatB0"+i;
+                        obj.put(movieseat, false);
+                    }
+                }
+            }
+            for(int i = 1; i <= 8; i++){//each row has 8 seats
+                for(int j = 0; j < BuyTicketController.OrderedSeats.length; j++){
+                    if(("C0"+i).equals(BuyTicketController.OrderedSeats[j])){
+                        String movieseat = "movieSeatC0"+i;
+                        obj.put(movieseat, false);
+                    }
+                }
+            }
+        } catch (FileNotFoundException e){
+            e.printStackTrace();
+        } catch(IOException e){
+            e.printStackTrace();
+        } catch(ParseException e){
+            e.printStackTrace();
+        }
+        FileWriter writer = null;
+        try {
+            writer = new FileWriter("src/main/resources/com/example/cat201_project/JSON_file/movieTimeSeat"+BuyTicketController.OrderedMovieCode+".json");
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        try {
+            writer.write(movieInfo.toString());
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        try {
+            writer.close();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
 
-    public void updateOrderInfoFile(){
+    public void updateOrderInfoFile() throws IOException, ParseException {
+        JSONObject newOrderInfo = new JSONObject();
+        String userID = (String) JsonEditor.getCurrentUserInfo().get("userID");
+        newOrderInfo.put("UserID",userID);
+        newOrderInfo.put("Ticket",BuyTicketController.OrderedTicket);
+        newOrderInfo.put("Movie",BuyTicketController.OrderedMovie);
+        newOrderInfo.put("QR",null);
+        newOrderInfo.put("Total",BuyTicketController.OrderedTotal);
+        newOrderInfo.put("Poster",BuyTicketController.OrderedPoster);
+        newOrderInfo.put("Time",BuyTicketController.OrderedTime);
+        newOrderInfo.put("Date",BuyTicketController.OrderedDate);
 
+        String[] arr = new String[]{};
+        for(int i = 0; i < BuyTicketController.OrderedSeats.length; i++){
+            arr[i] = BuyTicketController.OrderedSeats[i];
+        }
+        newOrderInfo.put("Seats", arr.toString());
+
+        JsonEditor.addInfo("orderInfo.json",newOrderInfo);
     }
 }

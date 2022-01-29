@@ -14,9 +14,9 @@
 <?import javafx.scene.shape.Line?>
 <?import javafx.scene.text.Text?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="720.0" prefWidth="1280.0" style="-fx-background-color: #071630;" styleClass="background" stylesheets="@bookedTicket.css" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.cat201_project.BookedTicketController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="720.0" prefWidth="1280.0" style="-fx-background-color: #071630;" stylesheets="@bookedTicket.css" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.cat201_project.BookedTicketController">
     <children>
-        <HBox prefHeight="116.0" prefWidth="1280.0" style="-fx-background-color: #071630;" AnchorPane.bottomAnchor="604.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+        <HBox prefHeight="116.0" prefWidth="1280.0" AnchorPane.bottomAnchor="604.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
             <children>
                 <ImageView fitHeight="120.0" fitWidth="185.0" pickOnBounds="true" preserveRatio="true">
                     <image>
@@ -54,7 +54,7 @@
                 </Pane>
             </children>
         </HBox>
-      <ScrollPane layoutY="131.0" prefHeight="589.0" prefWidth="1280.0" style="-fx-background-image: #071630;">
+      <ScrollPane layoutY="131.0" prefHeight="589.0" prefWidth="1280.0">
          <content>
             <VBox fx:id="ticketLayout" prefHeight="594.0" prefWidth="1280.0" style="-fx-background-color: #071630;">
                <children>

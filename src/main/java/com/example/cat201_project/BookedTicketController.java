@@ -12,8 +12,9 @@ import javafx.scene.text.Text;
 import javafx.stage.Stage;
 import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
+import org.json.simple.parser.ParseException;
 
-import java.io.IOException;
+import java.io.IOAException;
 import java.net.URL;
 import java.util.ArrayList;
 import java.util.List;
@@ -31,7 +32,14 @@ public class BookedTicketController implements Initializable {
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
-        List<BookedTicket> bookedTickets = new ArrayList<>(getBookedTicketList());
+        List<BookedTicket> bookedTickets = null;
+        try {
+            bookedTickets = new ArrayList<>(getBookedTicketList());
+        } catch (IOException e) {
+            e.printStackTrace();
+        } catch (ParseException e) {
+            e.printStackTrace();
+        }
         for(int i = 0 ; i < bookedTickets.size() ;  i++){
 
             FXMLLoader fxmlLoader = new FXMLLoader();
@@ -48,7 +56,7 @@ public class BookedTicketController implements Initializable {
         }
     }
 
-    private static List<BookedTicket> getBookedTicketList(){
+    private static List<BookedTicket> getBookedTicketList() throws IOException, ParseException {
         List<BookedTicket> list = new ArrayList<>();
         String movie,QR,time,date,seats;
 
@@ -57,27 +65,35 @@ public class BookedTicketController implements Initializable {
         JSONArray ticketArray = null;
 
         for(int i = 0 ; i < array.size();i++){
-            BookedTicket ticket = new BookedTicket();
-            seats = "";
+
+            // **********************************************************************
+            JSONObject currentUser = JsonEditor.getCurrentUserInfo();
+            String userName = (String) currentUser.get("userID");
             JSONObject temp = (JSONObject) array.get(i);
-            movie = (String) temp.get("Movie");
-            QR = (String) temp.get("QR");
-            time = (String) temp.get("Time");
-            date = (String) temp.get("Date");
 
-            ticketArray = (JSONArray) temp.get("Seats");
+            if(userName.equals(temp.get("UserID"))) {
+            // **********************************************************************
+                BookedTicket ticket = new BookedTicket();
+                seats = "";
+                movie = (String) temp.get("Movie");
+                QR = (String) temp.get("QR");
+                time = (String) temp.get("Time");
+                date = (String) temp.get("Date");
 
-            for(int j = 0 ; j < ticketArray.size() ; j++) {
-                seats = seats + ticketArray.get(j).toString() + " ";
+                ticketArray = (JSONArray) temp.get("Seats");
+
+                for (int j = 0; j < ticketArray.size(); j++) {
+                    seats = seats + ticketArray.get(j).toString() + " ";
+                }
+
+                ticket.setMovieName(movie);
+                ticket.setQRsource(QR);
+                ticket.setTime(time);
+                ticket.setDate(date);
+                ticket.setSeat(seats);
+
+                list.add(ticket);
             }
-
-            ticket.setMovieName(movie);
-            ticket.setQRsource(QR);
-            ticket.setTime(time);
-            ticket.setDate(date);
-            ticket.setSeat(seats);
-
-            list.add(ticket);
         }
         return list;
     }

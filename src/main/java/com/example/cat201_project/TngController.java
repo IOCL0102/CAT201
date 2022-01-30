@@ -223,7 +223,7 @@ public class TngController implements Initializable {
 
         String seats = "";
         for(int i = 0; i < (BuyTicketController.OrderedSeats.length - 1); i++){
-            seats = seats + BuyTicketController.OrderedSeats[i] + ", ";
+            seats = seats + BuyTicketController.OrderedSeats[i] + "  ";
         }
         seats = seats + BuyTicketController.OrderedSeats[BuyTicketController.OrderedSeats.length - 1];
         newOrderInfo.put("Seats", seats);

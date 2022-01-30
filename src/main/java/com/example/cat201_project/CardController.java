@@ -99,7 +99,7 @@ public class CardController implements  Initializable{
     }
 
     public void handleBookedTicketBttn() throws IOException{
-        FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("Booked_Ticket.fxml"));
+        FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("bookedTicket.fxml"));
         Stage stage = (Stage) BookedTicket.getScene().getWindow();
         stage.setScene(new Scene(fxmlLoader.load(), 1280, 720));
         stage.show();
@@ -177,13 +177,14 @@ public class CardController implements  Initializable{
             CardYearErrMessage.setVisible(false);
         }
         else{ //Change to Receipt scene when user clicks Pay button
+            updateMovieFile();
+            System.out.println("Sucessfully updated Movie File");
+            updateOrderInfoFile();
+            System.out.println("Sucessfully updated Order Info File");
             FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("receipt.fxml"));
             Stage stage = (Stage) pay.getScene().getWindow();
             stage.setScene(new Scene(fxmlLoader.load(), 1280, 720));
             stage.show();
-
-            updateMovieFile();
-            updateOrderInfoFile();
         }
     }
 
@@ -192,7 +193,7 @@ public class CardController implements  Initializable{
         JSONObject movieInfo = null;
         File inputFile = new File("src/main/resources/com/example/cat201_project/JSON_file/movieTimeSeat"+BuyTicketController.OrderedMovieCode+".json");
 
-        int numShow = -1;
+        int numShow = 0;
         JSONObject movInf = JsonEditor.getJSONObject("movieTimeSeat"+BuyTicketController.OrderedMovieCode+".json");
         JSONArray movData = (JSONArray) movInf.get("movieTimeSeat"+(BuyTicketController.OrderedMovieCode));
 
@@ -266,12 +267,22 @@ public class CardController implements  Initializable{
         newOrderInfo.put("Time",BuyTicketController.OrderedTime);
         newOrderInfo.put("Date",BuyTicketController.OrderedDate);
 
-        String[] arr = new String[]{};
-        for(int i = 0; i < BuyTicketController.OrderedSeats.length; i++){
-            arr[i] = BuyTicketController.OrderedSeats[i];
+        String seats = "";
+        for(int i = 0; i < (BuyTicketController.OrderedSeats.length - 1); i++){
+            seats = seats + BuyTicketController.OrderedSeats[i] + ", ";
         }
-        newOrderInfo.put("Seats", arr.toString());
+        seats = seats + BuyTicketController.OrderedSeats[BuyTicketController.OrderedSeats.length - 1];
+        newOrderInfo.put("Seats", seats);
 
-        JsonEditor.addInfo("orderInfo.json",newOrderInfo);
+        File inputFile = new File("src/main/resources/com/example/cat201_project/JSON_file/orderInfo.json");
+
+        JSONParser parser = new JSONParser();
+        JSONObject orderInfo = (JSONObject) parser.parse(new FileReader(inputFile));
+        JSONArray orderInfoArray = (JSONArray) orderInfo.get("orderInfo");
+        orderInfoArray.add(newOrderInfo);
+
+        FileWriter writer = new FileWriter("src/main/resources/com/example/cat201_project/JSON_file/orderInfo.json");
+        writer.write(orderInfo.toString());
+        writer.close();
     }
 }

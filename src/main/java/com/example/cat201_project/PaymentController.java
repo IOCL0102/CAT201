@@ -84,7 +84,7 @@ public class PaymentController implements Initializable {
     }
 
     public void handleBookedTicketBttn() throws IOException{
-        FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("Booked_Ticket.fxml"));
+        FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("bookedTicket.fxml"));
         Stage stage = (Stage) BookedTicket.getScene().getWindow();
         stage.setScene(new Scene(fxmlLoader.load(), 1280, 720));
         stage.show();

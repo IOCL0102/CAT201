@@ -1,0 +1,84 @@
+@font-face {
+    font-family:'Righteous' ;
+    src: url(fonts/Righteous-Regular.ttf);
+}
+
+@font-face {
+    font-family: 'SairaStencilOne' ;
+    src: url(fonts/SairaStencilOne-Regular.ttf);
+}
+
+.background {
+    -fx-background-color: #041227;
+}
+
+.ticket{
+    -fx-background-color: white;
+    -fx-background-radius: 15;
+    -fx-border-radius: 15;
+    -fx-border-width:5;
+}
+
+.Search{
+    -fx-font-family: Righteous;
+    -fx-font-weight: normal;
+    -fx-font-size: 18 px;
+    -fx-background-radius: 100px;
+    -fx-background-color: #FFFFFF;
+}
+
+.button{
+    -fx-font-family:Righteous;
+    -fx-font-size: 18 px;
+    -fx-background-radius: 100px;
+    -fx-background-color: #FFCA00;
+    -fx-text-fill:black;
+}
+
+.normalbutton{
+    -fx-font-family:Righteous;
+    -fx-font-size: 18 px;
+    -fx-background-radius: 100px;
+    -fx-background-color: white;
+    -fx-text-fill:black;
+}
+
+.fontdisplay{
+    -fx-font-family:Righteous;
+    -fx-font-size: 18 px;
+    -fx-font-color: #FFFFFF;
+}
+
+.titleText{
+    -fx-font-family: Righteous;
+    -fx-font-weight: bold;
+    -fx-font-size: 54px;
+    -fx-fill: white;    /* font color */
+}
+.normalText{
+    -fx-font-family: Righteous;
+    -fx-font-size: 16px;
+    -fx-fill: white;    /* font color */
+}
+
+.normalText2{
+    -fx-font-family: Righteous;
+    -fx-font-size: 14px;
+    -fx-fill: gray;    /* font color */
+}
+
+.ErrMessageText{
+    -fx-font-family:Righteous;
+    -fx-font-size : 20px;
+    -fx-text-fill: #ff3c3c;
+}
+
+.choicebox{
+    -fx-background-color: #FFCA00;
+}
+
+.MovieTitle{
+    -fx-font-family: Righteous;
+    -fx-font-size: 40px;
+    -fx-fill: white;
+}

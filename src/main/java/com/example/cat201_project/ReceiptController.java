@@ -97,7 +97,7 @@ public class ReceiptController implements Initializable {
         Image image2;
         try
         {
-            String QRSource = (((JSONObject) orderData.get(orderData.size() - 1)).get("QR")).toString();
+            String QRSource = path;
             image2 = new Image(new FileInputStream(QRSource));
             ReceiptQR.setImage(image2);
 
@@ -105,10 +105,14 @@ public class ReceiptController implements Initializable {
         {
             e.printStackTrace();
         }
+        catch (NullPointerException e)
+        {
+            e.printStackTrace();
+        }
     }
 
     public void handleBookedTicketBttn() throws IOException{
-        FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("Booked_Ticket.fxml"));
+        FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("bookedTicket.fxml"));
         Stage stage = (Stage) BookedTicket.getScene().getWindow();
         stage.setScene(new Scene(fxmlLoader.load(), 1280, 720));
         stage.show();

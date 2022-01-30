@@ -5,7 +5,7 @@
       "movieID" : "0",
       "movieName" : "Demon Slayer",
       "movieDescription" : "A boy raised by boars, who wears a boar's head, boards the Infinity Train on a new mission with the Flame Pillar along with another boy who reveals his true power when he sleeps. Their mission is to defeat a demon who has been tormenting people and killing the demon slayers who oppose it.",
-      "movieCast" : "-",
+      "movieCast" : "Natsuki Hanae (voice), Akari Kitô (voice), Hiro Shimono(voice)",
       "movieDirector" : "Haruo Sotozaki",
       "moviePhoto" : "src/main/resources/com/example/cat201_project/img/DemonSlayer.jpg",
       "moviePoster" : "src/main/resources/com/example/cat201_project/img/DemonSlayerPoster.jpg"
@@ -84,9 +84,9 @@
     },
     {
       "movieID" : "9",
-      "movieName" : "Your Name",
+      "movieName" : "Your Name (Kimi no Na Wa)",
       "movieDescription" : "Two teenagers share a profound, magical connection upon discovering they are swapping bodies. Things manage to become even more complicated when the boy and girl decide to meet in person.",
-      "movieCast" : "Ryunosuke Kamiki, Mone Kamishiraishi",
+      "movieCast" : "Ryunosuke Kamiki(voice), Mone Kamishiraishi(voice)",
       "movieDirector" : "Makoto Shinkai",
       "moviePhoto" : "src/main/resources/com/example/cat201_project/img/KiminoNawa.jpg",
       "moviePoster" : "src/main/resources/com/example/cat201_project/img/KiminoNawaPoster.png"

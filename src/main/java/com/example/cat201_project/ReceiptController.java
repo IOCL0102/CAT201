@@ -82,7 +82,11 @@ public class ReceiptController implements Initializable {
         String movie = (((JSONObject)orderData.get(orderData.size() - 1)).get("Movie")).toString();
         String date = (((JSONObject)orderData.get(orderData.size() - 1)).get("Date")).toString();
         String time = (((JSONObject)orderData.get(orderData.size() - 1)).get("Time")).toString();
-        String seats = (((JSONObject)orderData.get(orderData.size() - 1)).get("Seats")).toString();
+        String seats = "";
+        int numTicket = Integer.parseInt(BuyTicketController.OrderedTicket);
+        for(int i = 0; i < numTicket; i++){
+            seats = seats + BuyTicketController.OrderedSeats[i] + " ";
+        }
         Movie.setText(movie);
         Date.setText(date);
         Time.setText(time);

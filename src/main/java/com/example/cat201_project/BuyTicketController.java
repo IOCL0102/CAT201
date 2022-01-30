@@ -531,7 +531,7 @@ public class BuyTicketController {
         else{
 
             double price = parseInt(OrderedTicket) * 25;
-            OrderedTotal= Double.toString(price);
+            OrderedTotal= "RM" + (Double.toString(price)) + "0";
             OrderedSeats [0] = SeatSelection1.getValue();
             OrderedSeats [1] = SeatSelection2.getValue();
             OrderedSeats [2] = SeatSelection3.getValue();

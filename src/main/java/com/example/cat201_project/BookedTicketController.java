@@ -120,7 +120,7 @@ public class BookedTicketController implements Initializable {
     }
 
     public void returnToHomeMovieScene (ActionEvent e ) throws IOException {
-        FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("home-view.fxml"));
+        FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("home-movie.fxml"));
         Stage stage = (Stage) returnToMainPageBttn.getScene().getWindow();
         stage.setScene(new Scene(fxmlLoader.load(), 1280, 720));
         stage.show();

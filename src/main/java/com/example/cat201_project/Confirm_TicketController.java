@@ -57,10 +57,10 @@ public class Confirm_TicketController implements Initializable {
         String seats = "";
         String T =  BuyTicketController.OrderedTicket;
         String Tot = BuyTicketController.OrderedTotal;
-        for(int i = 0; i < (BuyTicketController.OrderedSeats.length - 1); i++){
-            seats = seats + BuyTicketController.OrderedSeats[i];
+        int numTicket = Integer.parseInt(BuyTicketController.OrderedTicket);
+        for(int i = 0; i < numTicket; i++){
+            seats = seats + BuyTicketController.OrderedSeats[i] + " ";
         }
-        seats = seats + BuyTicketController.OrderedSeats[BuyTicketController.OrderedSeats.length - 1];
 
         //Initialise movie details
         Movie.setText(movie);

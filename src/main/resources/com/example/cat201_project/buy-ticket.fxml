@@ -1,0 +1,305 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ButtonBar?>
+<?import javafx.scene.control.ChoiceBox?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.shape.Circle?>
+<?import javafx.scene.shape.Line?>
+<?import javafx.scene.shape.Rectangle?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="720.0" prefWidth="1280.0" styleClass="background" stylesheets="@buy-ticket.css" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.cat201_project.BuyTicketController">
+    <children>
+        <HBox prefHeight="116.0" prefWidth="1280.0" AnchorPane.bottomAnchor="604.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+            <children>
+                <ImageView fitHeight="120.0" fitWidth="185.0" pickOnBounds="true" preserveRatio="true">
+                    <image>
+                        <Image url="@img/logoenlarge.png" />
+                    </image>
+                </ImageView>
+                <Pane prefHeight="116.0" prefWidth="452.0">
+                    <children>
+                        <Line endX="987.39990234375" layoutX="115.0" layoutY="90.0" startX="-100.0" stroke="#f7f4f4" />
+                    </children>
+                </Pane>
+                <Pane prefHeight="116.0" prefWidth="654.0">
+                    <children>
+                        <ButtonBar layoutX="58.0" layoutY="33.0" prefHeight="40.0" prefWidth="591.0">
+                            <buttons>
+                                <Button fx:id="bookedTicketButton" mnemonicParsing="false" onAction="#bookedTicketButtonClicked" prefHeight="40.0" prefWidth="179.0" text="Booked Ticket">
+                                    <graphic>
+                                        <ImageView fitHeight="25.0" fitWidth="26.0" pickOnBounds="true" preserveRatio="true">
+                                            <image>
+                                                <Image url="@img/tickIcon.png" />
+                                            </image>
+                                        </ImageView>
+                                    </graphic></Button>
+                                <Button fx:id="profileButton" mnemonicParsing="false" onAction="#profileButtonClicked" prefHeight="40.0" text="Profile">
+                                    <graphic>
+                                        <ImageView fitHeight="25.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true">
+                                            <image>
+                                                <Image url="@img/profileIcon.png" />
+                                            </image>
+                                        </ImageView>
+                                    </graphic></Button>
+                                <Button fx:id="logOutButton" mnemonicParsing="false" onAction="#logOutButtonClicked" prefHeight="43.0" text="Log Out" />
+                            </buttons>
+                        </ButtonBar>
+                    </children>
+                </Pane>
+            </children>
+        </HBox>
+        <ScrollPane layoutX="1.0" layoutY="102.0" prefHeight="720.0" prefWidth="1280.0" styleClass="background" AnchorPane.bottomAnchor="-102.0" AnchorPane.leftAnchor="1.0" AnchorPane.rightAnchor="-1.0" AnchorPane.topAnchor="102.0">
+            <content>
+                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="926.0" prefWidth="1258.0" styleClass="background">
+                    <children>
+                        <Button fx:id="backButton" layoutX="62.0" layoutY="44.0" mnemonicParsing="false" onAction="#BacktoMovieInfoScene" prefHeight="50.0" prefWidth="46.0" styleClass="backbutton">
+                            <graphic>
+                                <ImageView fitHeight="37.0" fitWidth="59.0" pickOnBounds="true" preserveRatio="true" rotate="178.4">
+                                    <image>
+                                        <Image url="@img/backIcon.png" />
+                                    </image>
+                                </ImageView>
+                            </graphic>
+                        </Button>
+                        <Button fx:id="ConfirmButton" layoutX="1002.0" layoutY="414.0" mnemonicParsing="false" onAction="#ConfirmButtonclicked" prefHeight="50.0" prefWidth="138.0" text="Confirm" />
+                        <Text fill="WHITE" layoutX="429.0" layoutY="814.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Copyright Reserved © 2022 Royal Cinema Sdn Bhd. All Rights Reserved." wrappingWidth="411.611328125" />
+                        <Text fx:id="MovieTittle" fill="WHITE" layoutX="303.0" layoutY="85.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="fontdisplay" wrappingWidth="765.9000854492186">
+                            <font>
+                                <Font size="36.0" />
+                            </font>
+                        </Text>
+                        <Text fill="WHITE" layoutX="165.0" layoutY="169.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Date: ">
+                            <font>
+                                <Font name="HP Simplified Hans Regular" size="30.0" />
+                            </font>
+                        </Text>
+                        <ButtonBar layoutX="320.0" layoutY="228.0" prefHeight="50.0" prefWidth="628.0">
+                            <buttons>
+                                <Button fx:id="Time1Button" layoutX="335.0" mnemonicParsing="false" onAction="#timeButton1OnClick" prefHeight="50.0" prefWidth="156.0" styleClass="normalbutton">
+                           <graphic>
+                              <Text fx:id="time1" strokeType="OUTSIDE" strokeWidth="0.0" />
+                           </graphic></Button>
+                                <Button fx:id="Time2Button" mnemonicParsing="false" onAction="#timeButton2OnClick" prefHeight="46.0" styleClass="normalbutton">
+                           <graphic>
+                              <Text fx:id="time2" strokeType="OUTSIDE" strokeWidth="0.0" />
+                           </graphic></Button>
+                                <Button fx:id="Time3Button" mnemonicParsing="false" onAction="#timeButton3OnClick" prefHeight="48.0" styleClass="normalbutton">
+                           <graphic>
+                              <Text fx:id="time3" strokeType="OUTSIDE" strokeWidth="0.0" />
+                           </graphic></Button>
+                                <Button fx:id="Time4Button" mnemonicParsing="false" onAction="#timeButton4OnClick" prefHeight="48.0" styleClass="normalbutton">
+                           <graphic>
+                              <Text fx:id="time4" strokeType="OUTSIDE" strokeWidth="0.0" />
+                           </graphic></Button>
+                                <Button fx:id="Time5Button" mnemonicParsing="false" onAction="#timeButton5OnClick" prefHeight="46.0" prefWidth="94.0" styleClass="normalbutton">
+                           <graphic>
+                              <Text fx:id="time5" strokeType="OUTSIDE" strokeWidth="0.0" />
+                           </graphic></Button>
+                            </buttons>
+                        </ButtonBar>
+                        <Text fill="WHITE" layoutX="165.0" layoutY="270.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Select Time: ">
+                            <font>
+                                <Font name="HP Simplified Hans Regular" size="30.0" />
+                            </font>
+                        </Text>
+                        <Text fill="WHITE" layoutX="165.0" layoutY="450.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Select Seat: ">
+                            <font>
+                                <Font name="HP Simplified Hans Regular" size="30.0" />
+                            </font>
+                        </Text>
+                        <ButtonBar layoutX="303.0" layoutY="490.0" prefHeight="40.0" prefWidth="200.0" />
+                        <Rectangle arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="41.0" layoutX="380.0" layoutY="520.0" stroke="BLACK" strokeType="INSIDE" width="550.0" />
+                        <ChoiceBox fx:id="ticketQuantitySelection" layoutX="470.0" layoutY="334.0" prefHeight="39.0" prefWidth="197.0" styleClass="normalbutton" />
+                        <Circle fill="WHITE" layoutX="217.0" layoutY="620.0" radius="28.0" stroke="BLACK" strokeType="INSIDE" />
+                        <Circle fill="WHITE" layoutX="217.0" layoutY="690.0" radius="28.0" stroke="BLACK" strokeType="INSIDE" />
+                        <Circle fill="WHITE" layoutX="217.0" layoutY="760.0" radius="28.0" stroke="BLACK" strokeType="INSIDE" />
+                        <Circle fill="WHITE" layoutX="400.0" layoutY="620.0" radius="28.0" stroke="BLACK" strokeType="INSIDE" />
+                        <Circle fill="WHITE" layoutX="600.0" layoutY="620.0" radius="28.0" stroke="BLACK" strokeType="INSIDE" />
+                        <Circle fill="WHITE" layoutX="500.0" layoutY="620.0" radius="28.0" stroke="BLACK" strokeType="INSIDE" />
+                        <Circle fill="WHITE" layoutX="400.0" layoutY="690.0" radius="28.0" stroke="BLACK" strokeType="INSIDE" />
+                        <Circle fill="WHITE" layoutX="800.0" layoutY="690.0" radius="28.0" stroke="BLACK" strokeType="INSIDE" />
+                        <Circle fill="WHITE" layoutX="700.0" layoutY="620.0" radius="28.0" stroke="BLACK" strokeType="INSIDE" />
+                        <Circle fill="WHITE" layoutX="800.0" layoutY="620.0" radius="28.0" stroke="BLACK" strokeType="INSIDE" />
+                        <Circle fill="WHITE" layoutX="900.0" layoutY="620.0" radius="28.0" stroke="BLACK" strokeType="INSIDE" />
+                        <Circle fill="WHITE" layoutX="1083.0" layoutY="620.0" radius="28.0" stroke="BLACK" strokeType="INSIDE" />
+                        <Circle fill="WHITE" layoutX="500.0" layoutY="690.0" radius="28.0" stroke="BLACK" strokeType="INSIDE" />
+                        <Circle fill="WHITE" layoutX="600.0" layoutY="690.0" radius="28.0" stroke="BLACK" strokeType="INSIDE" />
+                        <Circle fill="WHITE" layoutX="700.0" layoutY="690.0" radius="28.0" stroke="BLACK" strokeType="INSIDE" />
+                        <Circle fill="WHITE" layoutX="900.0" layoutY="690.0" radius="28.0" stroke="BLACK" strokeType="INSIDE" />
+                        <Circle fill="WHITE" layoutX="1083.0" layoutY="690.0" radius="28.0" stroke="BLACK" strokeType="INSIDE" />
+                        <Circle fill="WHITE" layoutX="400.0" layoutY="760.0" radius="28.0" stroke="BLACK" strokeType="INSIDE" />
+                        <Circle fill="WHITE" layoutX="500.0" layoutY="760.0" radius="28.0" stroke="BLACK" strokeType="INSIDE" />
+                        <Circle fill="WHITE" layoutX="600.0" layoutY="760.0" radius="28.0" stroke="BLACK" strokeType="INSIDE" />
+                        <Circle fill="WHITE" layoutX="700.0" layoutY="760.0" radius="28.0" stroke="BLACK" strokeType="INSIDE" />
+                        <Circle fill="WHITE" layoutX="800.0" layoutY="760.0" radius="28.0" stroke="BLACK" strokeType="INSIDE" />
+                        <Circle fill="WHITE" layoutX="900.0" layoutY="760.0" radius="28.0" stroke="BLACK" strokeType="INSIDE" />
+                        <Circle fill="WHITE" layoutX="1083.0" layoutY="760.0" radius="28.0" stroke="BLACK" strokeType="INSIDE" />
+                        <Text layoutX="620.0" layoutY="545.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Screen">
+                            <font>
+                                <Font name="HP Simplified Hans Regular" size="24.0" />
+                            </font>
+                        </Text>
+                        <Text layoutX="202.0" layoutY="626.0" strokeType="OUTSIDE" strokeWidth="0.0" text="A01">
+                            <font>
+                                <Font name="HP Simplified Hans Regular" size="18.0" />
+                            </font>
+                        </Text>
+                        <Text layoutX="202.0" layoutY="696.0" strokeType="OUTSIDE" strokeWidth="0.0" text="B01">
+                            <font>
+                                <Font name="HP Simplified Hans Regular" size="18.0" />
+                            </font>
+                        </Text>
+                        <Text layoutX="202.0" layoutY="765.0" strokeType="OUTSIDE" strokeWidth="0.0" text="C01">
+                            <font>
+                                <Font name="HP Simplified Hans Regular" size="18.0" />
+                            </font>
+                        </Text>
+                        <Text layoutX="385.0" layoutY="626.0" strokeType="OUTSIDE" strokeWidth="0.0" text="A02">
+                            <font>
+                                <Font name="HP Simplified Hans Regular" size="18.0" />
+                            </font>
+                        </Text>
+                        <Text layoutX="485.0" layoutY="626.0" strokeType="OUTSIDE" strokeWidth="0.0" text="A03">
+                            <font>
+                                <Font name="HP Simplified Hans Regular" size="18.0" />
+                            </font>
+                        </Text>
+                        <Text layoutX="584.0" layoutY="626.0" strokeType="OUTSIDE" strokeWidth="0.0" text="A04">
+                            <font>
+                                <Font name="HP Simplified Hans Regular" size="18.0" />
+                            </font>
+                        </Text>
+                        <Text layoutX="685.0" layoutY="626.0" strokeType="OUTSIDE" strokeWidth="0.0" text="A05">
+                            <font>
+                                <Font name="HP Simplified Hans Regular" size="18.0" />
+                            </font>
+                        </Text>
+                        <Text layoutX="785.0" layoutY="626.0" strokeType="OUTSIDE" strokeWidth="0.0" text="A06">
+                            <font>
+                                <Font name="HP Simplified Hans Regular" size="18.0" />
+                            </font>
+                        </Text>
+                        <Text layoutX="885.0" layoutY="626.0" strokeType="OUTSIDE" strokeWidth="0.0" text="A07">
+                            <font>
+                                <Font name="HP Simplified Hans Regular" size="18.0" />
+                            </font>
+                        </Text>
+                        <Text layoutX="385.0" layoutY="696.0" strokeType="OUTSIDE" strokeWidth="0.0" text="B02">
+                            <font>
+                                <Font name="HP Simplified Hans Regular" size="18.0" />
+                            </font>
+                        </Text>
+                        <Text layoutX="485.0" layoutY="696.0" strokeType="OUTSIDE" strokeWidth="0.0" text="B03">
+                            <font>
+                                <Font name="HP Simplified Hans Regular" size="18.0" />
+                            </font>
+                        </Text>
+                        <Text layoutX="585.0" layoutY="696.0" strokeType="OUTSIDE" strokeWidth="0.0" text="B04">
+                            <font>
+                                <Font name="HP Simplified Hans Regular" size="18.0" />
+                            </font>
+                        </Text>
+                        <Text layoutX="684.0" layoutY="696.0" strokeType="OUTSIDE" strokeWidth="0.0" text="B05">
+                            <font>
+                                <Font name="HP Simplified Hans Regular" size="18.0" />
+                            </font>
+                        </Text>
+                        <Text layoutX="385.0" layoutY="765.0" strokeType="OUTSIDE" strokeWidth="0.0" text="C02">
+                            <font>
+                                <Font name="HP Simplified Hans Regular" size="18.0" />
+                            </font>
+                        </Text>
+                        <Text layoutX="485.0" layoutY="765.0" strokeType="OUTSIDE" strokeWidth="0.0" text="C03">
+                            <font>
+                                <Font name="HP Simplified Hans Regular" size="18.0" />
+                            </font>
+                        </Text>
+                        <Text layoutX="585.0" layoutY="765.0" strokeType="OUTSIDE" strokeWidth="0.0" text="C04">
+                            <font>
+                                <Font name="HP Simplified Hans Regular" size="18.0" />
+                            </font>
+                        </Text>
+                        <Text layoutX="686.0" layoutY="765.0" strokeType="OUTSIDE" strokeWidth="0.0" text="C05">
+                            <font>
+                                <Font name="HP Simplified Hans Regular" size="18.0" />
+                            </font>
+                        </Text>
+                        <Text layoutX="785.0" layoutY="696.0" strokeType="OUTSIDE" strokeWidth="0.0" text="B06">
+                            <font>
+                                <Font name="HP Simplified Hans Regular" size="18.0" />
+                            </font>
+                        </Text>
+                        <Text layoutX="885.0" layoutY="696.0" strokeType="OUTSIDE" strokeWidth="0.0" text="B07">
+                            <font>
+                                <Font name="HP Simplified Hans Regular" size="18.0" />
+                            </font>
+                        </Text>
+                        <Text layoutX="785.0" layoutY="765.0" strokeType="OUTSIDE" strokeWidth="0.0" text="C06">
+                            <font>
+                                <Font name="HP Simplified Hans Regular" size="18.0" />
+                            </font>
+                        </Text>
+                        <Text layoutX="885.0" layoutY="765.0" strokeType="OUTSIDE" strokeWidth="0.0" text="C07">
+                            <font>
+                                <Font name="HP Simplified Hans Regular" size="18.0" />
+                            </font>
+                        </Text>
+                        <Text layoutX="1067.0" layoutY="626.0" strokeType="OUTSIDE" strokeWidth="0.0" text="A08">
+                            <font>
+                                <Font name="HP Simplified Hans Regular" size="18.0" />
+                            </font>
+                        </Text>
+                        <Text layoutX="1067.0" layoutY="696.0" strokeType="OUTSIDE" strokeWidth="0.0" text="B08">
+                            <font>
+                                <Font name="HP Simplified Hans Regular" size="18.0" />
+                            </font>
+                        </Text>
+                        <Text layoutX="1067.0" layoutY="765.0" strokeType="OUTSIDE" strokeWidth="0.0" text="C08">
+                            <font>
+                                <Font name="HP Simplified Hans Regular" size="18.0" />
+                            </font>
+                        </Text>
+                  <Text fx:id="dateDisplay" fill="WHITE" layoutX="350.0" layoutY="166.0" strokeType="OUTSIDE" strokeWidth="0.0" wrappingWidth="244.5367431640625">
+                     <font>
+                        <Font name="HP Simplified Hans Regular" size="30.0" />
+                     </font>
+                  </Text>
+                  <Text fill="WHITE" layoutX="165.0" layoutY="363.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Select Ticket Quantity: ">
+                     <font>
+                        <Font name="HP Simplified Hans Regular" size="30.0" />
+                     </font>
+                  </Text>
+                  <ChoiceBox fx:id="SeatSelection1" layoutX="331.0" layoutY="417.0" prefHeight="39.0" prefWidth="98.0" styleClass="normalbutton" />
+                  <ChoiceBox fx:id="SeatSelection2" layoutX="456.0" layoutY="417.0" prefHeight="39.0" prefWidth="98.0" styleClass="normalbutton" />
+                  <ChoiceBox fx:id="SeatSelection3" layoutX="581.0" layoutY="416.0" prefHeight="39.0" prefWidth="98.0" styleClass="normalbutton" />
+                  <ChoiceBox fx:id="SeatSelection4" layoutX="706.0" layoutY="416.0" prefHeight="39.0" prefWidth="98.0" styleClass="normalbutton" />
+                  <ChoiceBox fx:id="SeatSelection5" layoutX="831.0" layoutY="416.0" prefHeight="39.0" prefWidth="98.0" styleClass="normalbutton" />
+                  <Button fx:id="checkedButton" layoutX="691.0" layoutY="330.0" mnemonicParsing="false" onAction="#checkedButtonClicked" prefHeight="47.0" prefWidth="56.0" styleClass="roundButton">
+                     <graphic>
+                        <ImageView fitHeight="46.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@img/tickIcon.png" />
+                           </image>
+                        </ImageView>
+                     </graphic>
+                  </Button>
+                  <Text fx:id="ErrorMsg" fill="#ff2121" layoutX="506.0" layoutY="485.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Same seat number is not allowed.">
+                     <font>
+                        <Font name="HP Simplified Hans Regular" size="24.0" />
+                     </font>
+                  </Text>
+                  <ImageView fx:id="MoviePoster" fitHeight="259.0" fitWidth="185.0" layoutX="984.0" layoutY="87.0" pickOnBounds="true" preserveRatio="true" />
+                    </children>
+                </AnchorPane>
+            </content>
+        </ScrollPane>
+    </children>
+</AnchorPane>

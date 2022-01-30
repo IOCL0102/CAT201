@@ -1,0 +1,58 @@
+@font-face {
+    font-family:'Righteous' ;
+    src: url(fonts/Righteous-Regular.ttf);
+}
+
+@font-face {
+    font-family: 'SairaStencilOne' ;
+    src: url(fonts/SairaStencilOne-Regular.ttf);
+}
+
+.background {
+    -fx-background-color: #041227;
+}
+
+.button{
+    -fx-font-family:Righteous;
+    -fx-font-size: 18 px;
+    -fx-background-radius: 100px;
+    -fx-background-color: #FFCA00;
+    -fx-text-fill:black;
+}
+
+.backbutton{
+    -fx-font-family: Righteous;
+    -fx-font-weight: normal;
+    -fx-font-size: 10 px;
+    -fx-background-radius: 10px;
+    -fx-background-color: #C4C4C4;
+}
+
+.clickedbutton{
+    -fx-font-family: Righteous;
+    -fx-font-weight: normal;
+    -fx-font-size: 20 px;
+    -fx-background-radius: 10px;
+    -fx-background-color: #FFCA00;
+}
+
+.fontdisplay{
+    -fx-font-family:Righteous;
+    -fx-font-size: 38px;
+    -fx-font-color: #FFFFFF;
+}
+
+.normalbutton{
+       -fx-font-family: Righteous;
+       -fx-font-weight: normal;
+       -fx-font-size: 20 px;
+       -fx-background-radius: 10px;
+       -fx-background-color: #FFFFFF;
+}
+.roundButton{
+       -fx-font-family: Righteous;
+       -fx-font-weight: normal;
+       -fx-font-size: 20 px;
+       -fx-background-radius: 100px;
+       -fx-background-color: #FFFFFF;
+}

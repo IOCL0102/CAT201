@@ -30,6 +30,10 @@ public class HomeMovieController implements Initializable
     @FXML private TextField searchTextField;
     @FXML private Text noMovieErrorMsg;
 
+    @FXML private Button bookedTicketButton;
+    @FXML private Button profileButton;
+    @FXML private Button logOutButton;
+
     @FXML private ImageView popularMovieImage;
     @FXML private Button bookNowButton;
     @FXML private Button movieInfoButton;
@@ -322,14 +326,45 @@ public class HomeMovieController implements Initializable
     //When book now button is clicked
     public void bookNowButtonClicked(ActionEvent event) throws IOException
     {
-        /*
-        FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource(""));
+        FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("buy-ticket.fxml"));
         Stage stage = (Stage) bookNowButton.getScene().getWindow();
+        stage.setScene(new Scene(fxmlLoader.load(), 1280, 720));
+        BuyTicketController controller = fxmlLoader.getController();
+        controller.initialize(0);
+        stage.show();
+    }
+
+    //change scene to see booked ticket
+    public void bookedTicketButtonClicked(ActionEvent event) throws IOException
+    {
+
+        FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("bookedTicket.fxml"));
+        Stage stage = (Stage) bookedTicketButton.getScene().getWindow();
         stage.setScene(new Scene(fxmlLoader.load(), 1280, 720));
         stage.show();
 
-         */
     }
+
+    //change scene back to login page
+    public void logOutButtonClicked(ActionEvent event) throws IOException
+    {
+        FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("login-view.fxml"));
+        Stage stage = (Stage) logOutButton.getScene().getWindow();
+        stage.setScene(new Scene(fxmlLoader.load(), 1280, 720));
+        stage.show();
+    }
+
+    //change scene to profile page
+    public void profileButtonClicked(ActionEvent event) throws IOException
+    {
+        FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("myProfile.fxml"));
+        Stage stage = (Stage) profileButton.getScene().getWindow();
+        stage.setScene(new Scene(fxmlLoader.load(), 1280, 720));
+        stage.show();
+    }
+
+
+
 }
 
 

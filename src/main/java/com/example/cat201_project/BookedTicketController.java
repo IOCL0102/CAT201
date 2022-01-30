@@ -80,11 +80,7 @@ public class BookedTicketController implements Initializable {
                 time = (String) temp.get("Time");
                 date = (String) temp.get("Date");
 
-                ticketArray = (JSONArray) temp.get("Seats");
-
-                for (int j = 0; j < ticketArray.size(); j++) {
-                    seats = seats + ticketArray.get(j).toString() + " ";
-                }
+                seats = (String) temp.get("Seats");
 
                 ticket.setMovieName(movie);
                 ticket.setQRsource(QR);

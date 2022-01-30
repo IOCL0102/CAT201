@@ -106,7 +106,7 @@ public class Confirm_TicketController implements Initializable {
     }
 
     public void handleBackBttn() throws IOException{
-        FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("buy-ticket.fxml"));
+        FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("movie-info.fxml"));
         Stage stage = (Stage) back.getScene().getWindow();
         stage.setScene(new Scene(fxmlLoader.load(), 1280, 720));
         stage.show();

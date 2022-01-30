@@ -38,8 +38,11 @@ public class BuyTicketController {
     @FXML private ImageView MoviePoster;
 
     @FXML private Text ErrorMsg;
+    @FXML private Text validQuantityErrorMsg;
+    @FXML private Text validSeatErrorMsg1;
 
     @FXML private Button checkedButton;
+    @FXML private Button checkedButton2;
     @FXML private Text time1;
     @FXML private Text time2;
     @FXML private Text time3;
@@ -137,6 +140,8 @@ public class BuyTicketController {
                 break;
         }
         ErrorMsg.setVisible(false);
+        validQuantityErrorMsg.setVisible(false);
+        validSeatErrorMsg1.setVisible(false);
         SeatSelection2.setVisible(false);
         SeatSelection3.setVisible(false);
         SeatSelection4.setVisible(false);
@@ -187,12 +192,37 @@ public class BuyTicketController {
 
         ticketQuantitySelection.getItems().addAll("1", "2", "3","4","5");
         ticketQuantitySelection.setValue("Ticket Quantity");
+        ConfirmButton.setDisable(true);
+        checkedButton.setDisable(true);
+        checkedButton2.setDisable(true);
+
+
+        SeatSelection1.setValue("Seat 1");
+        SeatSelection2.setValue("Seat 2");
+        SeatSelection3.setValue("Seat 3");
+        SeatSelection4.setValue("Seat 4");
+        SeatSelection5.setValue("Seat 5");
 
     }
 
     public void checkedButtonClicked(ActionEvent event) {
+
+        ConfirmButton.setDisable(true);
         OrderedTicket = ticketQuantitySelection.getValue();
-        checkedButton.setDisable(true);
+
+
+        if(OrderedTicket.equals("Ticket Quantity")){
+            checkedButton2.setDisable(true);
+            ConfirmButton.setDisable(true);
+            validQuantityErrorMsg.setVisible(true);
+            FadeTransition fadeMessage = new FadeTransition(Duration.millis(6000), validQuantityErrorMsg);
+            fadeMessage.setFromValue(1);
+            fadeMessage.setToValue(0);
+            fadeMessage.play();
+        }
+
+        else{
+        checkedButton2.setDisable(false);
 
         if(OrderedTicket.equals("2")){
             SeatSelection2.setVisible(true);
@@ -212,9 +242,10 @@ public class BuyTicketController {
             SeatSelection3.setVisible(true);
             SeatSelection4.setVisible(true);
         }
-    }
+    }}
 
     public void timeButton1OnClick(ActionEvent event) {
+
         OrderedTime = time1.getText();
         Time1Button.getStyleClass().removeAll("normalbutton");
         Time1Button.getStyleClass().add("clickedbutton");
@@ -222,7 +253,7 @@ public class BuyTicketController {
         Time3Button.setDisable(true);
         Time4Button.setDisable(true);
         Time5Button.setDisable(true);
-
+        checkedButton.setDisable(false);
             for (int j=1; j<=8;j++)
             {
                 String num = Integer.toString(j);
@@ -269,6 +300,7 @@ public class BuyTicketController {
         Time3Button.setDisable(true);
         Time4Button.setDisable(true);
         Time5Button.setDisable(true);
+        checkedButton.setDisable(false);
         for (int j=1; j<=8;j++)
         {
             String num = Integer.toString(j);
@@ -315,6 +347,7 @@ public class BuyTicketController {
         Time1Button.setDisable(true);
         Time4Button.setDisable(true);
         Time5Button.setDisable(true);
+        checkedButton.setDisable(false);
         for (int j=1; j<=8;j++)
         {
             String num = Integer.toString(j);
@@ -362,6 +395,7 @@ public class BuyTicketController {
         Time3Button.setDisable(true);
         Time1Button.setDisable(true);
         Time5Button.setDisable(true);
+        checkedButton.setDisable(false);
         for (int j=1; j<=8;j++)
         {
             String num = Integer.toString(j);
@@ -408,6 +442,7 @@ public class BuyTicketController {
         Time3Button.setDisable(true);
         Time4Button.setDisable(true);
         Time1Button.setDisable(true);
+        checkedButton.setDisable(false);
 
         for (int j=1; j<=8;j++)
         {
@@ -472,10 +507,60 @@ public class BuyTicketController {
         stage.show();
     }
 
-    //change scence
-    public void ConfirmButtonclicked(ActionEvent event)throws IOException
-    {
-        if(SeatSelection1.getValue().equals(SeatSelection2.getValue()) && OrderedTicket.equals("2"))
+
+    public void checkedButton2Clicked(ActionEvent event) throws IOException {
+
+        if(ticketQuantitySelection.getValue().equals("1") && SeatSelection1.getValue().equals("Seat 1") ){
+            validSeatErrorMsg1.setVisible(true);
+            FadeTransition fadeMessage = new FadeTransition(Duration.millis(6000), validSeatErrorMsg1);
+            fadeMessage.setFromValue(1);
+            fadeMessage.setToValue(0);
+            fadeMessage.play();
+        }
+
+        else if(ticketQuantitySelection.getValue().equals("2") &&
+                (SeatSelection1.getValue().equals("Seat 1")||SeatSelection2.getValue().equals("Seat 2") )){
+            validSeatErrorMsg1.setVisible(true);
+            FadeTransition fadeMessage = new FadeTransition(Duration.millis(6000), validSeatErrorMsg1);
+            fadeMessage.setFromValue(1);
+            fadeMessage.setToValue(0);
+            fadeMessage.play();
+        }
+
+        else if(ticketQuantitySelection.getValue().equals("3") &&
+                (SeatSelection1.getValue().equals("Seat 1")||SeatSelection2.getValue().equals("Seat 2")||
+                        SeatSelection3.getValue().equals("Seat 3") )){
+            validSeatErrorMsg1.setVisible(true);
+            FadeTransition fadeMessage = new FadeTransition(Duration.millis(6000), validSeatErrorMsg1);
+            fadeMessage.setFromValue(1);
+            fadeMessage.setToValue(0);
+            fadeMessage.play();
+        }
+
+        else if(ticketQuantitySelection.getValue().equals("4") &&
+                (SeatSelection1.getValue().equals("Seat 1")||SeatSelection2.getValue().equals("Seat 2")||
+                        SeatSelection3.getValue().equals("Seat 3")||
+                        SeatSelection4.getValue().equals("Seat 4" ))){
+            validSeatErrorMsg1.setVisible(true);
+            FadeTransition fadeMessage = new FadeTransition(Duration.millis(6000), validSeatErrorMsg1);
+            fadeMessage.setFromValue(1);
+            fadeMessage.setToValue(0);
+            fadeMessage.play();
+        }
+
+        else if(ticketQuantitySelection.getValue().equals("5") &&
+                (SeatSelection1.getValue().equals("Seat 1")||SeatSelection2.getValue().equals("Seat 2")||
+                        SeatSelection3.getValue().equals("Seat 3")||
+                        SeatSelection4.getValue().equals("Seat 4" )||
+                        SeatSelection5.getValue().equals("Seat 5" ))){
+            validSeatErrorMsg1.setVisible(true);
+            FadeTransition fadeMessage = new FadeTransition(Duration.millis(6000), validSeatErrorMsg1);
+            fadeMessage.setFromValue(1);
+            fadeMessage.setToValue(0);
+            fadeMessage.play();
+        }
+
+        else if(SeatSelection1.getValue().equals(SeatSelection2.getValue()) && OrderedTicket.equals("2"))
         {
             ErrorMsg.setVisible(true);
             FadeTransition fadeMessage = new FadeTransition(Duration.millis(6000), ErrorMsg);
@@ -529,23 +614,55 @@ public class BuyTicketController {
         }
 
         else{
+            ConfirmButton.setDisable(false);
+        }
 
+    }
+
+    //change scence
+    public void ConfirmButtonclicked(ActionEvent event)throws IOException
+    {
             double price = parseInt(OrderedTicket) * 25;
             OrderedTotal= "RM" + (Double.toString(price)) + "0";
-            OrderedSeats [0] = SeatSelection1.getValue();
-            OrderedSeats [1] = SeatSelection2.getValue();
-            OrderedSeats [2] = SeatSelection3.getValue();
-            OrderedSeats [3] = SeatSelection4.getValue();
-            OrderedSeats [4] = SeatSelection5.getValue();
+            int numTicket = Integer.parseInt(OrderedTicket);
+
+            switch (numTicket){
+                case 1:
+                    OrderedSeats [0] = SeatSelection1.getValue();
+                    break;
+                case 2:
+                    OrderedSeats [0] = SeatSelection1.getValue();
+                    OrderedSeats [1] = SeatSelection2.getValue();
+                    break;
+                case 3:
+                    OrderedSeats [0] = SeatSelection1.getValue();
+                    OrderedSeats [1] = SeatSelection2.getValue();
+                    OrderedSeats [2] = SeatSelection3.getValue();
+                    break;
+                case 4:
+                    OrderedSeats [0] = SeatSelection1.getValue();
+                    OrderedSeats [1] = SeatSelection2.getValue();
+                    OrderedSeats [2] = SeatSelection3.getValue();
+                    OrderedSeats [3] = SeatSelection4.getValue();
+                    break;
+                case 5:
+                    OrderedSeats [0] = SeatSelection1.getValue();
+                    OrderedSeats [1] = SeatSelection2.getValue();
+                    OrderedSeats [2] = SeatSelection3.getValue();
+                    OrderedSeats [3] = SeatSelection4.getValue();
+                    OrderedSeats [4] = SeatSelection5.getValue();
+                    break;
+            }
+
 
         FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("Confirm_Ticket.fxml"));
         Stage stage = (Stage) ConfirmButton.getScene().getWindow();
         stage.setScene(new Scene(fxmlLoader.load(), 1280, 720));
         stage.show();
 
-        }
-
     }
+
+
 
     public void bookedTicketButtonClicked(ActionEvent event)throws IOException
     {

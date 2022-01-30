@@ -84,7 +84,7 @@ public class MailSender {
         Message message = new MimeMessage(session);
         message.setFrom(new InternetAddress(myEmail));
         message.setRecipient(Message.RecipientType.TO,new InternetAddress(recipient));
-        message.setSubject("Your QR Code for" + movieName );
+        message.setSubject("Your QR Code for " + movieName );
 
         MimeBodyPart QRPart = new MimeBodyPart();
         QRPart.attachFile(QRpath);

@@ -19,6 +19,9 @@ import java.io.FileReader;
 import java.io.IOException;
 
 public class MovieInfoController {
+    @FXML private Button bookedTicketButton;
+    @FXML private Button profileButton;
+    @FXML private Button logOutButton;
 
     @FXML private ImageView ChosenMovieImage;
     @FXML private Text ChosenMovieDesc;
@@ -28,11 +31,12 @@ public class MovieInfoController {
     @FXML private Button backButton;
     @FXML private Button bookNowButton;
 
-
+    public int movieIndex;
     private JSONArray movieData = null;
 
     public void initialize(int i)
     {
+        movieIndex =i;
         JSONObject movieInfo = getJSONObject("movieInfo.json");
         movieData = (JSONArray) movieInfo.get("movieInfo");
 
@@ -78,13 +82,43 @@ public class MovieInfoController {
         stage.show();
     }
 
-    public void bookNowButtonclicked(ActionEvent event) throws IOException{
-       /*
-        FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource(""));
+    public void bookNowButtonclicked(ActionEvent event) throws IOException
+    {
+        FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("buy-ticket.fxml"));
         Stage stage = (Stage) bookNowButton.getScene().getWindow();
         stage.setScene(new Scene(fxmlLoader.load(), 1280, 720));
+        BuyTicketController controller = fxmlLoader.getController();
+        controller.initialize(movieIndex);
         stage.show();
-        */
+    }
+
+    //change scene to see booked ticket
+    public void bookedTicketButtonClicked(ActionEvent event) throws IOException
+    {
+
+        FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("bookedTicket.fxml"));
+        Stage stage = (Stage) bookedTicketButton.getScene().getWindow();
+        stage.setScene(new Scene(fxmlLoader.load(), 1280, 720));
+        stage.show();
+
+    }
+
+    //change scene back to login page
+    public void logOutButtonClicked(ActionEvent event) throws IOException
+    {
+        FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("login-view.fxml"));
+        Stage stage = (Stage) logOutButton.getScene().getWindow();
+        stage.setScene(new Scene(fxmlLoader.load(), 1280, 720));
+        stage.show();
+    }
+
+    //change scene to profile page
+    public void profileButtonClicked(ActionEvent event) throws IOException
+    {
+        FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("myProfile.fxml"));
+        Stage stage = (Stage) profileButton.getScene().getWindow();
+        stage.setScene(new Scene(fxmlLoader.load(), 1280, 720));
+        stage.show();
     }
 
     private static JSONObject getJSONObject(String fileName)
